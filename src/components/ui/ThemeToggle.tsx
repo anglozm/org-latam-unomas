@@ -25,19 +25,19 @@ export default function ThemeToggle({
     return (
         <button
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label='Toggle theme'
             aria-pressed={isDark}
             title={withTooltip ? (isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro') : undefined}
             className={clsx(
                 'group rounded-md border transition-colors duration-300',
                 'border-[var(--color-border)] bg-[var(--color-card)]',
-                'hover:shadow focus:outline-none focus:ring-2 focus:ring-blue-500',
+                'hover:shadow focus:outline-none focus:ring-2 focus:ring-blue-400',
                 sizeMap[size]
             )}
         >
-            <span className="sr-only">Toggle theme</span>
+            <span className='sr-only'>Toggle theme</span>
 
-            <span className="relative block w-full h-full transition-transform duration-300">
+            <span className='relative block w-full h-full transition-transform duration-300'>
                 <Sun
                     className={clsx(
                         'absolute inset-0 h-full w-full transition-opacity duration-300',

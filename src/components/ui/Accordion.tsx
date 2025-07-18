@@ -3,17 +3,20 @@
 import { useState } from 'react'
 import AccordionItem from './AccordionItem'
 
-interface AccordionItemData {
+type AccordionItemData = {
     title: string
     content: string
 }
 
-interface AccordionProps {
+type AccordionProps = {
     items: AccordionItemData[]
     allowMultipleOpen?: boolean
 }
 
-export default function Accordion({ items, allowMultipleOpen = false }: AccordionProps) {
+export default function Accordion({
+    items,
+    allowMultipleOpen = false
+}: AccordionProps) {
     const [openIndexes, setOpenIndexes] = useState<number[]>([])
 
     const toggle = (index: number) => {
@@ -27,7 +30,7 @@ export default function Accordion({ items, allowMultipleOpen = false }: Accordio
     }
 
     return (
-        <div className="space-y-4">
+        <div className='space-y-4 rounded-md border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] p-4'>
             {items.map((item, index) => (
                 <AccordionItem
                     key={index}

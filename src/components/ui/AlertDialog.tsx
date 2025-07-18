@@ -27,19 +27,19 @@ interface AlertDialogProps {
 
 const iconMap = {
     info: {
-        icon: <Info className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+        icon: <Info className='w-5 h-5 text-blue-600 dark:text-blue-400' />,
         bg: 'bg-[var(--color-info-bg)] text-[var(--color-info-fg)]',
     },
     warning: {
-        icon: <AlertCircle className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />,
+        icon: <AlertCircle className='w-5 h-5 text-yellow-600 dark:text-yellow-400' />,
         bg: 'bg-[var(--color-warning-bg)] text-[var(--color-warning-fg)]',
     },
     danger: {
-        icon: <XCircle className="w-5 h-5 text-red-600 dark:text-red-400" />,
+        icon: <XCircle className='w-5 h-5 text-red-600 dark:text-red-400' />,
         bg: 'bg-[var(--color-error-bg)] text-[var(--color-error-fg)]',
     },
     success: {
-        icon: <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400" />,
+        icon: <CheckCircle className='w-5 h-5 text-green-600 dark:text-green-400' />,
         bg: 'bg-[var(--color-success-bg)] text-[var(--color-success-fg)]',
     },
 }
@@ -72,7 +72,7 @@ export default function AlertDialog({
             {open && (
                 <motion.div
                     ref={backdropRef}
-                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm"
+                    className='fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm'
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -90,27 +90,35 @@ export default function AlertDialog({
                         exit={{ y: -20, opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                     >
-                        <div className="flex items-start gap-3">
+                        <div className='flex items-start gap-3'>
                             <div className={clsx('p-2 rounded-full', bg)}>{icon}</div>
-                            <div className="flex-1">
-                                <h2 className="text-lg font-semibold">{title}</h2>
+                            <div className='flex-1'>
+                                <h2 className='text-lg font-semibold'>{title}</h2>
                                 {description && (
-                                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{description}</p>
+                                    <p className='text-sm text-gray-600 dark:text-gray-300 mt-1'>{description}</p>
                                 )}
                             </div>
                         </div>
 
-                        <div className="mt-6 flex justify-end gap-3">
+                        <div className='mt-6 flex justify-end gap-3'>
                             <Button
-                                variant="outline"
-                                size="sm"
+                                variant='outline'
+                                size='sm'
                                 onClick={onClose}
                             >
                                 {cancelText}
                             </Button>
                             <Button
-                                variant={type === 'danger' ? 'destructive' : 'primary'}
-                                size="sm"
+                                variant={
+                                    type === 'success'
+                                        ? 'success'
+                                        : type === 'warning'
+                                            ? 'warning'
+                                            : type === 'danger'
+                                                ? 'destructive'
+                                                : 'primary'
+                            }
+                                size='sm'
                                 onClick={onConfirm}
                             >
                                 {confirmText}

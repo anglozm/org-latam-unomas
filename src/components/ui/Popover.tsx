@@ -50,22 +50,22 @@ export default function Popover({
     }
 
     return (
-        <div className="relative inline-block">
+        <div className='relative inline-block'>
             <div
                 ref={triggerRef}
                 onClick={() => setOpen(!open)}
-                className="cursor-pointer"
+                className='cursor-pointer'
             >
                 {trigger}
             </div>
 
             <AnimatePresence>
-                {open && (
+                { open && (
                     <motion.div
                         ref={popoverRef}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
+                        initial='hidden'
+                        animate='visible'
+                        exit='exit'
                         variants={animationVariants}
                         transition={{ duration: 0.15, ease: 'easeOut' }}
                         className={clsx(

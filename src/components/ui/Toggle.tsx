@@ -44,12 +44,12 @@ export default function Toggle({
     }
 
     return (
-        <div className="flex items-center gap-2">
-            {label && <span className="text-sm text-[var(--color-fg)]">{label}</span>}
+        <div className='flex items-center gap-2'>
+            {label && <span className='text-sm text-[var(--color-fg)]'>{label}</span>}
 
             <button
-                type="button"
-                role="switch"
+                type='button'
+                role='switch'
                 aria-checked={value}
                 disabled={disabled}
                 onClick={toggle}

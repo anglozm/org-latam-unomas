@@ -19,22 +19,23 @@ export default function Input({
     ...props
 }: InputProps) {
     const baseStyles =
-        'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm focus:outline-none focus:ring-2 transition text-sm bg-[var(--color-bg)] text-[var(--color-fg)] placeholder:text-gray-400'
+        'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm focus:outline-none focus:ring-2 transition' +
+        'text-sm bg-[var(--color-bg)] text-[var(--color-fg)] placeholder:text-gray-400'
 
     return (
-        <div className="w-full">
+        <div className='w-full'>
             {label && (
                 <label
                     htmlFor={props.id || props.name}
-                    className="block text-sm font-medium text-[var(--color-fg)] mb-1"
+                    className='block text-sm font-medium text-[var(--color-fg)] mb-1'
                 >
                     {label}
                 </label>
             )}
 
-            <div className="relative">
+            <div className='relative'>
                 {icon && (
-                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                    <span className='absolute left-3 top-1/2 -translate-y-1/2 text-gray-400'>
             {icon}
           </span>
                 )}
@@ -53,7 +54,7 @@ export default function Input({
             </div>
 
             {error && errorMessage && (
-                <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
+                <p className='mt-1 text-sm text-red-600'>{errorMessage}</p>
             )}
         </div>
     )

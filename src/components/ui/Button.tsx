@@ -3,7 +3,7 @@
 import React, { ReactNode } from 'react'
 import clsx from 'clsx'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive' | 'warning' | 'success'
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -27,7 +27,8 @@ export default function Button({
     ...props
 }: ButtonProps) {
     const baseStyle =
-        'inline-flex items-center justify-center font-medium rounded-md transition focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+        'inline-flex items-center justify-center font-medium rounded-md transition' +
+        'focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
 
     // Semantic color system using CSS variables for theme support
     const variantStyle: Record<Variant, string> = {
@@ -35,6 +36,8 @@ export default function Button({
         secondary: 'bg-[var(--color-secondary)] text-[var(--color-secondary-fg)] hover:bg-[var(--color-secondary-hover)] focus:ring-[var(--color-secondary)]',
         ghost: 'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-primary-bg)] focus:ring-[var(--color-primary)]',
         outline: 'bg-[var(--color-card)] border border-[var(--color-border)] text-[var(--color-fg)] hover:bg-[var(--color-bg-hover)] focus:ring-[var(--color-border)]',
+        success: 'bg-[var(--color-success)] text-white hover:bg-[var(--color-success-hover)] focus:ring-[var(--color-success)]',
+        warning: 'bg-[var(--color-warning)] text-white hover:bg-[var(--color-warning-hover)] focus:ring-[var(--color-warning)]',
         destructive: 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger-hover)] focus:ring-[var(--color-danger)]',
     }
 

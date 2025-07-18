@@ -18,10 +18,11 @@ export default function AccordionItem({
     onToggle,
 }: AccordionItemProps) {
     return (
-        <div className="border rounded-md">
+        <div className='border border-[var(--color-border)] rounded-md'>
             <button
                 onClick={onToggle}
-                className="w-full flex justify-between items-center px-4 py-3 text-left text-sm font-medium text-gray-800 hover:bg-gray-50 transition"
+                className='flex w-full justify-between px-4 py-3 text-left text-sm font-medium
+                    text-[var(--color-fg)] bg-[var(--color-bg)] hover:bg-[var(--color-hover-bg)] transition rounded-md'
                 aria-expanded={isOpen}
             >
                 {title}
@@ -34,11 +35,11 @@ export default function AccordionItem({
             </button>
             <div
                 className={clsx(
-                    'overflow-hidden transition-all px-4',
-                    isOpen ? 'max-h-[500px] py-3' : 'max-h-0'
+                    'overflow-hidden transition-all px-4 bg-[var(--color-bg-subtle)] text-[var(--color-fg-subtle)]',
+                    isOpen ? 'max-h-[500px] py-6' : 'max-h-0'
                 )}
             >
-                <div className="text-sm text-gray-600">{content}</div>
+                <div className='text-sm'>{content}</div>
             </div>
         </div>
     )

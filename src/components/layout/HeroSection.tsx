@@ -1,4 +1,3 @@
-// src/components/layout/HeroSection.tsx
 'use client'
 
 import {Info} from 'lucide-react'
@@ -12,16 +11,17 @@ import { Users, TrendingUp } from 'lucide-react'
 import { Settings, Trash2, Moon, Sun } from 'lucide-react'
 
 import Link from 'next/link'
-import Accordion from '@/components/ui/Accordion'
 import AlertDialog from '@/components/ui/AlertDialog'
 import Avatar from '@/components/ui/Avatar'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import ButtonGroup from '@/components/ui/ButtonGroup'
 import Card from '@/components/ui/Card'
+import CardEvent from '@/components/ui/CardEvent'
 import Checkbox from '@/components/ui/Checkbox'
 import Container from '@/components/layout/Container'
 import Dropdown from '@/components/ui/Dropdown'
+import FAQSection from '@/components/ui/FAQSection'
 import IconButton from '@/components/ui/IconButton'
 import Input from '@/components/ui/Input'
 import KPIBox from '@/components/ui/KPIBox'
@@ -50,16 +50,37 @@ const options = [
     {label: 'México', value: 'mx'},
 ]
 
-const faq = [
+const faqItems = [
     {
-        title: '¿Qué es Uno Más • LATAM?',
-        content: 'Es una comunidad de líderes que desarrollan Network Marketing en Latinoamérica.',
+        question: '¿Qué es "Uno Más"?',
+        answer: 'Uno Más es un equipo consolidado que busca conectar personas con oportunidades de ingreso a través de la nueva economía.',
     }, {
-        title: '¿Necesito experiencia previa?',
-        content: 'No. Aquí aprendemos desde cero con acompañamiento y formación.',
+        question: '¿Qué hacemos?',
+        answer: 'Distribuimos soluciones mediante una plataforma web, a la vez que creamos liderago en las personas de nuestro equipo.',
     }, {
-        title: '¿Tiene costo unirse?',
-        content: 'Unirte a la comunidad no tiene costo. Solo necesitas actitud y compromiso.',
+        question: '¿En cuántos países de Latam podemos expandir nuestro mercado?',
+        answer: 'Actualmente podemos abrir sucursales en 12 países de Latam.',
+    }, {
+        question: '¿Qué es dropshipping?',
+        answer: 'El dropshipping es un modelo de negocio de comercio electrónico (e-commerce) que permite a los empresarios distribuir soluciones sin necesidad de almacenar inventario ni enviarlos ellos mismos.',
+    }, {
+        question: '¿Cómo funciona el comercio social?',
+        answer: 'Answer.',
+    }, {
+        question: '¿Cómo ganar tus primeros $500 extra mes a mes?',
+        answer: 'La mejor forma de saberlo es aprendiendo en el taller de rentabilidad.',
+    }, {
+        question: '¿Qué es una línea de auspicio?',
+        answer: 'Es el liderazgo construído en el tiempo, que conforma el nuevo empresario de manera ascendente con su equipo de trabajo.',
+    }, {
+        question: '¿Qué implica ser un líder en "Uno Más"?',
+        answer: 'Ser un líder es dar el ejemplo y estar dispuesto al servicio del equipo.',
+    }, {
+        question: '¿Por qué es importante tener un mentor?',
+        answer: 'Es importante porque nos ofrece guía y planificación durante el proceso de construcción del negocio.',
+    }, {
+        question: '¿En qué consisten nuestras mentorías?',
+        answer: 'Trabajar lateralidad y profundidad de tu negocio.',
     },
 ]
 
@@ -82,6 +103,24 @@ export default function HeroSection({className}: HeroSectionProps) {
                 className
             )}
         >
+            <CardEvent
+                imageUrl="/img/blue-wallpaper_testing.png"
+                imageAlt="Zoom con líderes"
+                title="Masterclass: Duplica tu Red"
+                description="Descubre cómo escalar tu negocio de Network Marketing con técnicas comprobadas."
+                listItems={[
+                    'Estrategias digitales modernas',
+                    'Errores comunes y cómo evitarlos',
+                    'Herramientas para duplicar tu red',
+                    'Plan de acción efectivo',
+                ]}
+                buttonText="Registrarme ahora"
+                badgeText="Destacado"
+                badgeVariant="success"
+            />
+
+            <FAQSection faqItems={faqItems} allowMultipleOpen={true} />
+
             <div className="bg-[var(--color-bg)] text-[var(--color-fg)] border border-[var(--color-border)] rounded-[var(--radius)] shadow p-4">
                 Contenido adaptado a light/dark mode
             </div>
@@ -147,17 +186,17 @@ export default function HeroSection({className}: HeroSectionProps) {
                     console.log('Cuenta eliminada')
                     setOpen(false)
                 }}
-                title="¿Estás completamente seguro?"
-                description="Esta acción es irreversible. Perderás todos tus datos."
-                confirmText="Sí, eliminar"
-                cancelText="No, cancelar"
-                type="danger"
+                title='¿Estás completamente seguro?'
+                description='Esta acción es irreversible. Perderás todos tus datos.'
+                confirmText='Sí, eliminar'
+                cancelText='No, cancelar'
+                type='info'
             />
 
             <Section
-                id="vision"
-                bgColor="gray"
-                padding="lg"
+                id='vision'
+                bgColor='gray'
+                padding='lg'
             >
                 <h2 className="text-3xl font-bold mb-4">Nuestra visión Uno Más</h2>
                 <p className="text-gray-700">
@@ -330,8 +369,6 @@ export default function HeroSection({className}: HeroSectionProps) {
             <Badge variant="error">Error</Badge>
             <Badge variant="info">Info</Badge>
             <Badge variant="warning">Atención</Badge>
-
-            <Accordion items={faq}/>
 
             <Tabs
                 tabs={[
