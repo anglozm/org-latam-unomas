@@ -1,26 +1,220 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-hero-gradient {
+  background: linear-gradient(to bottom, var(--color-bg-from), var(--color-bg-to));
+}
+
+/* 🔧 Global UI semantic variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* 🎨 Light Mode Palette */
+  --color-bg: #ffffff;
+  --color-bg-contrast: #fafafa;
+  --color-bg-hover: #f9fafb;
+  --color-bg-subtle: #f9f9f9;
+  --color-bg-from: #ffffff;
+  --color-bg-to: #f9fafb;
+
+  --color-fg: #2c2c2c;
+  --color-fg-subtle: #4b5563;
+
+  --color-card: #f9f9f9;
+
+  --color-border: #e5e7eb;
+
+  --color-accent: #2563EB;
+  --color-accent-bg: #eff6ff;
+
+  --color-surface: #ffffff;
+
+  --color-muted: #f5f5f5;
+  --color-muted-fg: #7a7a7a;
+  --color-muted-hover: #e5e7eb;
+
+  --color-hover: #f1f5f9;
+  --color-hover-bg: #f9fafb;
+
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-fg: #ffffff;
+  --color-primary-bg: #eff6ff;
+
+  --color-secondary: #f3f4f6;
+  --color-secondary-hover: #e5e7eb;
+  --color-secondary-fg: #111827;
+
+  --color-success: #00b75d;
+  --color-success-hover: #00a63e;
+
+  --color-warning: #e59200;
+  --color-warning-hover: #d08700;
+
+  --color-danger: #dc2626;
+  --color-danger-hover: #b91c1c;
+
+  /* 🌟 Design tokens */
+  --radius: 0.5rem;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --duration: 200ms;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /*------------------- 🌟 Business Colors -------------------*/
+  --color-background: #fafafa;
+  --color-foreground: #2c2c2c;
+  --color-tussock: #c08d3d;
+
+  --color-primary-blue-chill: #13869F;
+  --color-secondary-spray: #90E0F1;
+
+  --color-primary-chambray: #38539a;
+  --color-secondary-titan-white: #f1f2ff;
+
+  --color-primary-lotus: #7f3d3d;
+  --color-secondary-pippin: #ffe2e2;
+
+  --color-primary-yellow-metal: #73793b;
+  --color-secondary-feta: #f0fae5;
+
+  --color-primary-cape-palliser: #a76c47;
+  --color-secondary-seashell-peach: #fff1e8;
+
+  --color-primary-oracle: #396e75;
+  --color-secondary-bubbles: #e5fdff;
+
+  --color-primary-chicago: #62625a;
+  --color-secondary-beige: #f8f8e7;
+
+  --color-app-primary: var(--color-primary-oracle);
+  --color-app-secondary: var(--color-secondary-bubbles);
+
+  --font-sans: var(--font-geist-sans, Arial, sans-serif);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  /* 🎨 Dark Mode Palette */
+  --color-bg: #00040a;
+  --color-bg-contrast: #585858;
+  --color-bg-hover: #1f2937;
+  --color-bg-subtle: #1e1e1e;
+  --color-bg-from: #0f0f0f;
+  --color-bg-to: #101010;
+
+  --color-fg: #f5f5f5;
+  --color-fg-subtle: #d1d5db;
+
+  --color-card: #1e1e1e;
+
+  --color-border: #333;
+
+  --color-accent: #60a5fa;
+  --color-accent-bg: #eff6ff;
+
+  --color-surface: #1c1c1c;
+
+  --color-muted: #2a2a2a;
+  --color-muted-fg: #a1a1a1;
+  --color-muted-hover: #4b5563;
+
+  --color-hover: #2a2a2a;
+  --color-hover-bg: #2d3748;
+
+
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-fg: #ffffff;
+  --color-primary-bg: #1e3a8a;
+
+  --color-secondary: #374151;
+  --color-secondary-hover: #4b5563;
+  --color-secondary-fg: #f9fafb;
+
+  --color-success: #00d76f;
+  --color-success-hover: #00c248;
+
+  --color-warning: #f19a00;
+  --color-warning-hover: #e19100;
+
+  --color-danger: #ef4444;
+  --color-danger-hover: #dc2626;
+
 }
 
+/* 🌙 Dark Mode Variables */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bg: #111827;
+    --color-bg-contrast: #585858;
+    --color-bg-hover: #1f2937;
+    --color-bg-subtle: #1e1e1e;
+    --color-bg-from: #0f0f0f;
+    --color-bg-to: #101010;
+
+    --color-fg: #f3f4f6;
+    --color-fg-subtle: #4b5563;
+
+    --color-card: #1e1e1e;
+
+    --color-border: #374151;
+
+    --color-accent: #3b82f6;
+    --color-accent-bg: #1e40af33;
+
+    --color-surface: #1c1c1c;
+
+    --color-muted: #2a2a2a;
+    --color-muted-fg: #a1a1a1;
+    --color-muted-hover: #4b5563;
+
+    --color-hover: #2a2a2a;
+    --color-hover-bg: #2d3748;
+
+
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-primary-fg: #ececec;
+    --color-primary-bg: #21377a;
+
+    --color-secondary: #374151;
+    --color-secondary-hover: #4b5563;
+    --color-secondary-fg: #f9fafb;
+
+    --color-success: #00d785;
+    --color-success-hover: #00c25b;
+
+    --color-warning: #f1c100;
+    --color-warning-hover: #e1a100;
+
+    --color-danger: #ef4463;
+    --color-danger-hover: #dc2641;
   }
 }
 
+/* 💫 Customized utilities */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.2s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* ✍️ Base document source */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
 }
