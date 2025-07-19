@@ -22,13 +22,13 @@ export default function Toast({ type = 'info', message, onClose }: ToastProps) {
                 'flex items-center justify-between border-l-4 p-4 rounded-md shadow-md max-w-sm w-full',
                 typeStyles[type]
             )}
-            role="alert"
+            role='alert'
         >
-            <span className="text-sm font-medium">{message}</span>
+            <span className='text-sm font-medium'>{message}</span>
             <button
                 onClick={onClose}
-                className="ml-4 text-inherit hover:text-black"
-                aria-label="Cerrar notificación"
+                className='ml-4 text-inherit hover:text-black'
+                aria-label='Cerrar notificación'
             >
                 <X size={18} />
             </button>

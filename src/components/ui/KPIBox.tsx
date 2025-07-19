@@ -34,12 +34,12 @@ export default function KPIBox({
                 className
             )}
         >
-            <div className="flex items-center justify-between mb-2">
-                <p className="text-sm font-medium text-gray-500">{label}</p>
-                {icon && <div className="text-gray-400">{icon}</div>}
+            <div className='flex items-center justify-between mb-2'>
+                <p className='text-sm font-medium text-gray-500'>{label}</p>
+                {icon && <div className='text-gray-400'>{icon}</div>}
             </div>
-            <div className="flex items-baseline justify-between">
-                <p className="text-2xl font-bold text-gray-900">{value}</p>
+            <div className='flex items-baseline justify-between'>
+                <p className='text-2xl font-bold text-gray-900'>{value}</p>
                 {delta && (
                     <span className={clsx('text-sm font-medium', colorMap[color])}>
             {delta}

@@ -46,7 +46,7 @@ export default function IconButton({
 
     const button = (
         <button
-            type="button"
+            type='button'
             className={clsx(
                 baseStyle,
                 variantStyle[variant],

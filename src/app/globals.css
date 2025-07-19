@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @tailwind base;
 @tailwind components;
@@ -17,26 +17,35 @@
   --color-bg-subtle: #f9f9f9;
   --color-bg-from: #ffffff;
   --color-bg-to: #f9fafb;
+
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
+
   --color-card: #f9f9f9;
+
   --color-border: #e5e7eb;
+
   --color-accent: #2563EB;
   --color-accent-bg: #eff6ff;
+
   --color-surface: #ffffff;
+
   --color-muted: #f5f5f5;
+  --color-muted-fg: #7a7a7a;
   --color-muted-hover: #e5e7eb;
+
   --color-hover: #f1f5f9;
   --color-hover-bg: #f9fafb;
 
+
   --color-primary: #2563eb;
-  --color-primary-fg: #ffffff;
   --color-primary-hover: #1d4ed8;
+  --color-primary-fg: #ffffff;
   --color-primary-bg: #eff6ff;
 
   --color-secondary: #f3f4f6;
-  --color-secondary-fg: #111827;
   --color-secondary-hover: #e5e7eb;
+  --color-secondary-fg: #111827;
 
   --color-success: #00b75d;
   --color-success-hover: #00a63e;
@@ -56,7 +65,7 @@
   --duration: 200ms;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* 🌟 Business Colors */
+  /*------------------- 🌟 Business Colors -------------------*/
   --color-background: #fafafa;
   --color-foreground: #2c2c2c;
   --color-tussock: #c08d3d;
@@ -90,23 +99,32 @@
 
 .dark {
   /* 🎨 Dark Mode Palette */
-  --color-bg: #121212;
+  --color-bg: #00040a;
+  --color-bg-contrast: #585858;
+  --color-bg-hover: #1f2937;
   --color-bg-subtle: #1e1e1e;
   --color-bg-from: #0f0f0f;
-  --color-bg-to: #1a1a1a;
+  --color-bg-to: #101010;
+
   --color-fg: #f5f5f5;
   --color-fg-subtle: #d1d5db;
+
   --color-card: #1e1e1e;
+
   --color-border: #333;
+
   --color-accent: #60a5fa;
-  --color-bg-contrast: #585858;
+  --color-accent-bg: #eff6ff;
+
+  --color-surface: #1c1c1c;
+
   --color-muted: #2a2a2a;
   --color-muted-fg: #a1a1a1;
   --color-muted-hover: #4b5563;
 
-  --color-surface: #1c1c1c;
   --color-hover: #2a2a2a;
   --color-hover-bg: #2d3748;
+
 
   --color-primary: #2563eb;
   --color-primary-hover: #1d4ed8;
@@ -114,39 +132,67 @@
   --color-primary-bg: #1e3a8a;
 
   --color-secondary: #374151;
-  --color-secondary-fg: #f9fafb;
   --color-secondary-hover: #4b5563;
+  --color-secondary-fg: #f9fafb;
 
-  --color-bg-hover: #1f2937;
+  --color-success: #00d76f;
+  --color-success-hover: #00c248;
+
+  --color-warning: #f19a00;
+  --color-warning-hover: #e19100;
 
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
+
 }
 
 /* 🌙 Dark Mode Variables */
 @media (prefers-color-scheme: dark) {
   :root {
     --color-bg: #111827;
+    --color-bg-contrast: #585858;
+    --color-bg-hover: #1f2937;
+    --color-bg-subtle: #1e1e1e;
+    --color-bg-from: #0f0f0f;
+    --color-bg-to: #101010;
+
     --color-fg: #f3f4f6;
-    --color-surface: #1c1c1c;
+    --color-fg-subtle: #4b5563;
+
+    --color-card: #1e1e1e;
+
     --color-border: #374151;
-    --color-hover-bg: #2d3748;
+
     --color-accent: #3b82f6;
     --color-accent-bg: #1e40af33;
 
+    --color-surface: #1c1c1c;
+
+    --color-muted: #2a2a2a;
+    --color-muted-fg: #a1a1a1;
+    --color-muted-hover: #4b5563;
+
+    --color-hover: #2a2a2a;
+    --color-hover-bg: #2d3748;
+
+
     --color-primary: #3b82f6;
-    --color-primary-fg: #ffffff;
     --color-primary-hover: #2563eb;
-    --color-primary-bg: #1e3a8a;
+    --color-primary-fg: #ececec;
+    --color-primary-bg: #21377a;
 
     --color-secondary: #374151;
-    --color-secondary-fg: #f9fafb;
     --color-secondary-hover: #4b5563;
+    --color-secondary-fg: #f9fafb;
 
-    --color-bg-hover: #1f2937;
+    --color-success: #00d785;
+    --color-success-hover: #00c25b;
 
-    --color-danger: #ef4444;
-    --color-danger-hover: #dc2626;
+    --color-warning: #f1c100;
+    --color-warning-hover: #e1a100;
+
+    --color-danger: #ef4463;
+    --color-danger-hover: #dc2641;
   }
 }
 
@@ -170,5 +216,5 @@
 
 /* ✍️ Base document source */
 body {
-  font-family: var(--font-sans);
+  font-family: var(--font-sans), sans-serif;
 }

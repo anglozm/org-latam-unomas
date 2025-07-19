@@ -38,14 +38,14 @@ export default function ProgressBar({
     }
 
     return (
-        <div className="w-full">
+        <div className='w-full'>
             <div
                 className={clsx(
                     'relative w-full rounded-full bg-gray-200 overflow-hidden',
                     heightClasses[size],
                     className
                 )}
-                role="progressbar"
+                role='progressbar'
                 aria-valuenow={value}
                 aria-valuemin={0}
                 aria-valuemax={max}
@@ -57,7 +57,7 @@ export default function ProgressBar({
             </div>
 
             {showLabel && (
-                <div className="mt-1 text-right text-xs text-gray-700">
+                <div className='mt-1 text-right text-xs text-gray-700'>
                     {Math.round(percentage)}%
                 </div>
             )}

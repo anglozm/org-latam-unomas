@@ -34,10 +34,10 @@ export default function Radio({
     }
 
     return (
-        <div className="flex flex-col">
-            <label className="inline-flex items-center gap-2 cursor-pointer text-sm text-[var(--color-fg)]">
+        <div className='flex flex-col'>
+            <label className='inline-flex items-center gap-2 cursor-pointer text-sm text-[var(--color-fg)]'>
                 <input
-                    type="radio"
+                    type='radio'
                     className={clsx(
                         'form-radio h-4 w-4 text-[var(--color-accent)] border-[var(--color-border)] focus:ring-[var(--color-accent)]',
                         error && 'border-red-500',
@@ -50,7 +50,7 @@ export default function Radio({
                 {label && <span>{label}</span>}
             </label>
             {error && errorMessage && (
-                <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
+                <p className='mt-1 text-sm text-red-600'>{errorMessage}</p>
             )}
         </div>
     )

@@ -20,21 +20,21 @@ export default function Tooltip({ text, children }: TooltipProps) {
 
     return (
         <div
-            className="relative inline-block"
+            className='relative inline-block'
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
             onFocus={() => setVisible(true)}
             onBlur={() => setVisible(false)}
         >
-            <span aria-describedby={id.current} className="focus:outline-none">
+            <span aria-describedby={id.current} className='focus:outline-none'>
                 {children}
             </span>
 
             {visible && (
                 <div
                     id={id.current}
-                    role="tooltip"
-                    className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-1 rounded shadow-md whitespace-nowrap z-50"
+                    role='tooltip'
+                    className='absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-1 rounded shadow-md whitespace-nowrap z-50'
                 >
                     {text}
                 </div>

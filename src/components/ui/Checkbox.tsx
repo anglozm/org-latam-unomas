@@ -35,10 +35,10 @@ export default function Checkbox({
     }
 
     return (
-        <div className="flex flex-col">
-            <label className="inline-flex items-center gap-2 cursor-pointer text-sm text-[var(--color-fg)]">
+        <div className='flex flex-col'>
+            <label className='inline-flex items-center gap-2 cursor-pointer text-sm text-[var(--color-fg)]'>
                 <input
-                    type="checkbox"
+                    type='checkbox'
                     className={clsx(
                         'form-checkbox h-4 w-4 rounded border-[var(--color-border)] text-[var(--color-accent)] focus:ring-[var(--color-accent)]',
                         error && 'border-red-500',
@@ -51,7 +51,7 @@ export default function Checkbox({
                 {label && <span>{label}</span>}
             </label>
             {error && errorMessage && (
-                <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
+                <p className='mt-1 text-sm text-red-600'>{errorMessage}</p>
             )}
         </div>
     )

@@ -49,7 +49,7 @@ export default function Button({
 
     return (
         <button
-            type="button"
+            type='button'
             className={clsx(
                 baseStyle,
                 variantStyle[variant],
@@ -59,13 +59,13 @@ export default function Button({
             disabled={disabled || isLoading}
             {...props}
         >
-            {isLoading ? (
-                <span className="animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
+            { isLoading ? (
+                <span className='animate-spin mr-2 h-4 w-4 border-2 border-white border-t-transparent rounded-full' />
             ) : (
-                leftIcon && <span className="mr-2">{leftIcon}</span>
+                leftIcon && <span className='mr-2'>{leftIcon}</span>
             )}
             {children}
-            {rightIcon && <span className="ml-2">{rightIcon}</span>}
+            {rightIcon && <span className='ml-2'>{rightIcon}</span>}
         </button>
     )
 }

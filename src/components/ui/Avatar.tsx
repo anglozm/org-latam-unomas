@@ -42,12 +42,12 @@ export default function Avatar({
                     alt={alt}
                     fill
                     sizes={`${dimension}px`}
-                    className="object-cover rounded-full"
+                    className='object-cover rounded-full'
                 />
             ) : fallbackText ? (
-                <span className="z-10">{fallbackText}</span>
+                <span className='z-10'>{fallbackText}</span>
             ) : (
-                <User size={16} className="z-10" />
+                <User size={16} className='z-10' />
             )}
         </div>
     )

@@ -15,10 +15,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
-        <html lang="es" suppressHydrationWarning>
+        <html lang='es' suppressHydrationWarning>
             <body className={`${inter.className} bg-white text-gray-900`}>
                 <Navbar />
-                <main className="min-h-screen pt-16">{children}</main>
+                <main className='min-h-screen pt-16'>{children}</main>
                 <Footer />
             </body>
         </html>

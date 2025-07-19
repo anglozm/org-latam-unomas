@@ -21,13 +21,13 @@ const widthMap = {
 }
 
 export default function Modal({
-                                  isOpen,
-                                  onClose,
-                                  title,
-                                  children,
-                                  className,
-                                  width = 'md',
-                              }: ModalProps) {
+    isOpen,
+    onClose,
+    title,
+    children,
+    className,
+    width = 'md',
+}: ModalProps) {
     const dialogRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
@@ -64,7 +64,7 @@ export default function Modal({
     if (!isOpen) return null
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4">
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm px-4'>
             <div
                 ref={dialogRef}
                 className={clsx(
@@ -73,18 +73,18 @@ export default function Modal({
                     className
                 )}
             >
-                <div className="flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]">
-                    <h3 className="text-lg font-semibold">{title}</h3>
+                <div className='flex items-center justify-between px-4 py-3 border-b border-[var(--color-border)]'>
+                    <h3 className='text-lg font-semibold'>{title}</h3>
                     <button
                         onClick={onClose}
-                        aria-label="Cerrar modal"
-                        className="text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition"
+                        aria-label='Cerrar modal'
+                        className='text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition'
                     >
                         <X size={20} />
                     </button>
                 </div>
 
-                <div className="p-4">{children}</div>
+                <div className='p-4'>{children}</div>
             </div>
         </div>
     )

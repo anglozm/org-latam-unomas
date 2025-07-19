@@ -36,8 +36,8 @@ export default function LoadingSpinner({
                 colorClasses[color],
                 className
             )}
-            role="status"
-            aria-label="Cargando"
+            role='status'
+            aria-label='Cargando'
         />
     )
 }

@@ -18,7 +18,7 @@ export default function ButtonGroup({
 }: ButtonGroupProps) {
     return (
         <div
-            role="group"
+            role='group'
             className={clsx(
                 'inline-flex',
                 orientation === 'vertical' ? 'flex-col' : 'flex-row',

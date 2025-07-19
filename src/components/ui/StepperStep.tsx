@@ -51,7 +51,7 @@ export default function StepperStep({
             >
                 {renderIndicator()}
             </div>
-            <span className="text-sm">{title}</span>
+            <span className='text-sm'>{title}</span>
         </div>
     )
 }

@@ -29,8 +29,8 @@ export default function Stepper({ steps, initialStep = 0 }: StepperProps) {
     }
 
     return (
-        <div className="w-full">
-            <div className="flex items-center justify-between mb-6">
+        <div className='w-full'>
+            <div className='flex items-center justify-between mb-6'>
                 {steps.map((step, i) => (
                     <StepperStep
                         key={i}
@@ -43,7 +43,7 @@ export default function Stepper({ steps, initialStep = 0 }: StepperProps) {
                 ))}
             </div>
 
-            <div className="border-t border-gray-200 mb-6" />
+            <div className='border-t border-gray-200 mb-6' />
             <div>{steps[currentStep]?.content}</div>
         </div>
     )

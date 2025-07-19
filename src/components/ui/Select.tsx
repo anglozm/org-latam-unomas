@@ -24,11 +24,11 @@ export default function Select({
     ...props
 }: SelectProps) {
     return (
-        <div className="w-full">
+        <div className='w-full'>
             {label && (
                 <label
                     htmlFor={props.id || props.name}
-                    className="block text-sm font-medium text-[var(--color-fg)] mb-1"
+                    className='block text-sm font-medium text-[var(--color-fg)] mb-1'
                 >
                     {label}
                 </label>
@@ -45,7 +45,7 @@ export default function Select({
                 aria-invalid={error}
                 {...props}
             >
-                <option value="">Selecciona una opción</option>
+                <option value=''>Selecciona una opción</option>
                 {options.map((opt) => (
                     <option key={opt.value} value={opt.value}>
                         {opt.label}
@@ -54,7 +54,7 @@ export default function Select({
             </select>
 
             {error && errorMessage && (
-                <p className="mt-1 text-sm text-red-600">{errorMessage}</p>
+                <p className='mt-1 text-sm text-red-600'>{errorMessage}</p>
             )}
         </div>
     )
