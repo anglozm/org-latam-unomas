@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-hero-gradient {
+  background: linear-gradient(to bottom, var(--color-bg-from), var(--color-bg-to));
+}
+
 /* 🔧 Global UI semantic variables */
 :root {
   /* 🎨 Light Mode Palette */
@@ -11,7 +15,8 @@
   --color-bg-contrast: #fafafa;
   --color-bg-hover: #f9fafb;
   --color-bg-subtle: #f9f9f9;
-  --color-bg-gradient: linear-gradient(to bottom, #ffffff, #f9fafb);
+  --color-bg-from: #ffffff;
+  --color-bg-to: #f9fafb;
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
   --color-card: #f9f9f9;
@@ -87,7 +92,8 @@
   /* 🎨 Dark Mode Palette */
   --color-bg: #121212;
   --color-bg-subtle: #1e1e1e;
-  --color-bg-gradient: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
+  --color-bg-from: #0f0f0f;
+  --color-bg-to: #1a1a1a;
   --color-fg: #f5f5f5;
   --color-fg-subtle: #d1d5db;
   --color-card: #1e1e1e;
