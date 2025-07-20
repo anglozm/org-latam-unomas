@@ -1,12 +1,13 @@
 'use client'
 
-import {Info} from 'lucide-react'
-import {Mail} from 'lucide-react'
-import {Send} from 'lucide-react'
+import { Info } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { Send } from 'lucide-react'
 
-import {useState} from 'react'
-import {useTheme} from '@/hooks/useTheme';
-import {useToast} from '@/hooks/useToast'
+import { useState } from 'react'
+import { useTheme } from '@/hooks/useTheme'
+import { useToast } from '@/hooks/useToast'
+// import { useTranslations } from 'next-intl'
 import { Users, TrendingUp } from 'lucide-react'
 import { Settings, Trash2, Moon, Sun } from 'lucide-react'
 
@@ -25,7 +26,7 @@ import FAQSection from '@/components/ui/FAQSection'
 import IconButton from '@/components/ui/IconButton'
 import Input from '@/components/ui/Input'
 import KPIBox from '@/components/ui/KPIBox'
-import LinkButton from '@/components/ui/LinkButton';
+import LinkButton from '@/components/ui/LinkButton'
 import LoadingSpinner from '@/components/ui/LoadingSpinner'
 import Modal from '@/components/ui/Modal'
 import Notification from '@/components/ui/Notification'
@@ -42,12 +43,12 @@ import Textarea from '@/components/ui/Textarea'
 import Toast from '@/components/ui/Toast'
 import Toggle from '@/components/ui/Toggle'
 import Tooltip from '@/components/ui/Tooltip'
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 const options = [
-    {label: 'Venezuela', value: 've'},
-    {label: 'Colombia', value: 'co'},
-    {label: 'México', value: 'mx'},
+    { label: 'Venezuela', value: 've' },
+    { label: 'Colombia', value: 'co' },
+    { label: 'México', value: 'mx' },
 ]
 
 const faqItems = [
@@ -89,6 +90,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({className}: HeroSectionProps) {
+    // const t = useTranslations('hero')
     const [query, setQuery] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [open, setOpen] = useState(false)

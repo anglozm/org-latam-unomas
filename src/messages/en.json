@@ -1,0 +1,37 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About Us",
+        "opportunity": "Opportunity",
+        "products": "Products",
+        "testimonials": "Testimonials",
+        "contact": "Contact Us"
+    },
+    "footer": {
+        "copyright": "Uno Más • LATAM © {year}. All rights reserved.",
+        "privacy": "Privacy",
+        "terms": "Terms",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title": "Transform your life with Uno Más • LATAM",
+        "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
+        "cta": "Explore the opportunity"
+    },
+    "form": {
+        "email": "Email address",
+        "country": "Country",
+        "message": "Message",
+        "submit": "Submit",
+        "error_required": "This field is required",
+        "select_placeholder": "Select an option"
+    },
+    "common": {
+        "yes": "Yes",
+        "no": "No",
+        "cancel": "Cancel",
+        "accept": "Accept",
+        "loading": "Loading...",
+        "search": "Search..."
+    }
+}

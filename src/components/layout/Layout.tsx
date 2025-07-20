@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     description: 'Plataforma para network marketers',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+    children
+}: { children: ReactNode }) {
     return (
         <html lang='es' suppressHydrationWarning>
         <body

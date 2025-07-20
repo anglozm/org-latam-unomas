@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
-import clsx from 'clsx';
+import clsx from 'clsx'
 
 interface CardEventProps {
     imageUrl: string

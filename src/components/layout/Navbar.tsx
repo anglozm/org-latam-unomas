@@ -2,8 +2,11 @@
 
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
+
 import { Menu, X } from 'lucide-react'
+
 import Link from 'next/link'
+import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const navLinks = [
@@ -58,6 +61,19 @@ export default function Navbar() {
                         <ThemeToggle />
                     </div>
                 </ul>
+
+                {/*<ul className='hidden md:flex space-x-6 items-center'>*/}
+                {/*    {navLinks.map(({ href, label }) => (*/}
+                {/*        <li key={href}>*/}
+                {/*            <Link href={''}>{label}</Link>*/}
+                {/*        </li>*/}
+                {/*        ))}*/}
+
+                {/*    /!* Language at the end *!/*/}
+                {/*    <li className='ml-4'>*/}
+                {/*        <LocaleSwitcher />*/}
+                {/*    </li>*/}
+                {/*</ul>*/}
             </nav>
 
             {/* Mobile menu */}
