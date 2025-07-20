@@ -1,18 +1,19 @@
 import { getRequestConfig } from 'next-intl/server'
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(async () => {
+    // Provide a static locale, fetch a user setting,
+    // read from `cookies()`, `headers()`, etc.
+    const locale = 'es'
     let messages
 
     try {
         messages = (await import(`@/messages/${locale}.json`)).default
     } catch {
-        messages = (await import(`@/messages/es.json`)).default
+        messages = (await import(`@/messages/en.json`)).default
     }
 
     return {
         locale,
-        messages,
+        messages
     }
 })

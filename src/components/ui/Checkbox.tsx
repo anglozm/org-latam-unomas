@@ -1,6 +1,7 @@
 'use client'
 
 import { InputHTMLAttributes, useEffect, useState } from 'react'
+
 import clsx from 'clsx'
 
 interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
@@ -19,7 +20,7 @@ export default function Checkbox({
     ...props
 }: CheckboxProps) {
     const isControlled = typeof checked === 'boolean'
-    const [internalChecked, setInternalChecked] = useState<boolean | null>(null)
+    const [ internalChecked, setInternalChecked ] = useState<boolean | null>(null)
     const value = isControlled ? checked : internalChecked ?? false
 
     useEffect(() => {

@@ -7,7 +7,6 @@ import { Send } from 'lucide-react'
 import { useState } from 'react'
 import { useTheme } from '@/hooks/useTheme'
 import { useToast } from '@/hooks/useToast'
-// import { useTranslations } from 'next-intl'
 import { Users, TrendingUp } from 'lucide-react'
 import { Settings, Trash2, Moon, Sun } from 'lucide-react'
 
@@ -90,10 +89,9 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({className}: HeroSectionProps) {
-    // const t = useTranslations('hero')
-    const [query, setQuery] = useState('')
-    const [isOpen, setIsOpen] = useState(false)
-    const [open, setOpen] = useState(false)
+    const [ query, setQuery ] = useState('')
+    const [ isOpen, setIsOpen ] = useState(false)
+    const [ open, setOpen ] = useState(false)
     const { toasts, showToast, dismissToast } = useToast()
     const { theme, toggleTheme } = useTheme()
 
@@ -472,7 +470,6 @@ export default function HeroSection({className}: HeroSectionProps) {
             <ProgressBar value={40} />
             <ProgressBar value={75} size='lg' color='green' showLabel />
             <ProgressBar value={90} max={120} color='red' />
-
         </section>
     )
 }

@@ -1,33 +1,36 @@
 'use client'
 
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-
 import { Menu, X } from 'lucide-react'
 
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import { useTranslations } from 'next-intl'
+
 import Link from 'next/link'
-import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
-const navLinks = [
-    { href: '/', label: 'Inicio' },
-    { href: '/about-us', label: '¿Quiénes Somos?' },
-    { href: '/opportunity', label: 'Oportunidad' },
-    { href: '/products', label: 'Productos' },
-    { href: '/testimonials', label: 'Testimonios' },
-    { href: '/contact-us', label: 'Contáctanos' },
-]
-
 export default function Navbar() {
-    const [isOpen, setIsOpen] = useState(false)
+    const t = useTranslations('navbar')
+    const [ isOpen, setIsOpen ] = useState(false)
     const pathname = usePathname()
 
+    const navLinks = [
+        { href: '/', label: t('home') },
+        { href: '/about-us', label: t('about') },
+        { href: '/opportunity', label: t('opportunity') },
+        { href: '/products', label: t('products') },
+        { href: '/testimonials', label: t('testimonials') },
+        { href: '/contact-us', label: t('contact') },
+    ]
+
     return (
-        <header className='fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-300 bg-[var(--color-bg)] border-b border-[var(--color-border)] text-[var(--color-fg)]'>
+        <header className='fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-300 bg-[var(--color-bg)]
+            border-b border-[var(--color-border)] text-[var(--color-fg)]'>
+
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
                 {/* Logo */}
                 <Link href='/' className='text-xl font-bold text-[var(--color-accent)]'>
-                    Uno Más • LATAM
+                    {t('logo')}
                 </Link>
 
                 {/* Mobile toggle button */}
@@ -61,19 +64,6 @@ export default function Navbar() {
                         <ThemeToggle />
                     </div>
                 </ul>
-
-                {/*<ul className='hidden md:flex space-x-6 items-center'>*/}
-                {/*    {navLinks.map(({ href, label }) => (*/}
-                {/*        <li key={href}>*/}
-                {/*            <Link href={''}>{label}</Link>*/}
-                {/*        </li>*/}
-                {/*        ))}*/}
-
-                {/*    /!* Language at the end *!/*/}
-                {/*    <li className='ml-4'>*/}
-                {/*        <LocaleSwitcher />*/}
-                {/*    </li>*/}
-                {/*</ul>*/}
             </nav>
 
             {/* Mobile menu */}
