@@ -104,7 +104,7 @@ export default function HeroSection({className}: HeroSectionProps) {
             )}
         >
             <CardEvent
-                imageUrl='/img/blue-wallpaper_testing.png'
+                imageUrl='/img/wallpaper_testing.png'
                 imageAlt='Zoom con líderes'
                 title='Masterclass: Duplica tu Red'
                 description='Descubre cómo escalar tu negocio de Network Marketing con técnicas comprobadas.'

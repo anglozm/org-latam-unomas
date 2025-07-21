@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
 import Link from 'next/link'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
@@ -63,6 +64,13 @@ export default function Navbar() {
                     <div className='ml-6 pl-4 border-l border-[var(--color-border)]'>
                         <ThemeToggle />
                     </div>
+                </ul>
+
+                {/* Language switcher at the end */}
+                <ul className='hidden md:flex space-x-6 items-center'>
+                    <li className='ml-4'>
+                        <LanguageSwitcher />
+                    </li>
                 </ul>
             </nav>
 
