@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher'
+import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import Link from 'next/link'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
@@ -34,44 +34,46 @@ export default function Navbar() {
                     {t('logo')}
                 </Link>
 
-                {/* Mobile toggle button */}
-                <button
-                    className='md:hidden text-[var(--color-fg)]'
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-label='Toggle mobile menu'
-                >
-                    {isOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className='flex items-center justify-center'>
+                    {/* Mobile toggle button */}
+                    <button
+                        className='md:hidden text-[var(--color-fg)]'
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label='Toggle mobile menu'
+                    >
+                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
 
-                {/* Desktop menu */}
-                <ul className='hidden md:flex space-x-6 items-center'>
-                    {navLinks.map(({ href, label }) => (
-                        <li key={href}>
-                            <Link
-                                href={href}
-                                className={`text-sm font-medium transition ${
-                                    pathname === href
-                                        ? 'text-[var(--color-accent)] underline underline-offset-4'
-                                        : 'hover:text-[var(--color-accent)]'
-                                }`}
-                            >
-                                {label}
-                            </Link>
+                    {/* Desktop menu */}
+                    <ul className='hidden md:flex space-x-6 items-center'>
+                        {navLinks.map(({ href, label }) => (
+                            <li key={href}>
+                                <Link
+                                    href={href}
+                                    className={`text-sm font-medium transition ${
+                                        pathname === href
+                                            ? 'text-[var(--color-accent)] underline underline-offset-4'
+                                            : 'hover:text-[var(--color-accent)]'
+                                    }`}
+                                >
+                                    {label}
+                                </Link>
+                            </li>
+                        ))}
+
+                        {/* Theme toggle */}
+                        <div className='ml-6 pl-4 border-l border-[var(--color-border)]'>
+                            <ThemeToggle />
+                        </div>
+                    </ul>
+
+                    {/* Locale switcher at the end */}
+                    <ul className='hidden md:flex space-x-6 items-center'>
+                        <li className='ml-4'>
+                            <LocaleSwitcher />
                         </li>
-                    ))}
-
-                    {/* Theme toggle */}
-                    <div className='ml-6 pl-4 border-l border-[var(--color-border)]'>
-                        <ThemeToggle />
-                    </div>
-                </ul>
-
-                {/* Language switcher at the end */}
-                <ul className='hidden md:flex space-x-6 items-center'>
-                    <li className='ml-4'>
-                        <LanguageSwitcher />
-                    </li>
-                </ul>
+                    </ul>
+                </div>
             </nav>
 
             {/* Mobile menu */}

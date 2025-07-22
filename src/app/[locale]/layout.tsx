@@ -38,7 +38,7 @@ export default async function RootLayout({
         <html lang={locale} suppressHydrationWarning={true}>
             <body className={`${inter.className} bg-[var(--color-bg)] text-[var(--color-fg)]`}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
-                    <Navbar />
+                    <Navbar key={locale} />
                     <main className='min-h-screen pt-16'>{children}</main>
                     <Footer />
                 </NextIntlClientProvider>
