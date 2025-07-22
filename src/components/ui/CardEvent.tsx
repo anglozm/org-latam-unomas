@@ -3,7 +3,8 @@
 import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import Badge from '@/components/ui/Badge'
-import clsx from 'clsx';
+
+import clsx from 'clsx'
 
 interface CardEventProps {
     imageUrl: string
@@ -51,7 +52,7 @@ export default function CardEvent({
                 <p className='text-sm text-[var(--color-muted-fg)]'>{description}</p>
 
                 <ul className='list-disc list-inside text-sm text-[var(--color-muted-fg)] space-y-1'>
-                    {listItems.map((item) => (
+                    { listItems.map((item) => (
                         <li key={item}>{item}</li>
                     ))}
                 </ul>

@@ -17,7 +17,7 @@ export default function Accordion({
     items,
     allowMultipleOpen = false
 }: AccordionProps) {
-    const [openIndexes, setOpenIndexes] = useState<number[]>([])
+    const [ openIndexes, setOpenIndexes ] = useState<number[]>([])
 
     const toggle = (index: number) => {
         if (allowMultipleOpen) {
