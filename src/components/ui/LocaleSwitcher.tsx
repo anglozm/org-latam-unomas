@@ -10,7 +10,8 @@ import clsx from 'clsx'
 
 const locales = [
     { code: 'es', label: 'Español', icon: '🇻🇪' },
-    { code: 'en', label: 'English', icon: '🇺🇸' }
+    { code: 'en', label: 'English', icon: '🇺🇸' },
+    { code: 'pt', label: 'Português', icon: '🇧🇷' },
 ]
 
 export default function LocaleSwitcher() {
@@ -36,14 +37,6 @@ export default function LocaleSwitcher() {
     }
 
     const current = locales.find((l) => l.code === currentLocale)
-
-    // const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    //     const nextLocale = e.target.value
-    //     const segments = pathname.split('/')
-    //     segments[1] = nextLocale // Replaces the locale
-    //     const newPath = segments.join('/') || '/'
-    //     router.replace(newPath)
-    // }
 
     return (
         <div className='relative'>

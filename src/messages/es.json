@@ -11,8 +11,8 @@
     "footer": {
         "copyright": "Uno Más • LATAM © {year}. Todos los derechos reservados.",
         "privacy": "Privacidad",
-        "terms": "Términos",
-        "contact": "Contacto"
+        "terms-and-conditions": "Términos y Condiciones",
+        "contact": "Contáctanos"
     },
     "hero": {
         "title": "Transforma tu vida con Uno Más • LATAM",
@@ -25,7 +25,7 @@
         "message": "Mensaje",
         "submit": "Enviar",
         "error_required": "Este campo es obligatorio",
-        "select_placeholder": "Selecciona una opción"
+        "select_placeholder": "Seleccione una opción"
     },
     "common": {
         "yes": "Sí",
