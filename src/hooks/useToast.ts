@@ -9,7 +9,7 @@ interface Toast {
 }
 
 export function useToast() {
-    const [toasts, setToasts] = useState<Toast[]>([])
+    const [ toasts, setToasts ] = useState<Toast[]>([])
 
     function showToast(message: string, type: Toast['type'] = 'info') {
         const id = crypto.randomUUID()

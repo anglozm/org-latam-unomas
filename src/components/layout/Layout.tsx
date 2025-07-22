@@ -1,7 +1,8 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { ReactNode } from 'react'
 import { Inter } from 'next/font/google'
+
+import { Metadata } from 'next'
+import { ReactNode } from 'react'
+
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
@@ -12,7 +13,9 @@ export const metadata: Metadata = {
     description: 'Plataforma para network marketers',
 }
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default function RootLayout({
+    children
+}: { children: ReactNode }) {
     return (
         <html lang='es' suppressHydrationWarning>
         <body

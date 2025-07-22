@@ -8,8 +8,8 @@ interface TooltipProps {
 }
 
 export default function Tooltip({ text, children }: TooltipProps) {
-    const [visible, setVisible] = useState(false)
-    const [hydrated, setHydrated] = useState(false)
+    const [ visible, setVisible ] = useState(false)
+    const [ hydrated, setHydrated ] = useState(false)
     const id = useRef(`tooltip-${Math.random().toString(36).substring(2, 9)}`)
 
     useEffect(() => {

@@ -1,0 +1,38 @@
+{
+    "navbar": {
+        "logo": "Uno Más • LATAM",
+        "home": "Inicio",
+        "about": "Acerca de",
+        "opportunity": "Oportunidad",
+        "products": "Productos",
+        "testimonials": "Testimonios",
+        "contact": "Contáctanos"
+    },
+    "footer": {
+        "copyright": "Uno Más • LATAM © {year}. Todos los derechos reservados.",
+        "privacy": "Privacidad",
+        "terms-and-conditions": "Términos y Condiciones",
+        "contact": "Contáctanos"
+    },
+    "hero": {
+        "title": "Transforma tu vida con Uno Más • LATAM",
+        "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
+        "cta": "Conoce la oportunidad"
+    },
+    "form": {
+        "email": "Correo electrónico",
+        "country": "País",
+        "message": "Mensaje",
+        "submit": "Enviar",
+        "error_required": "Este campo es obligatorio",
+        "select_placeholder": "Seleccione una opción"
+    },
+    "common": {
+        "yes": "Sí",
+        "no": "No",
+        "cancel": "Cancelar",
+        "accept": "Aceptar",
+        "loading": "Cargando...",
+        "search": "Buscar..."
+    }
+}
