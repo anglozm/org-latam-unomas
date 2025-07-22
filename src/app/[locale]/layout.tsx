@@ -3,10 +3,13 @@ import '../globals.css'
 import React from 'react'
 
 import { Inter } from 'next/font/google'
-import { NextIntlClientProvider } from 'next-intl'
+import { NextIntlClientProvider, hasLocale } from 'next-intl'
 
 import { Metadata } from 'next'
 import { ReactNode } from 'react'
+
+import { notFound } from 'next/navigation'
+import { routing } from '@/i18n/routing'
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
@@ -19,19 +22,20 @@ export const metadata: Metadata = {
 }
 
 interface RootLayoutProps {
-    children: ReactNode
+    children: ReactNode,
+    params: Promise<{locale: string}>
 }
 
 export default async function RootLayout({
-    children
+    children,
+    params
 }: RootLayoutProps) {
-    const locale = 'es'
-    let messages
+    // Ensure that the incoming `locale` is valid
+    const { locale } = await params;
+    const messages = (await import(`@/messages/${locale}.json`)).default
 
-    try {
-        messages = (await import(`@/messages/${locale}.json`)).default
-    } catch {
-        messages = (await import(`@/messages/en.json`)).default
+    if (!hasLocale(routing.locales, locale)) {
+        notFound();
     }
 
     return (

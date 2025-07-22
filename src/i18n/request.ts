@@ -1,16 +1,17 @@
 import { getRequestConfig } from 'next-intl/server'
 
-export default getRequestConfig(async () => {
-    // Provide a static locale, fetch a user setting,
-    // read from `cookies()`, `headers()`, etc.
-    const locale = 'es'
-    let messages
+import { hasLocale } from 'next-intl'
 
-    try {
-        messages = (await import(`@/messages/${locale}.json`)).default
-    } catch {
-        messages = (await import(`@/messages/en.json`)).default
-    }
+import { routing } from './routing'
+
+export default getRequestConfig(async ({requestLocale}) => {
+    // Typically corresponds to the `[locale]` segment
+    const requested = await requestLocale
+    const locale = hasLocale(routing.locales, requested)
+        ? requested
+        : routing.defaultLocale
+
+    const messages = (await import(`@/messages/${locale}.json`)).default
 
     return {
         locale,
