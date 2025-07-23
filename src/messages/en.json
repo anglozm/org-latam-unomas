@@ -9,13 +9,40 @@
         "contact": "Contact Us"
     },
     "footer": {
-        "copyright": "Uno Más • LATAM © {year}. All rights reserved.",
-        "privacy": "Privacy",
-        "terms-and-conditions": "Terms and Conditions",
-        "contact": "Contact Us"
+        "get-started": {
+            "title": "Get Started",
+            "sign-up": "Sign Up",
+            "login": "Log In"
+        },
+        "discover": {
+            "title": "Discover",
+            "academy": "Academy",
+            "nutrilite-traceability": "Nutrilite Traceability",
+            "artistry-traceability": "Artistry Traceability"
+        },
+        "company": {
+            "title": "Company",
+            "about-us": "About Us",
+            "team": "Team",
+            "partners": "Partners"
+        },
+        "legality": {
+            "title": "Legality",
+            "privacy-policy": "Privacy Policy",
+            "terms-and-conditions": "Terms and Conditions",
+            "disclaimers": "Disclaimers"
+        },
+        "help": {
+            "title": "Help",
+            "faq": "FAQ",
+            "support": "Support",
+            "contact-us": "Contact Us"
+        },
+        "team-name": "Uno Más • LATAM",
+        "copyright": "© {year} | All rights reserved."
     },
     "hero": {
-        "title": "Transform your life with Uno Más • LATAM",
+        "title": "Transform your lifestyle with Uno Más",
         "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
         "cta": "Explore the opportunity"
     },
@@ -34,5 +61,35 @@
         "accept": "Accept",
         "loading": "Loading...",
         "search": "Search..."
+    },
+    "features": {
+        "prospects": {
+            "title": "Prospect Management",
+            "description": "Organize and follow up with your contacts from a single platform."
+        },
+        "training": {
+            "title": "Ongoing Training",
+            "description": "Access exclusive resources for you and your team."
+        },
+        "tracking": {
+            "title": "Real-Time Tracking",
+            "description": "Visualize your progress and your team's with key indicators."
+        }
+    },
+    "testimonials": {
+        "title": "What our leaders say",
+        "ana": {
+            "name": "Ana G.",
+            "text": "This platform helped me double my income in 3 months. It’s my daily command center!"
+        },
+        "carlos": {
+            "name": "Carlos M.",
+            "text": "My team grew by 40% since we started using it. Everything is clearer and more accessible."
+        }
+    },
+    "cta": {
+        "title": "Ready to transform your business?",
+        "subtitle": "Register today and start leading with clarity.",
+        "button": "Get Started"
     }
 }

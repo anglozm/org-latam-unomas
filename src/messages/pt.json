@@ -2,20 +2,47 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Início",
-        "about": "Sobre",
+        "about": "Sobre Nós",
         "opportunity": "Oportunidade",
         "products": "Produtos",
         "testimonials": "Testemunhos",
-        "contact": "Entre em contato conosco"
+        "contact": "Fale conosco"
     },
     "footer": {
-        "copyright": "Uno Más • LATAM © {year}. Todos os direitos reservados.",
-        "privacy": "Privacidade",
-        "terms-and-conditions": "Termos e Condições",
-        "contact": "Entre em contato conosco"
+        "get-started": {
+            "title": "Comece Agora",
+            "sign-up": "Cadastre-se",
+            "login": "Entrar"
+        },
+        "discover": {
+            "title": "Descubra",
+            "academy": "Academia",
+            "nutrilite-traceability": "Rastreabilidade Nutrilite",
+            "artistry-traceability": "Rastreabilidade Artistry"
+        },
+        "company": {
+            "title": "Empresa",
+            "about-us": "Sobre Nós",
+            "team": "Equipe",
+            "partners": "Parceiros"
+        },
+        "legality": {
+            "title": "Legalidade",
+            "privacy-policy": "Política de Privacidade",
+            "terms-and-conditions": "Termos e Condições",
+            "disclaimers": "Avisos Legais"
+        },
+        "help": {
+            "title": "Ajuda",
+            "faq": "FAQ",
+            "support": "Suporte",
+            "contact-us": "Fale Conosco"
+        },
+        "team-name": "Uno Más • LATAM",
+        "copyright": "© {year} | Todos os direitos reservados."
     },
     "hero": {
-        "title": "Transforme sua vida com Uno Más • LATAM",
+        "title": "Transforme seu estilo de vida com Uno Más",
         "subtitle": "Aprenda, lidere e cresça dentro de uma comunidade que impulsiona o Marketing de Rede em toda a América Latina.",
         "cta": "Conheça a oportunidade"
     },
@@ -34,5 +61,35 @@
         "accept": "Aceitar",
         "loading": "Carregando...",
         "search": "Pesquisar..."
+    },
+    "features": {
+        "prospects": {
+            "title": "Gestão de Prospectos",
+            "description": "Organize e acompanhe seus contatos em um só lugar."
+        },
+        "training": {
+            "title": "Treinamento Contínuo",
+            "description": "Acesse recursos exclusivos para você e sua equipe."
+        },
+        "tracking": {
+            "title": "Acompanhamento em Tempo Real",
+            "description": "Visualize seu progresso e o da equipe com indicadores-chave."
+        }
+    },
+    "testimonials": {
+        "title": "O que dizem nossos líderes",
+        "ana": {
+            "name": "Ana G.",
+            "text": "Esta plataforma me ajudou a dobrar minha renda em 3 meses. É meu centro de comando diário!"
+        },
+        "carlos": {
+            "name": "Carlos M.",
+            "text": "Minha equipe cresceu 40% desde que começamos a usá-la. Tudo ficou mais claro e acessível."
+        }
+    },
+    "cta": {
+        "title": "Pronto para transformar seu negócio?",
+        "subtitle": "Cadastre-se hoje e comece a liderar com clareza.",
+        "button": "Começar agora"
     }
 }
