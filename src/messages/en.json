@@ -8,6 +8,11 @@
         "testimonials": "Testimonials",
         "contact": "Contact Us"
     },
+    "hero": {
+        "title": "Transform your lifestyle with Uno Más",
+        "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
+        "cta": "Explore the opportunity"
+    },
     "footer": {
         "get-started": {
             "title": "Get Started",
@@ -41,17 +46,18 @@
         "team-name": "Uno Más • LATAM",
         "copyright": "© {year} | All rights reserved."
     },
-    "hero": {
-        "title": "Transform your lifestyle with Uno Más",
-        "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
-        "cta": "Explore the opportunity"
-    },
     "auth": {
         "login": "Log in",
         "create-account": "Sign up",
         "full-name": "Full name",
         "e-mail": "E-mail",
         "password": "Password"
+    },
+    "faq": {
+        "title": "Frequently Asked Questions",
+        "accordion": {
+            "title": "Accordion"
+        }
     },
     "form": {
         "email": "Email address",

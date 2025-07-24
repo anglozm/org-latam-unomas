@@ -8,6 +8,11 @@
         "testimonials": "Testimonios",
         "contact": "Contáctanos"
     },
+    "hero": {
+        "title": "Transforma tu estilo de vida con Uno Más",
+        "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
+        "cta": "Conoce la oportunidad"
+    },
     "footer": {
         "get-started": {
             "title": "Comienza",
@@ -41,17 +46,18 @@
         "team-name": "Uno Más • LATAM",
         "copyright": "© {year} | Todos los derechos reservados."
     },
-    "hero": {
-        "title": "Transforma tu estilo de vida con Uno Más",
-        "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
-        "cta": "Conoce la oportunidad"
-    },
     "auth": {
         "login": "Iniciar sesión",
         "create-account": "Crear cuenta",
         "full-name": "Nombre y Apellido",
         "e-mail": "Correo electrónico",
         "password": "Contraseña"
+    },
+    "faq": {
+        "title": "Preguntas Frequentes",
+        "accordion": {
+            "title": "Acordeón"
+        }
     },
     "form": {
         "email": "Correo electrónico",
