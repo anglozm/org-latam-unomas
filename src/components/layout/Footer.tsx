@@ -20,8 +20,8 @@ export default function Footer() {
                     <div>
                         <h4 className='text-[var(--color-accent)] font-semibold mb-3'>{t('get-started.title')}</h4>
                         <ul className='space-y-2'>
-                            <li><Link href='/register' className='hover:underline'>{t('get-started.sign-up')}</Link></li>
-                            <li><Link href='/login' className='hover:underline'>{t('get-started.login')}</Link></li>
+                            <li><Link href='/auth' className='hover:underline'>{t('get-started.sign-up')}</Link></li>
+                            <li><Link href='/auth' className='hover:underline'>{t('get-started.login')}</Link></li>
                         </ul>
                     </div>
                     <div>

@@ -46,6 +46,13 @@
         "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
         "cta": "Explore the opportunity"
     },
+    "auth": {
+        "login": "Log in",
+        "create-account": "Sign up",
+        "full-name": "Full name",
+        "e-mail": "E-mail",
+        "password": "Password"
+    },
     "form": {
         "email": "Email address",
         "country": "Country",

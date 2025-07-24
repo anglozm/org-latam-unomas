@@ -28,10 +28,10 @@ export default function Container({
     return (
         <div
             className={ clsx(
-                'w-full px-4 md:px-6 lg:px-8 mx-auto',
+                className,
                 sizeMap[size],
-                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300',
-                className
+                'w-full px-4 md:px-6 lg:px-8 mx-auto',
+                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
             )}
         >
             {children}

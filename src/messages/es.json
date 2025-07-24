@@ -46,6 +46,13 @@
         "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
         "cta": "Conoce la oportunidad"
     },
+    "auth": {
+        "login": "Iniciar sesión",
+        "create-account": "Crear cuenta",
+        "full-name": "Nombre y Apellido",
+        "e-mail": "Correo electrónico",
+        "password": "Contraseña"
+    },
     "form": {
         "email": "Correo electrónico",
         "country": "País",

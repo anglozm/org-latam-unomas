@@ -46,6 +46,13 @@
         "subtitle": "Aprenda, lidere e cresça dentro de uma comunidade que impulsiona o Marketing de Rede em toda a América Latina.",
         "cta": "Conheça a oportunidade"
     },
+    "auth": {
+        "login": "Entrar",
+        "create-account": "Criar conta",
+        "full-name": "Nome completo",
+        "e-mail": "E-mail",
+        "password": "Senha"
+    },
     "form": {
         "email": "E-mail",
         "country": "País",
