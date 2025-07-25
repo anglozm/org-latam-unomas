@@ -20,9 +20,8 @@ export default function Navbar() {
     const navLinks = [
         { href: '/', label: t('home') },
         { href: '/about-us', label: t('about') },
-        { href: '/opportunity', label: t('opportunity') },
-        { href: '/products', label: t('products') },
-        { href: '/testimonials', label: t('testimonials') },
+        { href: '/training', label: t('training') },
+        { href: '/mentors', label: t('mentors') },
         { href: '/contact-us', label: t('contact') },
     ]
 
