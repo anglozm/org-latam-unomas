@@ -105,6 +105,7 @@ Reusable interface components to build accessible and interactive UIs:
 - `Card.tsx`
 - `CardEvent.tsx`
 - `FAQSection.tsx`
+- `VideoCarousel.tsx` – Carousel of embedded videos from YouTube.
 - `Dropdown.tsx`
 - `Accordion.tsx`
 - `AccordionItem.tsx`

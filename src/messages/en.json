@@ -3,10 +3,13 @@
         "logo": "Uno Más • LATAM",
         "home": "Home",
         "about": "About Us",
-        "opportunity": "Opportunity",
-        "products": "Products",
-        "testimonials": "Testimonials",
+        "training": "Training",
+        "mentors": "Mentors",
         "contact": "Contact Us"
+    },
+    "training": {
+        "leadership": "Leadership",
+        "nutrition": "Nutrition"
     },
     "hero": {
         "title": "Transform your lifestyle with Uno Más",

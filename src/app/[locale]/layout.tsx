@@ -31,11 +31,11 @@ export default async function RootLayout({
     params
 }: RootLayoutProps) {
     // Ensure that the incoming `locale` is valid
-    const { locale } = await params;
+    const { locale } = await params
     const messages = (await import(`@/messages/${locale}.json`)).default
 
     if (!hasLocale(routing.locales, locale)) {
-        notFound();
+        notFound()
     }
 
     return (
