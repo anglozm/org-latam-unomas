@@ -50,6 +50,7 @@ export default function Tabs({
                             aria-selected={isActive}
                             aria-controls={`panel-${index}`}
                             className={ clsx(
+                                'cursor-pointer',
                                 'px-4 py-2 text-sm font-medium focus:outline-none transition',
                                 isActive
                                     ? 'text-[var(--color-accent)] border-b-2 border-[var(--color-accent)]'

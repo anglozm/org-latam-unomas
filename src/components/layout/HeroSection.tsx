@@ -35,7 +35,7 @@ export default function HeroSection({
                     <p className='text-lg text-muted mb-6'>{t('subtitle')}</p>
                     <Button
                         onClick={() => router.push('/auth')}
-                        variant='primary'
+                        variant='success'
                         size='lg'
                     >
                         {t('cta')}

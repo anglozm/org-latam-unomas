@@ -42,8 +42,9 @@ export default function LocaleSwitcher() {
         <div className='relative'>
             <button
                 onClick={toggleDropdown}
-                className={clsx(
-                    'flex items-center gap-2 px-3 py-1 rounded-md text-sm border',
+                className={ clsx(
+                    'cursor-pointer hover:shadow focus:outline-none',
+                    'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
                     'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)]'
                 )}
             >
@@ -62,7 +63,10 @@ export default function LocaleSwitcher() {
                         <li key={code}>
                             <button
                                 onClick={() => changeLocale(code)}
-                                className='w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-hover-bg)]'
+                                className={ clsx(
+                                    'cursor-pointer',
+                                    'w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-hover-bg)]',
+                                )}
                             >
                                 {icon} {label}
                             </button>
