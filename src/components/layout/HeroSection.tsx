@@ -1,58 +1,92 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useTranslations } from 'next-intl'
 
 import Image from 'next/image'
-import Link from 'next/link'
 
 import Container from './Container'
 
 import clsx from 'clsx'
 
+import Button from '@/components/ui/Button'
+
 interface HeroSectionProps {
     className?: string
-    imageSrc?: string
-    imageAlt?: string
 }
 
 export default function HeroSection({
-    className,
-    imageSrc,
-    imageAlt
+    className
 }: HeroSectionProps) {
     const t = useTranslations('hero')
+    const router = useRouter()
 
     return (
-        <section className={ clsx(
-            className,
-            'w-full h-full py-20 px-4 text-center flex flex-col items-center justify-center',
-            'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
+        <section
+            className={ clsx(
+                className,
+                'w-full h-full py-20 px-4 text-center flex flex-col items-center justify-center',
+                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
             )}
         >
-            <Container className='flex flex-col-reverse lg:flex-row items-center justify-between gap-10'>
-                <div className='max-w-xl text-center lg:text-left'>
+            <Container className='flex flex-col lg:flex-row items-center justify-between gap-10 rounded-4xl'>
+                <div className='max-w-xl text-center lg:text-left md:py-48 lg:py-20'>
                     <h1 className='text-4xl font-extrabold mb-4'>{t('title')}</h1>
                     <p className='text-lg text-muted mb-6'>{t('subtitle')}</p>
-                    <Link
-                        href='/register'
-                        className='inline-block bg-primary text-[var(--color-fg)] font-semibold px-6 py-3 rounded-xl'
+                    <Button
+                        onClick={() => router.push('/auth')}
+                        variant='primary'
+                        size='lg'
                     >
                         {t('cta')}
-                    </Link>
+                    </Button>
                 </div>
 
-                { imageSrc && (
-                    <div className='w-full max-w-md mx-auto'>
-                        <Image
-                            src={imageSrc}
-                            alt={imageAlt || 'Hero Image'}
-                            width={1000}
-                            height={1000}
-                            className='w-full h-auto object-contain'
-                            priority
-                        />
-                    </div>
-                )}
+                <div className='relative w-full max-w-md h-[360px]'>
+                    <Image
+                        className={ clsx(
+                            'rounded-2xl shadow-xl absolute',
+                            'top-5 left-10 z-20',
+                            'translate-x-1 translate-y-1',
+                            'scale-100',
+                            'transition-transform duration-500'
+                        )}
+                        src='/img/artistry-skin_beautiful-model.jpg'
+                        alt='Image 1'
+                        width={200}
+                        height={200}
+                        style={{ transform: 'rotateX(20deg) rotateY(-5deg) rotateZ(-10deg)' }}
+                        priority
+                    />
+                    <Image
+                        className={ clsx(
+                            'rounded-2xl shadow-xl absolute',
+                            'top-4 left-52 z-10',
+                            'translate-x-2 translate-y-2',
+                            'scale-100',
+                            'transition-transform duration-500',
+                            'group-hover:transform-none'
+                        )}
+                        src='/img/reading_redhead-woman.jpg'
+                        alt='Image 2'
+                        width={200}
+                        height={200}
+                        style={{ transform: 'rotateX(10deg) rotateY(-25deg) rotateZ(15deg)' }}
+                    />
+                    <Image
+                        className={ clsx(
+                            'rounded-2xl shadow-xl absolute',
+                            'top-44 left-32 z-0',
+                            'scale-100 opacity-80',
+                            'transition-transform duration-500'
+                        )}
+                        src='/img/nutrilite_father-and-son_apple.jpg'
+                        alt='Image 3'
+                        width={200}
+                        height={200}
+                        style={{ transform: 'rotateX(50deg) rotateY(-5deg) rotateZ(20deg)' }}
+                    />
+                </div>
             </Container>
         </section>
     )
