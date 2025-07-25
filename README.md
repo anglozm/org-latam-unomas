@@ -127,4 +127,10 @@ Reusable interface components to build accessible and interactive UIs:
 
 ---
 
+## 🧩 Additional Notes
+
+We use `react-icons` (`FaInstagram`, `FaFacebookF`, `FaXTwitter`) as it is lightweight and efficient.
+
+---
+
 This document will be updated as new components are developed.

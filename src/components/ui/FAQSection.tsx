@@ -1,5 +1,7 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
+
 import Accordion from '@/components/ui/Accordion'
 
 type FAQItem = {
@@ -9,23 +11,24 @@ type FAQItem = {
 
 type FAQSectionProps = {
     faqItems: FAQItem[]
-    allowMultipleOpen: boolean
+    allowMultipleOpen?: boolean
 }
 
 export default function FAQSection({
     faqItems,
     allowMultipleOpen = false
 }: FAQSectionProps) {
+    const t = useTranslations('faq')
     const items = faqItems.map(({ question, answer }) => ({
         title: question,
-        content: answer,
+        content: answer
     }))
 
     return (
         <section className='bg-[var(--color-bg)] text-[var(--color-fg)]'>
             <div className='max-w-3xl mx-auto px-4 py-8'>
                 <h2 className='text-2xl font-bold mb-6 text-center'>
-                    Preguntas Frecuentes
+                    {t('title')}
                 </h2>
                 <Accordion items={items} allowMultipleOpen={allowMultipleOpen} />
             </div>
