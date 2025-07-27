@@ -109,6 +109,12 @@ Reusable interface components to build accessible and interactive UIs:
 - `Dropdown.tsx`
 - `Accordion.tsx`
 - `AccordionItem.tsx`
+- `ScrollBox.tsx` – Contenedor con scroll personalizado.
+    - Props:
+        - `direction`: `"y" | "x" | "both"` – dirección del scroll (por defecto `"y"`).
+        - `thin`: `boolean` – si se aplica el estilo `scrollbar-thin`.
+        - `className`: estilos adicionales.
+    - Scroll adaptado con colores de `--color-border`, `--color-accent`, y `--color-bg`.
 
 ---
 
