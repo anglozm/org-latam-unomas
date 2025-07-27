@@ -1,7 +1,5 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
-
 import { Video } from '@/types/video'
 
 import clsx from 'clsx'
