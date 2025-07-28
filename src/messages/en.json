@@ -5,7 +5,11 @@
         "about": "About Us",
         "training": "Training",
         "mentors": "Mentors",
-        "contact": "Contact Us"
+        "contact": "Contact Us",
+        "tooltip": {
+            "to-light-mode": "To light mode",
+            "to-dark-mode": "To dark mode"
+        }
     },
     "training": {
         "leadership": "Leadership",

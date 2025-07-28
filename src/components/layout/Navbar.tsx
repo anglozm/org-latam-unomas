@@ -41,7 +41,7 @@ export default function Navbar() {
                 <div className='flex items-center justify-center'>
                     {/* Mobile toggle button */}
                     <button
-                        className='md:hidden text-[var(--color-fg)]'
+                        className='order-1 md:hidden text-[var(--color-fg)] pl-4'
                         onClick={() => setIsOpen(!isOpen)}
                         aria-label='Toggle mobile menu'
                     >
@@ -49,7 +49,7 @@ export default function Navbar() {
                     </button>
 
                     {/* Desktop menu */}
-                    <ul className='hidden md:flex space-x-6 items-center'>
+                    <ul className='hidden md:flex space-x-6 items-center mr-6'>
                         {navLinks.map(({ href, label }) => (
                             <li key={href}>
                                 <Link
@@ -64,16 +64,16 @@ export default function Navbar() {
                                 </Link>
                             </li>
                         ))}
-
-                        {/* Theme toggle */}
-                        <div className='ml-6 pl-4 border-l border-[var(--color-border)]'>
-                            <ThemeToggle />
-                        </div>
                     </ul>
 
+                    {/* Theme toggle */}
+                    <div className='pl-4 md:border-l border-[var(--color-border)]'>
+                        <ThemeToggle />
+                    </div>
+
                     {/* Locale switcher at the end */}
-                    <ul className='hidden md:flex space-x-6 items-center'>
-                        <li className='ml-4'>
+                    <ul className='pl-4 md:flex space-x-6 items-center'>
+                        <li>
                             <LocaleSwitcher />
                         </li>
                     </ul>

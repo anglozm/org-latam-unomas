@@ -1,6 +1,7 @@
 'use client'
 
 import { useTheme } from '@/hooks/useTheme'
+import { useTranslations } from 'next-intl'
 
 import { Moon, Sun } from 'lucide-react'
 
@@ -21,6 +22,7 @@ export default function ThemeToggle({
     size = 'md',
     withTooltip = true
 }: ThemeToggleProps) {
+    const t = useTranslations('navbar')
     const { theme, toggleTheme } = useTheme()
     const isDark = theme === 'dark'
 
@@ -36,7 +38,7 @@ export default function ThemeToggle({
             onClick={toggleTheme}
             aria-label='Toggle theme'
             aria-pressed={isDark}
-            title={withTooltip ? (isDark ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro') : undefined}
+            title={withTooltip ? (isDark ? t('tooltip.to-light-mode') : t('tooltip.to-dark-mode')) : undefined}
         >
             <span className='sr-only'>Toggle theme</span>
 

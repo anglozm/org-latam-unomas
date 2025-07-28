@@ -8,15 +8,23 @@ import { useTranslations } from 'next-intl'
 
 import { links } from '@/external/links'
 
+import clsx from 'clsx'
+
 export default function Footer() {
     const t = useTranslations('footer')
     const year = new Date().getFullYear()
 
     return (
-        <footer className='bg-[var(--color-bg)] text-[var(--color-fg)] border-t border-[var(--color-border)] mt-12 transition-colors duration-300'>
+        <footer className={ clsx(
+            'mt-10 px-5 py-5 transition-colors duration-300',
+            'bg-[var(--color-bg)] text-[var(--color-fg)] border-t border-[var(--color-border)]'
+        )}>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
                 {/* Grid Links */}
-                <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm mb-12'>
+                <div className={ clsx(
+                    'text-center md:text-start',
+                    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm mb-12'
+                )}>
                     <div>
                         <h4 className='text-[var(--color-accent)] font-semibold mb-3'>{t('get-started.title')}</h4>
                         <ul className='space-y-2'>

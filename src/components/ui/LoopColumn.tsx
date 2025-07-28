@@ -51,7 +51,7 @@ export default function LoopColumn({
         : ((index-(logos.length)) * SLOT_HEIGHT)
 
     return (
-        <div className='h-[100px] w-[100px] overflow-hidden border-[var(--color-border)] rounded-md'>
+        <div className='h-[100px] w-[150px] overflow-hidden border-[var(--color-border)] rounded-md'>
             <div
                 className={ clsx(
                     'flex flex-col items-center',

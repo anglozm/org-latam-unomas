@@ -9,6 +9,7 @@ import { Metadata } from 'next'
 import { ReactNode } from 'react'
 
 import { notFound } from 'next/navigation'
+
 import { routing } from '@/i18n/routing'
 
 import Navbar from '@/components/layout/Navbar'
@@ -18,7 +19,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'Uno Más • LATAM',
-    description: 'Red de Network Marketing para líderes LATAM.'
+    description: 'Amway LATAM team'
 }
 
 interface RootLayoutProps {

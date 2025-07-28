@@ -5,7 +5,11 @@
         "about": "Acerca de",
         "training": "Entrenamientos",
         "mentors": "Mentores",
-        "contact": "Contáctanos"
+        "contact": "Contáctanos",
+        "tooltip": {
+            "to-light-mode": "Cambiar a modo claro",
+            "to-dark-mode": "Cambiar a modo oscuro"
+        }
     },
     "training": {
         "leadership": "Liderazgo",

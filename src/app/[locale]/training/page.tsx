@@ -49,7 +49,7 @@ export default function TrainingPage() {
 
     return (
         <div>
-            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🎥' segmentTitle={t('leadership')} />
+            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🧠' segmentTitle={t('leadership')} />
             <VideoCarousel videos={NUTRITION_VIDEOS} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
         </div>
     )
