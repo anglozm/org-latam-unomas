@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Container from './Container'
 
 import Button from '@/components/ui/Button'
+import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
 
@@ -88,6 +89,8 @@ export default function HeroSection({
                     />
                 </div>
             </Container>
+
+            <SlotMachine />
         </section>
     )
 }
