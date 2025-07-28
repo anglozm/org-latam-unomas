@@ -2,9 +2,11 @@
 
 import React from 'react'
 
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
+
+import Tooltip from '@/components/ui/Tooltip'
 
 import clsx from 'clsx'
 
@@ -14,7 +16,14 @@ const locales = [
     { code: 'pt', label: 'Português', icon: '🇧🇷' },
 ]
 
-export default function LocaleSwitcher() {
+interface LocaleSwitcherProps {
+    withTooltip?: boolean
+}
+
+export default function LocaleSwitcher({
+    withTooltip = true
+}: LocaleSwitcherProps) {
+    const t = useTranslations('navbar')
     const [ open, setOpen ] = useState(false)
     const currentLocale = useLocale()
     const pathname = usePathname()
@@ -40,17 +49,19 @@ export default function LocaleSwitcher() {
 
     return (
         <div className='relative'>
-            <button
-                onClick={toggleDropdown}
-                className={ clsx(
-                    'cursor-pointer hover:shadow focus:outline-none',
-                    'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
-                    'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)]'
-                )}
-            >
-                <span>{current?.icon}</span>
-                <span>{current?.label}</span>
-            </button>
+            <Tooltip content={withTooltip ? t('tooltip.to-change-lang') : ''}>
+                <button
+                    onClick={toggleDropdown}
+                    className={ clsx(
+                        'cursor-pointer hover:shadow focus:outline-none',
+                        'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
+                        'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)]'
+                    )}
+                >
+                    <span>{current?.icon}</span>
+                    <span>{current?.label}</span>
+                </button>
+            </Tooltip>
 
             { open && (
                 <ul

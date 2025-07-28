@@ -8,7 +8,8 @@
         "contact": "Contact Us",
         "tooltip": {
             "to-light-mode": "To light mode",
-            "to-dark-mode": "To dark mode"
+            "to-dark-mode": "To dark mode",
+            "to-change-lang": "Change language"
         }
     },
     "training": {
