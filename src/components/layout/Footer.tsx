@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 
-import { FaYoutube } from 'react-icons/fa6'
+import { FaInstagram, FaYoutube } from 'react-icons/fa6'
 
 import { useTranslations } from 'next-intl'
 
@@ -73,6 +73,9 @@ export default function Footer() {
                     </div>
 
                     <div className='flex items-center space-x-5 text-3xl'>
+                        <Link href='https://instagram.com/unomaslatam' target='_blank' aria-label='Instagram' className='hover:text-rose-600'>
+                            <FaInstagram />
+                        </Link>
                         <Link href='https://youtube.com/@unomaslatam' target='_blank' aria-label='Youtube' className='hover:text-red-600'>
                             <FaYoutube />
                         </Link>

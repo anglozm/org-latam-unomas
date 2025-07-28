@@ -6,8 +6,9 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { useTranslations } from 'next-intl'
 
-import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
+import Image from 'next/image'
 import Link from 'next/link'
+import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
 import clsx from 'clsx'
@@ -35,7 +36,13 @@ export default function Navbar() {
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
                 {/* Logo */}
                 <Link href='/' className='text-xl font-bold text-[var(--color-accent)]'>
-                    {t('logo')}
+                    <Image
+                        className='rounded-full'
+                        src='/logo/uno-mas_colored-chambray-titan-white.png'
+                        alt='Uno Más logo'
+                        width={50}
+                        height={50}
+                    />
                 </Link>
 
                 <div className='flex items-center justify-center'>
@@ -50,7 +57,7 @@ export default function Navbar() {
 
                     {/* Desktop menu */}
                     <ul className='hidden md:flex space-x-6 items-center mr-6'>
-                        {navLinks.map(({ href, label }) => (
+                        { navLinks.map(({ href, label }) => (
                             <li key={href}>
                                 <Link
                                     href={href}
@@ -81,10 +88,10 @@ export default function Navbar() {
             </nav>
 
             {/* Mobile menu */}
-            {isOpen && (
-                <div className='md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] px-4 pb-4'>
+            { isOpen && (
+                <div className='md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] px-4 py-4'>
                     <ul className='space-y-2'>
-                        {navLinks.map(({ href, label }) => (
+                        { navLinks.map(({ href, label }) => (
                             <li key={href}>
                                 <Link
                                     href={href}

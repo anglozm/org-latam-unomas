@@ -5,7 +5,8 @@ import { useTranslations } from 'next-intl'
 import LoopColumn from './LoopColumn'
 
 import { LogoItem } from '@/types/LogoItem'
-import clsx from "clsx";
+
+import clsx from 'clsx'
 
 const LOGO_ITEMS_C0: LogoItem[] = [
     {
@@ -68,8 +69,8 @@ export default function SlotMachine() {
 
     return (
         <div className={ clsx(
-            'max-w-screen-xl w-full bg-[var(--color-bg)] mt-4 py-10 border-t border-[var(--color-border)]',
-            'rounded-b-4xl'
+            'max-w-screen-xl w-full bg-[var(--color-bg)] mt-2 py-10 border-[var(--color-border)]',
+            'rounded-4xl'
         )}>
             <div className='px-5 py-5'>
                 <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] mb-10'>
