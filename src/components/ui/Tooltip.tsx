@@ -1,44 +1,40 @@
 'use client'
 
-import { ReactNode, useEffect, useRef, useState } from 'react'
+import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+
+import { ReactNode } from 'react'
 
 interface TooltipProps {
-    text: string
+    content: string
     children: ReactNode
+    side?: 'top' | 'right' | 'bottom' | 'left'
+    align?: 'start' | 'center' | 'end'
 }
 
-export default function Tooltip({ text, children }: TooltipProps) {
-    const [ visible, setVisible ] = useState(false)
-    const [ hydrated, setHydrated ] = useState(false)
-    const id = useRef(`tooltip-${Math.random().toString(36).substring(2, 9)}`)
-
-    useEffect(() => {
-        setHydrated(true)
-    }, [])
-
-    if (!hydrated) return <>{children}</>
-
+export default function Tooltip({
+    content,
+    children,
+    side = 'top',
+    align = 'center'
+}: TooltipProps) {
     return (
-        <div
-            className='relative inline-block'
-            onMouseEnter={() => setVisible(true)}
-            onMouseLeave={() => setVisible(false)}
-            onFocus={() => setVisible(true)}
-            onBlur={() => setVisible(false)}
-        >
-            <span aria-describedby={id.current} className='focus:outline-none'>
-                {children}
-            </span>
-
-            {visible && (
-                <div
-                    id={id.current}
-                    role='tooltip'
-                    className='absolute bottom-full mb-2 left-1/2 -translate-x-1/2 bg-gray-800 text-white text-xs px-3 py-1 rounded shadow-md whitespace-nowrap z-50'
-                >
-                    {text}
-                </div>
-            )}
-        </div>
+        <TooltipPrimitive.Provider delayDuration={300}>
+            <TooltipPrimitive.Root>
+                <TooltipPrimitive.Trigger asChild>
+                    {children}
+                </TooltipPrimitive.Trigger>
+                <TooltipPrimitive.Portal>
+                    <TooltipPrimitive.Content
+                        side={side}
+                        align={align}
+                        sideOffset={8}
+                        className='z-50 px-3 py-1.5 text-sm text-[var(--color-fg)] bg-[var(--color-bg)] border border-[var(--color-border)] rounded-lg shadow-md animate-fade-in'
+                    >
+                        {content}
+                        <TooltipPrimitive.Arrow className='fill-[var(--color-border)]' />
+                    </TooltipPrimitive.Content>
+                </TooltipPrimitive.Portal>
+            </TooltipPrimitive.Root>
+        </TooltipPrimitive.Provider>
     )
 }

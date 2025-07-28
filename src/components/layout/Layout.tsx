@@ -9,8 +9,8 @@ import Footer from '@/components/layout/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    title: 'Mi Red de Negocios',
-    description: 'Plataforma para network marketers',
+    title: 'Uno Más • LATAM',
+    description: 'Amway LATAM team',
 }
 
 export default function RootLayout({
