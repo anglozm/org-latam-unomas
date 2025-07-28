@@ -1,17 +1,22 @@
 import type { Config } from 'tailwindcss'
+import plugin from 'tailwind-scrollbar'
 
 const config: Config = {
-    content: ['./src/**/*.{ts,tsx}'],
-    darkMode: 'class',                      // <--- IMPORTANTE FOR TOGGLE TO DARK MODE
+    content: [
+        './src/**/*.{ts,tsx}',
+        './app/**/*.{ts,tsx}',
+        './components/**/*.{ts,tsx}',
+    ],
+    darkMode: 'class',  // ← IMPORTANT FOR TOGGLE TO DARK MODE
     theme: {
         extend: {
             colors: {
-                primary: '#2563EB',         // Azul
-                secondary: '#F3F4F6',       // Gris claro
-                destructive: '#DC2626',     // Rojo
-                success: '#16A34A',         // Verde
-                warning: '#D97706',         // Naranja
-                accent: '#7C3AED',          // Morado
+                primary: '#2563EB',         // Blue
+                secondary: '#F3F4F6',       // Light gray
+                destructive: '#DC2626',     // Red
+                success: '#16A34A',         // Green
+                warning: '#D97706',         // Orange
+                accent: '#7C3AED',          // Purple
             },
             fontFamily: {
                 sans: ['Inter', 'ui-sans-serif', 'system-ui'],
@@ -41,7 +46,9 @@ const config: Config = {
             },
         },
     },
-    plugins: [],
+    plugins: [
+        plugin({ nocompatible: true })  // ← To use modern variants
+    ],
 }
 
 export default config
