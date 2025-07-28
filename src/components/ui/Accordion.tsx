@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+
 import AccordionItem from './AccordionItem'
 
 type AccordionItemData = {
@@ -31,7 +32,7 @@ export default function Accordion({
 
     return (
         <div className='space-y-4 rounded-md border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] p-4'>
-            {items.map((item, index) => (
+            { items.map((item, index) => (
                 <AccordionItem
                     key={index}
                     title={item.title}

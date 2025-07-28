@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode, useState } from 'react'
+
 import clsx from 'clsx'
 
 interface Tab {
@@ -9,27 +10,38 @@ interface Tab {
 }
 
 interface TabsProps {
+    className?: string
+    classNameTabHeaders?: string
+    classNameTabPanel?: string
     tabs: Tab[]
     initialIndex?: number
-    className?: string
 }
 
 export default function Tabs({
+    className,
+    classNameTabHeaders,
+    classNameTabPanel,
     tabs,
-    initialIndex = 0,
-    className
+    initialIndex = 0
 }: TabsProps) {
-    const [activeIndex, setActiveIndex] = useState(initialIndex)
+    const [ activeIndex, setActiveIndex ] = useState(initialIndex)
 
     return (
-        <div className={clsx('w-full text-[var(--color-fg)]', className)}>
+        <div className={ clsx(
+            className,
+            'w-full text-[var(--color-fg)]'
+        )}>
             {/* Tab Headers */}
             <div
+                className={ clsx(
+                    classNameTabHeaders,
+                    'flex border-b border-[var(--color-border)] mb-4'
+                )}
                 role='tablist'
-                className='flex border-b border-[var(--color-border)] mb-4'
             >
-                {tabs.map((tab, index) => {
+                { tabs.map((tab, index) => {
                     const isActive = activeIndex === index
+
                     return (
                         <button
                             key={index}
@@ -37,7 +49,8 @@ export default function Tabs({
                             role='tab'
                             aria-selected={isActive}
                             aria-controls={`panel-${index}`}
-                            className={clsx(
+                            className={ clsx(
+                                'cursor-pointer',
                                 'px-4 py-2 text-sm font-medium focus:outline-none transition',
                                 isActive
                                     ? 'text-[var(--color-accent)] border-b-2 border-[var(--color-accent)]'
@@ -53,10 +66,13 @@ export default function Tabs({
 
             {/* Tab Panel */}
             <div
+                className={ clsx(
+                    classNameTabPanel,
+                    'text-sm text-[var(--color-muted-fg)]'
+                )}
                 id={`panel-${activeIndex}`}
                 role='tabpanel'
                 aria-labelledby={`tab-${activeIndex}`}
-                className='text-sm text-[var(--color-muted-fg)]'
             >
                 {tabs[activeIndex]?.content}
             </div>

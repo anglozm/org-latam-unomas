@@ -65,49 +65,58 @@ Reusable interface components to build accessible and interactive UIs:
 
 #### 🔘 Buttons & Toggles
 - `Button.tsx`
-- `LinkButton.tsx`
-- `IconButton.tsx`
 - `ButtonGroup.tsx`
-- `Toggle.tsx`
+- `IconButton.tsx`
+- `LinkButton.tsx`
 - `ThemeToggle.tsx`
+- `Toggle.tsx`
 
 #### 📝 Forms & Inputs
-- `Input.tsx`
-- `Textarea.tsx`
 - `Checkbox.tsx`
+- `Input.tsx`
 - `Radio.tsx`
-- `Select.tsx`
 - `SearchBar.tsx`
+- `Select.tsx`
+- `Textarea.tsx`
 
 #### 🧭 Navigation & i18n
 - `LocaleSwitcher.tsx`
-- `Tabs.tsx`
 - `Stepper.tsx`
 - `StepperStep.tsx`
+- `Tabs.tsx`
 
 #### 💬 UI Feedback / Interaction
 - `AlertDialog.tsx`
+- `LoadingSpinner.tsx`
 - `Modal.tsx`
 - `Notification.tsx`
-- `Toast.tsx`
 - `Popover.tsx`
-- `Tooltip.tsx`
-- `LoadingSpinner.tsx`
 - `Skeleton.tsx`
+- `Toast.tsx`
+- `Tooltip.tsx`
 
 #### 📈 Metrics & Visual Display
+- `Avatar.tsx`
+- `Badge.tsx`
 - `KPIBox.tsx`
 - `ProgressBar.tsx`
-- `Badge.tsx`
-- `Avatar.tsx`
 
 #### 🧩 Page-Level Components
-- `Card.tsx`
-- `CardEvent.tsx`
-- `FAQSection.tsx`
-- `Dropdown.tsx`
 - `Accordion.tsx`
 - `AccordionItem.tsx`
+- `Card.tsx`
+- `CardEvent.tsx`
+- `Dropdown.tsx`
+- `FAQSection.tsx`
+- `VideoCarousel.tsx` – Carousel of embedded videos from YouTube.
+- `ScrollBox.tsx` – Contenedor con scroll personalizado.
+      - Props:
+        - `direction`: `"y" | "x" | "both"` – dirección del scroll (por defecto `"y"`).
+        - `thin`: `boolean` – si se aplica el estilo `scrollbar-thin`.
+        - `className`: estilos adicionales.
+    - Scroll adaptado con colores de `--color-border`, `--color-accent`, y `--color-bg`.
+- `LoopColumn`
+- `SlotMachine`
 
 ---
 
@@ -124,6 +133,12 @@ Reusable interface components to build accessible and interactive UIs:
 - Hydration control **only when necessary**
 - Modular file structure inside `src/components/`
 - Logical grouping by folders: `layout/`, `ui/`, etc.
+
+---
+
+## 🧩 Additional Notes
+
+We use `react-icons` (`FaInstagram`, `FaYoutube`) as it is lightweight and efficient.
 
 ---
 

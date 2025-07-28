@@ -1,6 +1,7 @@
 'use client'
 
 import React, { ReactNode } from 'react'
+
 import clsx from 'clsx'
 
 type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive' | 'warning' | 'success'
@@ -50,11 +51,12 @@ export default function Button({
     return (
         <button
             type='button'
-            className={clsx(
+            className={ clsx(
+                className,
+                'cursor-pointer',
                 baseStyle,
                 variantStyle[variant],
-                sizeStyle[size],
-                className
+                sizeStyle[size]
             )}
             disabled={disabled || isLoading}
             {...props}

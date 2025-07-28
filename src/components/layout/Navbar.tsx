@@ -10,6 +10,8 @@ import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import Link from 'next/link'
 import ThemeToggle from '@/components/ui/ThemeToggle'
 
+import clsx from 'clsx'
+
 export default function Navbar() {
     const t = useTranslations('navbar')
     const [ isOpen, setIsOpen ] = useState(false)
@@ -18,16 +20,18 @@ export default function Navbar() {
     const navLinks = [
         { href: '/', label: t('home') },
         { href: '/about-us', label: t('about') },
-        { href: '/opportunity', label: t('opportunity') },
-        { href: '/products', label: t('products') },
-        { href: '/testimonials', label: t('testimonials') },
+        { href: '/training', label: t('training') },
+        { href: '/mentors', label: t('mentors') },
         { href: '/contact-us', label: t('contact') },
     ]
 
     return (
-        <header className='fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-300 bg-[var(--color-bg)]
-            border-b border-[var(--color-border)] text-[var(--color-fg)]'>
-
+        <header
+            className={ clsx(
+                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-300 bg-[var(--color-bg)]',
+                'border-b border-[var(--color-border)] text-[var(--color-fg)]'
+            )}
+        >
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
                 {/* Logo */}
                 <Link href='/' className='text-xl font-bold text-[var(--color-accent)]'>
