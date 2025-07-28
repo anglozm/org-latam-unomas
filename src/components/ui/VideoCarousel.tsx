@@ -1,6 +1,6 @@
 'use client'
 
-import { Video } from '@/types/video'
+import { Video } from '@/types/Video'
 
 import clsx from 'clsx'
 

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
+import { LogoItem } from '@/types/LogoItem'
+
 import clsx from 'clsx'
 
 const TRANSITION_INTERVAL = 5000
@@ -12,7 +14,7 @@ const SLOT_HEIGHT = 100
 
 interface SlotColumnProps {
     direction?: 'up' | 'down'
-    logos: string[]
+    logos: LogoItem[]
 }
 
 export default function LoopColumn({
@@ -59,18 +61,30 @@ export default function LoopColumn({
                     transform: `translateY(${offset}px)`
                 }}
             >
-                { extended.map((src, i) => (
+                { extended.map((logo, i) => (
                     <div
                         key={i}
                         className='h-[100px] flex items-center justify-center w-full'
                     >
-                        <Image
-                            src={src}
-                            alt={`Logo ${i}`}
-                            width={100}
-                            height={100}
-                            className='object-contain max-h-[80px]'
-                        />
+                        { logo.href ? (
+                            <a href={logo.href} target='_blank' rel='noopener noreferrer'>
+                                <Image
+                                    src={logo.src}
+                                    alt={logo.alt ?? `Logo ${i}`}
+                                    width={100}
+                                    height={100}
+                                    className='object-contain max-h-[80px]'
+                                />
+                            </a>
+                        ) : (
+                            <Image
+                                src={logo.src}
+                                alt={logo.alt ?? `Logo ${i}`}
+                                width={100}
+                                height={100}
+                                className='object-contain max-h-[80px]'
+                            />
+                        )}
                     </div>
                 ))}
             </div>

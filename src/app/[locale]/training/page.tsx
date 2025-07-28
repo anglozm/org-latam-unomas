@@ -4,9 +4,9 @@ import { useTranslations } from 'next-intl'
 
 import VideoCarousel from '@/components/ui/VideoCarousel'
 
-import { Video } from '@/types/video'
+import { Video } from '@/types/Video'
 
-const leadershipVideos: Video[] = [
+const LEADERSHIP_VIDEOS: Video[] = [
     {
         youtubeId: 'Q0QeGOMLk1M',
         title: 'Liderazgo en el embarazo | Especial día de las madres',
@@ -25,7 +25,7 @@ const leadershipVideos: Video[] = [
     },
 ]
 
-const nutritionVideos: Video[] = [
+const NUTRITION_VIDEOS: Video[] = [
     {
         youtubeId: '0VE0FEur5sQ',
         title: 'Conociendo Nutrilite',
@@ -49,8 +49,8 @@ export default function TrainingPage() {
 
     return (
         <div>
-            <VideoCarousel videos={leadershipVideos} segmentEmoji='🎥' segmentTitle={t('leadership')} />
-            <VideoCarousel videos={nutritionVideos} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
+            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🎥' segmentTitle={t('leadership')} />
+            <VideoCarousel videos={NUTRITION_VIDEOS} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
         </div>
     )
 }

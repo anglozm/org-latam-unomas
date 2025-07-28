@@ -4,14 +4,42 @@ import { useTranslations } from 'next-intl'
 
 import LoopColumn from './LoopColumn'
 
-const LOGOS_C1 = [
-    '/logo/anglozm.png',
-    '/logo/p&s-solutions.png',
+import { LogoItem } from '@/types/LogoItem'
+
+const LOGO_ITEMS_C0: LogoItem[] = [
+    {
+        src: 'https://www.amway.com.ve/files/resources/img/amway-logo-black.svg',
+        alt: 'Logo de Amway',
+        href: 'https://latinamway.com'
+    }, {
+        src: '/logo/nutrilite.png',
+        alt: 'Logo de Nutrilite',
+        href: 'https://nutrilitetraceability.lat'
+    },
 ]
 
-const LOGOS_C2 = [
-    '/logo/p&s-solutions.png',
-    '/logo/anglozm.png',
+const LOGO_ITEMS_C1: LogoItem[] = [
+    {
+        src: '/logo/anglozm.png',
+        alt: 'Logo de anglozm',
+        href: 'https://instagram.com/anglozm'
+    }, {
+        src: '/logo/p&s-solutions.png',
+        alt: 'Logo de PS Solutions',
+        href: 'https://instagram.com/pssolutions.pty'
+    },
+]
+
+const LOGO_ITEMS_C2: LogoItem[] = [
+    {
+        src: '/logo/p&s-solutions.png',
+        alt: 'Logo de PS Solutions',
+        href: 'https://instagram.com/pssolutions.pty'
+    }, {
+        src: '/logo/anglozm.png',
+        alt: 'Logo de anglozm',
+        href: 'https://instagram.com/anglozm'
+    },
 ]
 
 export default function SlotMachine() {
@@ -24,10 +52,10 @@ export default function SlotMachine() {
                     {t('sponsors-partners')}
                 </h2>
                 <div className='grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center'>
-                    <LoopColumn logos={LOGOS_C1} />
-                    <LoopColumn direction='down' logos={LOGOS_C2} />
-                    <LoopColumn logos={LOGOS_C1} />
-                    <LoopColumn direction='down' logos={LOGOS_C2} />
+                    <LoopColumn logos={LOGO_ITEMS_C0} />
+                    <LoopColumn direction='down' logos={LOGO_ITEMS_C1} />
+                    <LoopColumn logos={LOGO_ITEMS_C2} />
+                    <LoopColumn direction='down' logos={LOGO_ITEMS_C1} />
                 </div>
             </div>
         </div>
