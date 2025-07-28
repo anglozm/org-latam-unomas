@@ -8,8 +8,11 @@ import { useTranslations } from 'next-intl'
 
 import Image from 'next/image'
 import Link from 'next/link'
+
+import Divider from '@/components/ui/Divider'
 import LocaleSwitcher from '@/components/ui/LocaleSwitcher'
 import ThemeToggle from '@/components/ui/ThemeToggle'
+import Tooltip from '@/components/ui/Tooltip'
 
 import clsx from 'clsx'
 
@@ -47,16 +50,21 @@ export default function Navbar() {
 
                 <div className='flex items-center justify-center'>
                     {/* Mobile toggle button */}
-                    <button
-                        className='order-1 md:hidden text-[var(--color-fg)] pl-4'
-                        onClick={() => setIsOpen(!isOpen)}
-                        aria-label='Toggle mobile menu'
-                    >
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    <Tooltip content={isOpen ? t('tooltip.close-menu') : t('tooltip.open-menu')}>
+                        <button
+                            className={ clsx(
+                                'order-1 md:hidden text-[var(--color-fg)] pl-4 cursor-pointer',
+                                isOpen ? 'hover:text-red-600' : 'hover:text-[var(--color-accent)]'
+                            )}
+                            onClick={() => setIsOpen(!isOpen)}
+                            aria-label='Toggle mobile menu'
+                        >
+                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </Tooltip>
 
                     {/* Desktop menu */}
-                    <ul className='hidden md:flex space-x-6 items-center mr-6'>
+                    <ul className='hidden md:flex space-x-6 items-center'>
                         { navLinks.map(({ href, label }) => (
                             <li key={href}>
                                 <Link
@@ -73,8 +81,10 @@ export default function Navbar() {
                         ))}
                     </ul>
 
+                    <Divider className='hidden md:flex' orientation='vertical' spacing='mx-4' />
+
                     {/* Theme toggle */}
-                    <div className='pl-4 md:border-l border-[var(--color-border)]'>
+                    <div>
                         <ThemeToggle />
                     </div>
 

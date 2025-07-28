@@ -9,7 +9,9 @@
         "tooltip": {
             "to-light-mode": "Mudar para o modo claro",
             "to-dark-mode": "Mudar para o modo escuro",
-            "to-change-lang": "Alterar idioma"
+            "to-change-lang": "Mudar idioma",
+            "open-menu": "Abrir menu",
+            "close-menu": "Fechar menu"
         }
     },
     "training": {

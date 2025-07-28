@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Container from './Container'
 
 import Button from '@/components/ui/Button'
+import Divider from '@/components/ui/Divider'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
@@ -89,7 +90,7 @@ export default function HeroSection({
                     />
                 </div>
             </Container>
-            <div className='w-full border-t border-[var(--color-border)]' />
+            <Divider />
             <SlotMachine />
         </section>
     )
