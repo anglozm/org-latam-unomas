@@ -43,9 +43,8 @@ export default function Footer() {
                     <div>
                         <h4 className='text-[var(--color-accent)] font-semibold mb-3'>{t('company.title')}</h4>
                         <ul className='space-y-2'>
-                            <li><Link href='/about' className='hover:underline'>{t('company.about-us')}</Link></li>
+                            <li><Link href='/about-us' className='hover:underline'>{t('company.about-us')}</Link></li>
                             <li><Link href='/team' className='hover:underline'>{t('company.team')}</Link></li>
-                            <li><Link href='/partners' className='hover:underline'>{t('company.partners')}</Link></li>
                         </ul>
                     </div>
                     <div>
@@ -60,7 +59,6 @@ export default function Footer() {
                         <h4 className='text-[var(--color-accent)] font-semibold mb-3'>{t('help.title')}</h4>
                         <ul className='space-y-2'>
                             <li><Link href='/faq' className='hover:underline'>{t('help.faq')}</Link></li>
-                            <li><Link href='/support' className='hover:underline'>{t('help.support')}</Link></li>
                             <li><Link href='/contact-us' className='hover:underline'>{t('help.contact-us')}</Link></li>
                         </ul>
                     </div>

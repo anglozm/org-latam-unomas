@@ -1,8 +1,10 @@
 'use client'
 
 import { ReactNode } from 'react'
-import clsx from 'clsx'
+
 import Container from './Container'
+
+import clsx from 'clsx'
 
 interface SectionProps {
     id?: string
@@ -33,7 +35,7 @@ export default function Section({
     className,
     bgColor = 'none',
     padding = 'md',
-    size = 'xl',
+    size = 'xl'
 }: SectionProps) {
     return (
         <section

@@ -18,6 +18,14 @@
         "leadership": "Leadership",
         "nutrition": "Nutrition"
     },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Do you have any questions or proposals? We're paying attention.",
+        "name": "Name",
+        "email": "e-mail",
+        "message": "Message",
+        "submit": "Send Message"
+    },
     "hero": {
         "title": "Transform your lifestyle with Uno Más",
         "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
@@ -39,8 +47,7 @@
         "company": {
             "title": "Company",
             "about-us": "About Us",
-            "team": "Team",
-            "partners": "Partners"
+            "team": "Team"
         },
         "legality": {
             "title": "Legality",
@@ -51,7 +58,6 @@
         "help": {
             "title": "Help",
             "faq": "FAQ",
-            "support": "Support",
             "contact-us": "Contact Us"
         },
         "team-name": "Uno Más • LATAM",
@@ -61,7 +67,7 @@
         "login": "Log in",
         "create-account": "Sign up",
         "full-name": "Full name",
-        "e-mail": "E-mail",
+        "email": "User",
         "password": "Password"
     },
     "faq": {
@@ -71,12 +77,18 @@
         }
     },
     "form": {
-        "email": "Email address",
+        "email": "e-mail address",
         "country": "Country",
         "message": "Message",
         "submit": "Submit",
         "error_required": "This field is required",
-        "select_placeholder": "Select an option"
+        "select_placeholder": "Select an option",
+        "placeholders": {
+            "full-name": "John Doe",
+            "email": "john.doe@example.com",
+            "password": "str0ngP4s$w0rd",
+            "type-us": "Type us..."
+        }
     },
     "common": {
         "yes": "Yes",

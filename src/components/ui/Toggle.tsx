@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import clsx from 'clsx'
 
 type ToggleSize = 'sm' | 'md' | 'lg'
@@ -18,9 +19,9 @@ export default function Toggle({
     onChange,
     disabled,
     label,
-    size = 'md',
+    size = 'md'
 }: ToggleProps) {
-    const [internalChecked, setInternalChecked] = useState<boolean | null>(null)
+    const [ internalChecked, setInternalChecked ] = useState<boolean | null>(null)
     const isControlled = typeof checked === 'boolean'
     const value = isControlled ? checked : internalChecked ?? false
 
@@ -53,8 +54,9 @@ export default function Toggle({
                 aria-checked={value}
                 disabled={disabled}
                 onClick={toggle}
-                className={clsx(
-                    'relative inline-flex flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors focus:outline-none focus:ring-2',
+                className={ clsx(
+                    'relative inline-flex flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent',
+                    'transition-colors focus:outline-none focus:ring-2',
                     value
                         ? 'bg-[var(--color-accent)]'
                         : 'bg-[var(--color-border)]',

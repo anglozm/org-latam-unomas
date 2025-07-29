@@ -2,18 +2,21 @@
 
 import { useTranslations } from 'next-intl'
 
+import { AtSign, KeyRound, User } from 'lucide-react'
+
 import Button from '@/components/ui/Button'
 import Container from '@/components/layout/Container'
+import Input from '@/components/ui/Input'
+import Section from '@/components/layout/Section'
 import Tabs from '@/components/ui/Tabs'
-
-import clsx from 'clsx'
 
 export default function AuthPage() {
     const t = useTranslations('auth')
+    const tf = useTranslations('form')
 
     return (
-        <section className='min-h-[80vh] flex items-center justify-center px-4'>
-            <Container className='max-w-md w-full bg-[var(--color-bg)] border border-[var(--color-border)] rounded-2xl shadow-lg p-6 sm:p-8' size='sm'>
+        <Section className='max-w-xl mx-auto'>
+            <Container className='max-w-md w-full bg-[var(--color-bg)] rounded-4xl shadow-lg p-6 sm:p-8'>
                 <Tabs
                     classNameTabHeaders='justify-center'
                     initialIndex={0}
@@ -21,90 +24,69 @@ export default function AuthPage() {
                         {
                             label: t('login'),
                             content: (
-                                <form className='space-y-4'>
-                                    <div className='mt-8'>
-                                        <label htmlFor='loginEmailInput' className='block text-sm font-medium mb-1 ml-2 hover:text-blue-400'>{t('e-mail')}</label>
-                                        <input
+                                <Section className='max-w-xl mx-auto' padding='sm'>
+                                    <form className='grid gap-4'>
+                                        <Input
+                                            label={t('email')}
                                             id='loginEmailInput'
                                             type='email'
-                                            className={ clsx(
-                                                'w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-transparent',
-                                                'focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
-                                            )}
+                                            icon={<AtSign size={20} />}
+                                            placeholder={tf('placeholders.email')}
+                                            required
                                         />
-                                    </div>
-                                    <div>
-                                        <label htmlFor='loginPasswordInput' className='block text-sm font-medium mb-1 ml-2 hover:text-blue-400'>{t('password')}</label>
-                                        <input
+                                        <Input
+                                            label={t('password')}
                                             id='loginPasswordInput'
                                             type='password'
-                                            className={ clsx(
-                                                'w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-transparent',
-                                                'focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
-                                            )}
+                                            icon={<KeyRound size={20} />}
+                                            placeholder={tf('placeholders.password')}
+                                            required
                                         />
-                                    </div>
-                                    <Button
-                                        type='submit'
-                                        variant='primary'
-                                        size='md'
-                                        className='w-full cursor-pointer mt-8'
-                                    >
-                                        {t('login')}
-                                    </Button>
-                                </form>
+                                        <Button className='w-full mt-10' type='submit' variant='primary' size='md'>
+                                            {t('login')}
+                                        </Button>
+                                    </form>
+                                </Section>
                             )
                         }, {
                             label: t('create-account'),
                             content: (
-                                <form className='space-y-4'>
-                                    <div className='mt-8'>
-                                        <label htmlFor='signupFullnameInput' className='block text-sm font-medium mb-1 ml-2 hover:text-blue-400'>{t('full-name')}</label>
-                                        <input
+                                <Section className='max-w-xl mx-auto' padding='sm'>
+                                    <form className='grid gap-4'>
+                                        <Input
+                                            label={t('full-name')}
                                             id='signupFullnameInput'
                                             type='text'
-                                            className={ clsx(
-                                                'w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-transparent',
-                                                'focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
-                                            )}
+                                            icon={<User size={20} />}
+                                            placeholder={tf('placeholders.full-name')}
+                                            required
                                         />
-                                    </div>
-                                    <div>
-                                        <label htmlFor='signupEmailInput' className='block text-sm font-medium mb-1 ml-2 hover:text-blue-400'>{t('e-mail')}</label>
-                                        <input
+                                        <Input
+                                            label={t('email')}
                                             id='signupEmailInput'
                                             type='email'
-                                            className={ clsx(
-                                                'w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-transparent',
-                                                'focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
-                                            )}
+                                            icon={<AtSign size={20} />}
+                                            placeholder={tf('placeholders.email')}
+                                            required
                                         />
-                                    </div>
-                                    <div>
-                                        <label htmlFor='signupPasswordInput' className='block text-sm font-medium mb-1 ml-2 hover:text-blue-400'>{t('password')}</label>
-                                        <input
+                                        <Input
+                                            label={t('password')}
                                             id='signupPasswordInput'
                                             type='password'
-                                            className={ clsx(
-                                                'w-full px-4 py-2 rounded-lg border border-[var(--color-border)] bg-transparent',
-                                                'focus:outline-none focus:ring-1 focus:ring-blue-500 transition'
-                                            )}
+                                            icon={<KeyRound size={20} />}
+                                            placeholder={tf('placeholders.password')}
+                                            required
                                         />
-                                    </div>
-                                    <Button
-                                        type='submit'
-                                        variant='primary'
-                                        size='md'
-                                        className='w-full cursor-pointer mt-8'
-                                    >
-                                        {t('create-account')}
-                                    </Button>
-                                </form>
+                                        <Button className='w-full mt-10' type='submit' variant='primary' size='md'>
+                                            {t('create-account')}
+                                        </Button>
+                                    </form>
+                                </Section>
                             )
                         }
                     ]}
                 />
             </Container>
-        </section>
+        </Section>
     )
 }

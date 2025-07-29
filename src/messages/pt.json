@@ -18,6 +18,14 @@
         "leadership": "Liderança",
         "nutrition": "Nutrição"
     },
+    "contact": {
+        "title": "Fale Conosco",
+        "subtitle": "Tem alguma dúvida ou proposta? Estamos atentos.",
+        "name": "Nome",
+        "email": "e-mail",
+        "message": "Mensagem",
+        "submit": "Enviar mensagem"
+    },
     "hero": {
         "title": "Transforme seu estilo de vida com Uno Más",
         "subtitle": "Aprenda, lidere e cresça dentro de uma comunidade que impulsiona o Marketing de Rede em toda a América Latina.",
@@ -39,19 +47,17 @@
         "company": {
             "title": "Empresa",
             "about-us": "Sobre Nós",
-            "team": "Equipe",
-            "partners": "Parceiros"
+            "team": "Equipe"
         },
         "legality": {
             "title": "Legalidade",
             "privacy-policy": "Política de Privacidade",
             "terms-and-conditions": "Termos e Condições",
-            "disclaimers": "Avisos Legais"
+            "disclaimers": "Disclaimers"
         },
         "help": {
             "title": "Ajuda",
             "faq": "FAQ",
-            "support": "Suporte",
             "contact-us": "Fale Conosco"
         },
         "team-name": "Uno Más • LATAM",
@@ -61,7 +67,7 @@
         "login": "Entrar",
         "create-account": "Criar conta",
         "full-name": "Nome completo",
-        "e-mail": "E-mail",
+        "email": "Usuário",
         "password": "Senha"
     },
     "faq": {
@@ -71,12 +77,18 @@
         }
     },
     "form": {
-        "email": "E-mail",
+        "email": "e-mail",
         "country": "País",
         "message": "Mensagem",
         "submit": "Enviar",
         "error_required": "Este campo é obrigatório",
-        "select_placeholder": "Selecione uma opção"
+        "select_placeholder": "Selecione uma opção",
+        "placeholders": {
+            "full-name": "John Doe",
+            "email": "john.doe@exemplo.com",
+            "password": "senh4R0bu$ta",
+            "type-us": "Escrivha-nos..."
+        }
     },
     "common": {
         "yes": "Sim",

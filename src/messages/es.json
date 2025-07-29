@@ -18,6 +18,14 @@
         "leadership": "Liderazgo",
         "nutrition": "Nutrición"
     },
+    "contact": {
+        "title": "Contáctanos",
+        "subtitle": "¿Tienes alguna duda o propuesta? Te leemos.",
+        "name": "Nombre",
+        "email": "Correo electrónico",
+        "message": "Mensaje",
+        "submit": "Enviar mensaje"
+    },
     "hero": {
         "title": "Transforma tu estilo de vida con Uno Más",
         "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
@@ -39,19 +47,17 @@
         "company": {
             "title": "Compañía",
             "about-us": "Acerca de",
-            "team": "Equipo",
-            "partners": "Socios"
+            "team": "Equipo"
         },
         "legality": {
             "title": "Legalidad",
             "privacy-policy": "Políticas de Privacidad",
             "terms-and-conditions": "Términos y Condiciones",
-            "disclaimers": "Exenciones de Responsabilidad"
+            "disclaimers": "Disclaimers"
         },
         "help": {
             "title": "Ayuda",
             "faq": "FAQ",
-            "support": "Soporte",
             "contact-us": "Contáctanos"
         },
         "team-name": "Uno Más • LATAM",
@@ -61,7 +67,7 @@
         "login": "Iniciar sesión",
         "create-account": "Crear cuenta",
         "full-name": "Nombre y Apellido",
-        "e-mail": "Correo electrónico",
+        "email": "Usuario",
         "password": "Contraseña"
     },
     "faq": {
@@ -76,7 +82,13 @@
         "message": "Mensaje",
         "submit": "Enviar",
         "error_required": "Este campo es obligatorio",
-        "select_placeholder": "Selecciona una opción"
+        "select_placeholder": "Selecciona una opción",
+        "placeholders": {
+            "full-name": "John Doe",
+            "email": "john.doe@ejemplo.com",
+            "password": "c0ntr4senhaR0bu$t4",
+            "type-us": "Escríbenos..."
+        }
     },
     "common": {
         "yes": "Sí",

@@ -30,6 +30,14 @@ const LOGO_ITEMS_C1: LogoItem[] = [
         alt: 'Logo de anglozm',
         href: 'https://instagram.com/anglozm'
     }, {
+        src: '/logo/artistry.png',
+        alt: 'Logo de Artistry',
+        href: 'https://artistry.lat/trazabilidad-artistry'
+    }, {
+        src: 'https://www.amway.com.ve/files/resources/img/amway-logo-black.svg',
+        alt: 'Logo de Amway',
+        href: 'https://latinamway.com'
+    }, {
         src: '/logo/p&s-solutions.png',
         alt: 'Logo de PS Solutions',
         href: 'https://instagram.com/pssolutions.pty'
@@ -45,6 +53,9 @@ const LOGO_ITEMS_C2: LogoItem[] = [
         src: '/logo/anglozm.png',
         alt: 'Logo de anglozm',
         href: 'https://instagram.com/anglozm'
+    }, {
+        src: '/logo/satinique.png',
+        alt: 'Logo de Satinique'
     },
 ]
 
