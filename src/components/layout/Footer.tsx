@@ -8,8 +8,9 @@ import { useTranslations } from 'next-intl'
 
 import { links } from '@/external/links'
 
+import Divider from '@/components/ui/Divider'
+
 import clsx from 'clsx'
-import Divider from "@/components/ui/Divider";
 
 export default function Footer() {
     const t = useTranslations('footer')

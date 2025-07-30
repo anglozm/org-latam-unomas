@@ -14,7 +14,8 @@ import { routing } from '@/i18n/routing'
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import clsx from "clsx";
+
+import clsx from 'clsx'
 
 const inter = Inter({ subsets: ['latin'] })
 
