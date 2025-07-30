@@ -28,7 +28,7 @@ export default function HeroSection({
             className={ clsx(
                 className,
                 'w-full h-full pt-10 pb-5 px-4 text-center flex flex-col items-center justify-center',
-                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
+                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-500'
             )}
         >
             <Container className='flex flex-col lg:flex-row items-center justify-between mb-2 py-4 gap-10 rounded-4xl'>

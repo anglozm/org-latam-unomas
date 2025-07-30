@@ -4,6 +4,8 @@ import { useState } from 'react'
 
 import AccordionItem from './AccordionItem'
 
+import clsx from 'clsx'
+
 type AccordionItemData = {
     title: string
     content: string
@@ -22,16 +24,25 @@ export default function Accordion({
 
     const toggle = (index: number) => {
         if (allowMultipleOpen) {
-            setOpenIndexes((prev) =>
-                prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-            )
+            setOpenIndexes(prev => (
+                prev.includes(index)
+                    ? prev.filter(i => i !== index)
+                    : [...prev, index]
+            ))
         } else {
-            setOpenIndexes((prev) => (prev[0] === index ? [] : [index]))
+            setOpenIndexes(prev => (
+                prev[0] === index
+                    ? []
+                    : [index]
+            ))
         }
     }
 
     return (
-        <div className='space-y-4 rounded-md border border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] p-4'>
+        <div className={ clsx(
+            'space-y-5 rounded-4xl p-10',
+            'transition-colors duration-500 bg-[var(--color-bg)] text-[var(--color-fg)]',
+        )}>
             { items.map((item, index) => (
                 <AccordionItem
                     key={index}

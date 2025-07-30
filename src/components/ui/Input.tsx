@@ -22,7 +22,7 @@ export default function Input({
 }: InputProps) {
     const baseStyles =
         'w-full px-5 py-3 border rounded-[var(--radius)] ' +
-        'focus:outline-none focus:ring-1 transition shadow-sm ' +
+        'focus:outline-none focus:ring-1 transition-colors duration-500 shadow-sm ' +
         'text-sm bg-[var(--color-bg)] text-[var(--color-fg)] placeholder:text-gray-400'
 
     return (
@@ -30,7 +30,10 @@ export default function Input({
             { label && (
                 <label
                     htmlFor={props.id || props.name}
-                    className='block text-sm font-medium text-[var(--color-fg)] mb-1 ml-2 hover:text-blue-400'
+                    className={ clsx(
+                        'block text-sm font-medium mb-1 ml-2 hover:text-blue-400',
+                        'transition-colors duration-500 text-[var(--color-fg)]',
+                    )}
                 >
                     {label}
                 </label>

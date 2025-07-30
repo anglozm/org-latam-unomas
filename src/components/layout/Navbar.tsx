@@ -32,7 +32,7 @@ export default function Navbar() {
     return (
         <header
             className={ clsx(
-                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-300 bg-[var(--color-bg)]',
+                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500 bg-[var(--color-bg)]',
                 'border-b border-[var(--color-border)] text-[var(--color-fg)]'
             )}
         >
@@ -50,16 +50,26 @@ export default function Navbar() {
 
                 <div className='flex items-center justify-center'>
                     {/* Mobile toggle button */}
-                    <Tooltip content={isOpen ? t('tooltip.close-menu') : t('tooltip.open-menu')}>
+                    <Tooltip
+                        content={ isOpen
+                            ? t('tooltip.close-menu')
+                            : t('tooltip.open-menu')
+                        }
+                    >
                         <button
                             className={ clsx(
                                 'order-1 md:hidden text-[var(--color-fg)] pl-4 cursor-pointer',
-                                isOpen ? 'hover:text-red-600' : 'hover:text-[var(--color-accent)]'
+                                isOpen
+                                    ? 'hover:text-red-600'
+                                    : 'hover:text-[var(--color-accent)]'
                             )}
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label='Toggle mobile menu'
                         >
-                            {isOpen ? <X size={24} /> : <Menu size={24} />}
+                            { isOpen
+                                ? <X className='transition-colors duration-500' size={24} />
+                                : <Menu className='transition-colors duration-500' size={24} />
+                            }
                         </button>
                     </Tooltip>
 
@@ -69,11 +79,13 @@ export default function Navbar() {
                             <li key={href}>
                                 <Link
                                     href={href}
-                                    className={`text-sm font-medium transition ${
+
+                                    className={ clsx(
+                                        'text-sm font-medium',
                                         pathname === href
                                             ? 'text-[var(--color-accent)] underline underline-offset-4'
                                             : 'hover:text-[var(--color-accent)]'
-                                    }`}
+                                    )}
                                 >
                                     {label}
                                 </Link>
@@ -83,12 +95,8 @@ export default function Navbar() {
 
                     <Divider className='hidden md:flex' orientation='vertical' spacing='mx-4' />
 
-                    {/* Theme toggle */}
-                    <div>
-                        <ThemeToggle />
-                    </div>
+                    <ThemeToggle />
 
-                    {/* Locale switcher at the end */}
                     <ul className='pl-4 md:flex space-x-6 items-center'>
                         <li>
                             <LocaleSwitcher />
@@ -99,18 +107,23 @@ export default function Navbar() {
 
             {/* Mobile menu */}
             { isOpen && (
-                <div className='md:hidden border-t border-[var(--color-border)] bg-[var(--color-bg)] text-[var(--color-fg)] px-4 py-4'>
+                <div className={ clsx(
+                    'md:hidden border-t border-[var(--color-border)] p-4',
+                    'transition-colors duration-500 bg-[var(--color-bg)] text-[var(--color-fg)]',
+                )}>
                     <ul className='space-y-2'>
                         { navLinks.map(({ href, label }) => (
                             <li key={href}>
                                 <Link
                                     href={href}
                                     onClick={() => setIsOpen(false)}
-                                    className={`block text-base font-medium py-2 px-2 rounded-md transition ${
+                                    className={ clsx(
+                                        'flex flex-col items-end sm:items-center',
+                                        'text-base font-medium px-10 py-2 rounded-md',
                                         pathname === href
                                             ? 'text-[var(--color-accent)] bg-[var(--color-accent-bg)]'
                                             : 'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]'
-                                    }`}
+                                    )}
                                 >
                                     {label}
                                 </Link>

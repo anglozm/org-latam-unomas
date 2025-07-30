@@ -29,7 +29,7 @@ export default function Button({
 }: ButtonProps) {
     const baseStyle =
         'inline-flex items-center justify-center font-medium rounded-md transition ' +
-        'focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed'
+        'focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed'
 
     // Semantic color system using CSS variables for theme support
     const variantStyle: Record<Variant, string> = {

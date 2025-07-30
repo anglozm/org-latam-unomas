@@ -33,7 +33,7 @@ export default function ThemeToggle({
             <button
                 className={ clsx(
                     'cursor-pointer',
-                    'group rounded-md border transition-colors duration-300',
+                    'group rounded-md border transition-colors duration-500',
                     'border-[var(--color-border)] bg-[var(--color-card)]',
                     'hover:shadow focus:outline-none focus:ring-1 focus:ring-blue-400',
                     sizeMap[size]

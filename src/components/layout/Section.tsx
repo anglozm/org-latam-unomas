@@ -7,9 +7,9 @@ import Container from './Container'
 import clsx from 'clsx'
 
 interface SectionProps {
+    className?: string
     id?: string
     children: ReactNode
-    className?: string
     bgColor?: 'white' | 'gray' | 'primary' | 'none'
     padding?: 'none' | 'sm' | 'md' | 'lg'
     size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
@@ -30,9 +30,9 @@ const paddingMap: Record<NonNullable<SectionProps['padding']>, string> = {
 }
 
 export default function Section({
+    className,
     id,
     children,
-    className,
     bgColor = 'none',
     padding = 'md',
     size = 'xl'
@@ -40,11 +40,11 @@ export default function Section({
     return (
         <section
             id={id}
-            className={clsx(
+            className={ clsx(
+                className,
                 bgMap[bgColor],
                 paddingMap[padding],
-                'transition-colors duration-300',
-                className
+                'transition-colors duration-500'
             )}
         >
             <Container size={size}>

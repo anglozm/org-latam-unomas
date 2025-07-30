@@ -56,7 +56,7 @@ export default function Toggle({
                 onClick={toggle}
                 className={ clsx(
                     'relative inline-flex flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent',
-                    'transition-colors focus:outline-none focus:ring-2',
+                    'transition-colors duration-500 focus:outline-none focus:ring-1',
                     value
                         ? 'bg-[var(--color-accent)]'
                         : 'bg-[var(--color-border)]',

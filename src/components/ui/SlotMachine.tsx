@@ -81,10 +81,10 @@ export default function SlotMachine() {
     return (
         <div className={ clsx(
             'max-w-screen-xl w-full bg-[var(--color-bg)] mt-2 py-10 border-[var(--color-border)]',
-            'rounded-4xl'
+            'transition-colors duration-500 rounded-4xl'
         )}>
             <div className='px-5 py-5'>
-                <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] mb-10'>
+                <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] mb-10 transition-colors duration-500'>
                     {t('sponsors-partners')}
                 </h2>
                 <div className='grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center'>

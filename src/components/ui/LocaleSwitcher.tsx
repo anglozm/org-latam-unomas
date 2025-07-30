@@ -24,6 +24,7 @@ export default function LocaleSwitcher({
     withTooltip = true
 }: LocaleSwitcherProps) {
     const t = useTranslations('navbar')
+
     const [ open, setOpen ] = useState(false)
     const currentLocale = useLocale()
     const pathname = usePathname()
@@ -48,14 +49,16 @@ export default function LocaleSwitcher({
     const current = locales.find((l) => l.code === currentLocale)
 
     return (
-        <div className='relative'>
+        <div className={ clsx(
+            'relative transition-colors duration-500'
+        )}>
             <Tooltip content={withTooltip ? t('tooltip.to-change-lang') : ''}>
                 <button
                     onClick={toggleDropdown}
                     className={ clsx(
                         'cursor-pointer hover:shadow focus:outline-none',
                         'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
-                        'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)]'
+                        'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)] transition-colors duration-500'
                     )}
                 >
                     <span>{current?.icon}</span>
@@ -67,7 +70,7 @@ export default function LocaleSwitcher({
                 <ul
                     className={ clsx(
                         'absolute right-0 mt-2 w-40 rounded-md shadow-lg z-50 bg-[var(--color-card)]',
-                        'border border-[var(--color-border)] text-[var(--color-fg)]'
+                        'border border-[var(--color-border)] text-[var(--color-fg)] transition-colors duration-500'
                     )}
                 >
                     { locales.map(({ code, label, icon }) => (
@@ -75,7 +78,7 @@ export default function LocaleSwitcher({
                             <button
                                 onClick={() => changeLocale(code)}
                                 className={ clsx(
-                                    'cursor-pointer',
+                                    'cursor-pointer transition-colors duration-300',
                                     'w-full text-left px-4 py-2 text-sm hover:bg-[var(--color-hover-bg)]',
                                 )}
                             >

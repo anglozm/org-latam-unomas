@@ -23,7 +23,10 @@ export default function Textarea({
             { label && (
                 <label
                     htmlFor={props.id || props.name}
-                    className='block text-sm font-medium text-[var(--color-fg)] mb-1 ml-2 hover:text-blue-400'
+                    className={ clsx(
+                        'block text-sm font-medium mb-1 ml-2 hover:text-blue-400',
+                        'transition-colors duration-500 text-[var(--color-fg)]',
+                    )}
                 >
                     {label}
                 </label>
@@ -33,7 +36,8 @@ export default function Textarea({
                 className={ clsx(
                     className,
                     'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)]',
-                    'text-[var(--color-fg)] text-sm resize-none focus:outline-none focus:ring-1 transition placeholder:text-gray-400',
+                    'text-[var(--color-fg)] text-sm resize-none focus:outline-none focus:ring-1',
+                    'transition-colors duration-500 placeholder:text-gray-400',
                     error
                         ? 'border-red-500 focus:ring-red-400'
                         : 'border-[var(--color-border)] focus:ring-[var(--color-accent)]'

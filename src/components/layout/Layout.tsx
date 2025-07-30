@@ -19,7 +19,7 @@ export default function RootLayout({
     return (
         <html lang='es' suppressHydrationWarning>
         <body
-            className={`${inter.className} bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300`}
+            className={`${inter.className} bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-500`}
         >
             <Navbar />
             <main className='min-h-screen px-4 sm:px-6 md:px-8'>{children}</main>

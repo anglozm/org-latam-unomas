@@ -22,7 +22,7 @@ export default function Divider({
             className,
             spacing,
             isVertical ? (height + ' w-px') : 'w-full h-px',
-            'bg-[var(--color-border)]'
+            'bg-[var(--color-border)] transition-colors duration-500'
         )} />
     )
 }
