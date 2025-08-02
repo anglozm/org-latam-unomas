@@ -21,10 +21,10 @@ export default function VideoCarousel({
                 {segmentEmoji} {segmentTitle}
             </h2>
 
-            <div className='overflow-x-auto py-5 transition-colors duration-500 rounded-4xl'>
+            <div className='custom-scrollbar overflow-x-auto py-5 transition-colors duration-500 rounded-4xl'>
                 <div
                     className={ clsx(
-                        'flex gap-6 w-max scroll-smooth snap-x snap-mandatory overflow-x-auto',
+                        'flex gap-6 w-max scroll-smooth snap-x snap-mandatory custom-scrollbar overflow-x-auto',
                         'transition-colors duration-500 p-5 rounded-4xl'
                     )}
                 >

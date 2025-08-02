@@ -2,7 +2,7 @@
 
 @tailwind utilities;
 
-.bg-hero-gradient {
+.bg-app-gradient {
   background: linear-gradient(to bottom, var(--color-bg-from), var(--color-bg-to));
 }
 
@@ -10,11 +10,11 @@
 :root {
   /* 🎨 Light Mode Palette */
   --color-bg: #fafafa;
-  --color-bg-contrast: #fafafa;
+  --color-bg-contrast: #bec5d5;
   --color-bg-hover: #f9fafb;
   --color-bg-subtle: #f9f9f9;
   --color-bg-from: #ffffff;
-  --color-bg-to: #f9fafb;
+  --color-bg-to: var(--color-app-secondary);
 
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
@@ -56,7 +56,7 @@
   --color-danger: #dc2626;
   --color-danger-hover: #b91c1c;
 
-  /* 🌟 Design tokens */
+  /* ==================== 🌟 Design tokens ==================== */
   --radius: 0.5rem;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -65,44 +65,56 @@
   --duration: 200ms;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /*------------------- 🌟 Business Colors -------------------*/
+  /* ==================== Business Colors ===================== */
   --color-background: #fafafa;
   --color-foreground: #2c2c2c;
-  --color-tussock: #c08d3d;
-
-  --color-primary-chambray: #38539a;
-  --color-secondary-chambray: #f1f2ff;
-
+  /* ------------------ Chambray Titan Color ------------------ */
+  --color-primary-chambray-titan: #38539a;
+  --color-secondary-chambray-titan: #f1f2ff;
+  --color-secondary-chambray-titan-dark: #8e92c2;
+  /* ------------------- Lotus Pippin Color ------------------- */
   --color-primary-lotus: #7f3d3d;
   --color-secondary-pippin: #ffe2e2;
-
+  --color-secondary-pippin-dark: #ffe2e2;
+  /* ------------------- Yellow Metal Color ------------------- */
   --color-primary-yellow-metal: #73793b;
-  --color-secondary-feta: #f0fae5;
-
-  --color-primary-cape-palliser: #a76c47;
-  --color-secondary-seashell-peach: #fff1e8;
-
-  --color-primary-oracle: #396e75;
-  --color-secondary-bubbles: #e5fdff;
-
-  --color-primary-chicago: #62625a;
-  --color-secondary-beige: #f8f8e7;
-
+  --color-secondary-yellow-metal: #f0fae5;
+  --color-secondary-yellow-metal-dark: #f0fae5;
+  /* -------------------- Cape Peach Color -------------------- */
+  --color-primary-cape-peach: #a76c47;
+  --color-secondary-cape-peach: #fff1e8;
+  --color-secondary-cape-peach-dark: #fff1e8;
+  /* ------------------ Oracle Bubbles Color ------------------ */
+  --color-primary-oracle-bubbles: #396e75;
+  --color-secondary-oracle-bubbles: #e5fdff;
+  --color-secondary-oracle-bubbles-dark: #e5fdff;
+  /* ------------------- Chicago Beige Color ------------------ */
+  --color-primary-chicago-beige: #62625a;
+  --color-secondary-chicago-beige: #f8f8e7;
+  --color-secondary-chicago-beige-dark: #f8f8e7;
+  /* ------------------- Healthy Blue Color ------------------- */
   --color-primary-healthy-blue: #3b5382;
   --color-secondary-healthy-blue: #e1f1ec;
-
+  --color-secondary-healthy-blue-dark: #e1f1ec;
+  /* ----------------- Blackberry Cream Color ----------------- */
   --color-primary-blackberry-cream: #7e636d;
   --color-secondary-blackberry-cream: #f8ecf0;
-
+  --color-secondary-blackberry-cream-dark: #f8ecf0;
+  /* ------------------ Lipstick Pink Color ------------------- */
+  --color-primary-lipstick-pink: #b04040;
+  --color-secondary-lipstick-pink: #f6e8e8;
+  --color-secondary-lipstick-pink-dark: #cca8a8;
+  /* -------------------- Green Labs Color -------------------- */
   --color-primary-green-labs: #3c7767;
   --color-secondary-green-labs: #e7f0ee;
   --color-secondary-green-labs-dark: #92b9ae;
 
-  --color-app-primary: var(--color-primary-green-labs);
-  --color-app-secondary: var(--color-secondary-green-labs);
-  --color-app-secondary-dark: var(--color-secondary-green-labs);
-  --color-app-fg-primary: var(--color-primary-green-labs);
-  --color-app-fg-secondary: var(--color-secondary-green-labs);
+  --color-app-primary: var(--color-primary-chambray-titan);
+  --color-app-secondary: var(--color-secondary-chambray-titan);
+  --color-app-secondary-dark: var(--color-secondary-chambray-titan);
+  --color-app-fg-primary: var(--color-primary-chambray-titan);
+  --color-app-fg-secondary: var(--color-secondary-chambray-titan);
+  --color-app-scrollbar: var(--color-primary-chambray-titan);
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
 }
@@ -110,7 +122,7 @@
 .dark {
   /* 🎨 Dark Mode Palette */
   --color-bg: #2c2c2c;
-  --color-bg-contrast: #585858;
+  --color-bg-contrast: #707070;
   --color-bg-hover: #1f2937;
   --color-bg-subtle: #1e1e1e;
   --color-bg-from: #0f0f0f;
@@ -157,9 +169,9 @@
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
 
-  --color-app-secondary-dark: var(--color-secondary-green-labs-dark);
-  --color-app-fg-primary: var(--color-secondary-green-labs);
-  --color-app-fg-secondary: var(--color-primary-green-labs);
+  --color-app-secondary-dark: var(--color-secondary-chambray-titan-dark);
+  --color-app-fg-primary: var(--color-secondary-chambray-titan);
+  --color-app-fg-secondary: var(--color-primary-chambray-titan);
 }
 
 /* 🌙 Dark Mode Variables */
@@ -233,4 +245,19 @@
 /* ✍️ Base document source */
 body {
   font-family: var(--font-sans), sans-serif;
+}
+/* ================ Custom Scrollbar Styles ================= */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-bg-contrast);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-primary-chambray-titan);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3182ce;
 }

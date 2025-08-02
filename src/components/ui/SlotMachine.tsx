@@ -80,7 +80,7 @@ export default function SlotMachine() {
 
     return (
         <div className={ clsx(
-            'max-w-screen-xl w-full bg-[var(--color-bg)] mt-2 py-10 border-[var(--color-border)]',
+            'max-w-screen-xl w-full mt-2 py-10 border-[var(--color-border)]',
             'transition-colors duration-500 rounded-4xl'
         )}>
             <div className='px-5 py-5'>
