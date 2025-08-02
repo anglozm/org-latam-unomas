@@ -28,7 +28,7 @@ export default function SearchBar({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className='w-full pl-10 pr-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)] text-[var(--color-fg)] text-sm focus:outline-none focus:ring-2 transition placeholder:text-gray-400 border-[var(--color-border)] focus:ring-[var(--color-accent)]'
+                className='w-full pl-10 pr-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)] text-[var(--color-fg)] text-sm focus:outline-none focus:ring-1 transition placeholder:text-gray-400 border-[var(--color-border)] focus:ring-[var(--color-accent)]'
                 aria-label='Campo de búsqueda'
             />
         </div>

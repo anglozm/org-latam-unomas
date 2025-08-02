@@ -9,16 +9,19 @@ import { Metadata } from 'next'
 import { ReactNode } from 'react'
 
 import { notFound } from 'next/navigation'
+
 import { routing } from '@/i18n/routing'
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
+import clsx from 'clsx'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
     title: 'Uno Más • LATAM',
-    description: 'Red de Network Marketing para líderes LATAM.'
+    description: 'Amway LATAM team'
 }
 
 interface RootLayoutProps {
@@ -40,7 +43,10 @@ export default async function RootLayout({
 
     return (
         <html lang={locale} suppressHydrationWarning={true}>
-            <body className={`${inter.className} bg-[var(--color-bg)] text-[var(--color-fg)]`}>
+            <body className={ clsx(
+                `${inter.className}`,
+                'transition-colors duration-500 bg-[var(--color-bg)] text-[var(--color-fg)]'
+            )}>
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <Navbar key={locale} />
                     <main className='min-h-screen pt-16'>{children}</main>

@@ -8,6 +8,7 @@ import Image from 'next/image'
 import Container from './Container'
 
 import Button from '@/components/ui/Button'
+import Divider from '@/components/ui/Divider'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
@@ -26,12 +27,12 @@ export default function HeroSection({
         <section
             className={ clsx(
                 className,
-                'w-full h-full py-20 px-4 text-center flex flex-col items-center justify-center',
-                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
+                'w-full h-full pt-10 pb-5 px-4 text-center flex flex-col items-center justify-center',
+                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-500'
             )}
         >
-            <Container className='flex flex-col lg:flex-row items-center justify-between gap-10 rounded-4xl'>
-                <div className='max-w-xl text-center lg:text-left md:py-48 lg:py-20'>
+            <Container className='flex flex-col lg:flex-row items-center justify-between mb-2 py-4 gap-10 rounded-4xl'>
+                <div className='max-w-xl text-center lg:text-left pt-20 pb-10 md:pt-40 md:pb-10 lg:py-20'>
                     <h1 className='text-4xl font-extrabold mb-4'>{t('title')}</h1>
                     <p className='text-lg text-muted mb-6'>{t('subtitle')}</p>
                     <Button
@@ -89,7 +90,7 @@ export default function HeroSection({
                     />
                 </div>
             </Container>
-
+            <Divider color='bg-[var(--color-border)]' />
             <SlotMachine />
         </section>
     )
