@@ -51,7 +51,10 @@ export default function LoopColumn({
         : ((index-(logos.length)) * SLOT_HEIGHT)
 
     return (
-        <div className='h-[100px] w-[150px] overflow-hidden border-[var(--color-border)] rounded-md transition-colors duration-500'>
+        <div className={ clsx(
+            'h-[100px] w-[150px] overflow-hidden border-[var(--color-border)] rounded-xl',
+            'transition duration-300 hover:scale-120 ease-in-out'
+        )}>
             <div
                 className={ clsx(
                     'flex flex-col items-center',
@@ -64,7 +67,10 @@ export default function LoopColumn({
                 { extended.map((logo, i) => (
                     <div
                         key={i}
-                        className='h-[100px] flex items-center justify-center w-full'
+                        className={ clsx(
+                            'h-[100px] flex items-center justify-center w-full bg-[var(--color-bg-png)]',
+                            'transition-colors duration-500'
+                        )}
                     >
                         { logo.href ? (
                             <a href={logo.href} target='_blank' rel='noopener noreferrer'>
@@ -82,7 +88,7 @@ export default function LoopColumn({
                                 alt={logo.alt ?? `Logo ${i}`}
                                 width={100}
                                 height={100}
-                                className='object-contain max-h-[80px]'
+                                className='object-contain max-h-[80px] hover:scale-120 duration-300 ease-in-out'
                             />
                         )}
                     </div>

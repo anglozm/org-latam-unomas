@@ -2,6 +2,8 @@
 
 import { ReactNode, useState } from 'react'
 
+import Divider from '@/components/ui/Divider'
+
 import clsx from 'clsx'
 
 interface Tab {
@@ -35,7 +37,7 @@ export default function Tabs({
             <div
                 className={ clsx(
                     classNameTabHeaders,
-                    'flex border-b border-[var(--color-border)] mb-4 transition-colors duration-500'
+                    'flex'
                 )}
                 role='tablist'
             >
@@ -51,10 +53,11 @@ export default function Tabs({
                             aria-controls={`panel-${index}`}
                             onClick={() => setActiveIndex(index)}
                             className={ clsx(
-                                'px-4 py-2 text-sm font-medium focus:outline-none cursor-pointer',
+                                'px-4 py-2 text-lg font-medium focus:outline-none cursor-pointer',
+                                'hover:scale-110 transition-colors duration-200 ease-in-out px-16',
                                 isActive
-                                    ? 'text-[var(--color-accent)] border-b-2 border-[var(--color-accent)]'
-                                    : 'text-[var(--color-muted-fg)] hover:text-blue-500'
+                                    ? 'text-[var(--color-app-fg-primary)] border-b-2 border-[var(--color-app-fg-primary)]'
+                                    : 'text-[var(--color-muted-fg)] hover:text-blue-400'
                             )}
                         >
                             {tab.label}
@@ -63,11 +66,14 @@ export default function Tabs({
                 })}
             </div>
 
+            <Divider color='bg-[var(--color-border)]' />
+
             {/* Tab Panel */}
             <div
                 className={ clsx(
                     classNameTabPanel,
-                    'text-sm text-[var(--color-muted-fg)] transition-colors duration-500'
+                    'mt-12',
+                    'text-[var(--color-muted-fg)] transition-colors duration-500'
                 )}
                 id={`panel-${activeIndex}`}
                 role='tabpanel'

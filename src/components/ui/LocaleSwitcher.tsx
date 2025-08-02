@@ -56,7 +56,7 @@ export default function LocaleSwitcher({
                 <button
                     onClick={toggleDropdown}
                     className={ clsx(
-                        'cursor-pointer hover:shadow focus:outline-none',
+                        'cursor-pointer hover:shadow focus:outline-none hover:scale-105 duration-300 ease-in-out',
                         'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
                         'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)] transition-colors duration-500'
                     )}

@@ -10,7 +10,7 @@ import clsx from 'clsx'
 
 const LOGO_ITEMS_C0: LogoItem[] = [
     {
-        src: 'https://www.amway.com.ve/files/resources/img/amway-logo-black.svg',
+        src: '/logo/amway_black.svg',
         alt: 'Logo de Amway',
         href: 'https://latinamway.com'
     }, {
@@ -34,7 +34,7 @@ const LOGO_ITEMS_C1: LogoItem[] = [
         alt: 'Logo de Artistry',
         href: 'https://artistry.lat/trazabilidad-artistry'
     }, {
-        src: 'https://www.amway.com.ve/files/resources/img/amway-logo-black.svg',
+        src: '/logo/amway_black.svg',
         alt: 'Logo de Amway',
         href: 'https://latinamway.com'
     }, {
@@ -69,7 +69,7 @@ const LOGO_ITEMS_C3: LogoItem[] = [
         alt: 'Logo de Nutrilite',
         href: 'https://nutrilitetraceability.lat'
     }, {
-        src: 'https://www.amway.com.ve/files/resources/img/amway-logo-black.svg',
+        src: '/logo/amway_black.svg',
         alt: 'Logo de Amway',
         href: 'https://latinamway.com'
     },

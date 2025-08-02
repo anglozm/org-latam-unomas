@@ -61,7 +61,9 @@
             "contact-us": "Contact Us"
         },
         "team-name": "Uno Más • LATAM",
-        "copyright": "© {year} | All rights reserved."
+        "copyright": "{year} | All rights reserved.",
+        "made-with": "Made with ❤\uFE0F\uD83E\uDDE0 and ",
+        "by": " by "
     },
     "auth": {
         "login": "Log in",

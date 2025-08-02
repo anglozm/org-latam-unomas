@@ -20,8 +20,8 @@ export default function ContactUsPage() {
                 <p className='mt-2 text-muted'>{t('subtitle')}</p>
             </Section>
 
-            <Section className='max-w-xl mx-auto' padding='sm'>
-                <form className='grid gap-4'>
+            <Section className='mx-auto' padding='sm'>
+                <form className='flex flex-col gap-6'>
                     <Input
                         label={t('name')}
                         id='name'

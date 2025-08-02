@@ -24,8 +24,8 @@ export default function VideoCarousel({
             <div className='overflow-x-auto py-5 transition-colors duration-500 rounded-4xl'>
                 <div
                     className={ clsx(
-                        'flex gap-8 w-max scroll-smooth snap-x snap-mandatory pb-2 pr-2 overflow-x-auto',
-                        'transition-colors duration-500'
+                        'flex gap-6 w-max scroll-smooth snap-x snap-mandatory overflow-x-auto',
+                        'transition-colors duration-500 p-5 rounded-4xl'
                     )}
                 >
                     { videos.map((video, index) => (
@@ -33,8 +33,8 @@ export default function VideoCarousel({
                             key={index}
                             className={ clsx(
                                 'snap-start flex-shrink-0 min-w-full sm:min-w-[360px] max-w-[360px] overflow-hidden',
-                                'bg-[var(--color-card)] shadow-md border border-[var(--color-border)] rounded-4xl',
-                                'transition-colors duration-500'
+                                'bg-[var(--color-card)] shadow-md rounded-4xl',
+                                'transition duration-300 hover:scale-105 ease-in-out'
                             )}
                         >
                             <div className='aspect-video w-full'>

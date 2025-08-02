@@ -23,15 +23,15 @@ const sizeMap: Record<ContainerSize, string> = {
 export default function Container({
     className,
     children,
-    size = 'xl'
+    size = 'lg'
 }: ContainerProps) {
     return (
         <div
             className={ clsx(
                 className,
                 sizeMap[size],
-                'w-full px-4 py-4 md:px-6 lg:px-8 mx-auto',
-                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-500'
+                'w-full px-4 md:px-6 lg:px-8',
+                'text-[var(--color-fg)] transition-colors duration-500'
             )}
         >
             {children}

@@ -90,7 +90,7 @@ export default function HeroSection({
                     />
                 </div>
             </Container>
-            <Divider />
+            <Divider color='bg-[var(--color-border)]' />
             <SlotMachine />
         </section>
     )

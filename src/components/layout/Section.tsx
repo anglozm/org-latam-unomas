@@ -9,33 +9,52 @@ import clsx from 'clsx'
 interface SectionProps {
     className?: string
     id?: string
-    children: ReactNode
-    bgColor?: 'white' | 'gray' | 'primary' | 'none'
+    bgColor?: 'none' | 'white' | 'gray' | 'primary'
+    margin?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
     padding?: 'none' | 'sm' | 'md' | 'lg'
+    corners?: 'none' | 'xl' | '2xl' | '4xl'
     size?: 'sm' | 'md' | 'lg' | 'xl' | '2xl'
+    children: ReactNode
 }
 
 const bgMap: Record<NonNullable<SectionProps['bgColor']>, string> = {
-    white: 'bg-[var(--color-surface)]',
-    gray: 'bg-[var(--color-muted)]',
-    primary: 'bg-[var(--color-app-primary)/10]', // 10% transparency
     none: '',
+    white: 'bg-[var(--color-surface)]',
+    gray: 'bg-[var(--color-card)]',
+    primary: 'bg-[var(--color-app-primary)]/10' // 10% transparency
+}
+
+const marginMap: Record<NonNullable<SectionProps['margin']>, string> = {
+    none: '',
+    sm: 'my-6',
+    md: 'my-12',
+    lg: 'my-20',
+    xl: 'my-32'
 }
 
 const paddingMap: Record<NonNullable<SectionProps['padding']>, string> = {
-    none: 'py-0',
+    none: '',
     sm: 'py-6',
     md: 'py-12',
-    lg: 'py-20',
+    lg: 'py-20'
+}
+
+const cornersMap: Record<NonNullable<SectionProps['corners']>, string> = {
+    none: '',
+    xl: 'rounded-xl',
+    '2xl': 'rounded-2xl',
+    '4xl': 'rounded-4xl'
 }
 
 export default function Section({
     className,
     id,
-    children,
     bgColor = 'none',
-    padding = 'md',
-    size = 'xl'
+    margin = 'sm',
+    padding = 'sm',
+    corners = 'xl',
+    size = 'lg',
+    children
 }: SectionProps) {
     return (
         <section
@@ -43,8 +62,10 @@ export default function Section({
             className={ clsx(
                 className,
                 bgMap[bgColor],
+                marginMap[margin],
                 paddingMap[padding],
-                'transition-colors duration-500'
+                cornersMap[corners],
+                'max-w-xl mx-auto transition-colors duration-500'
             )}
         >
             <Container size={size}>

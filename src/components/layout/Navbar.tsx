@@ -32,16 +32,16 @@ export default function Navbar() {
     return (
         <header
             className={ clsx(
-                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500 bg-[var(--color-bg)]',
-                'border-b border-[var(--color-border)] text-[var(--color-fg)]'
+                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500 bg-[var(--color-app-secondary-dark)]',
+                'text-[var(--color-fg)]'
             )}
         >
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
                 {/* Logo */}
                 <Link href='/' className='text-xl font-bold text-[var(--color-accent)]'>
                     <Image
-                        className='rounded-full'
-                        src='/logo/uno-mas_colored-chambray-titan-white.png'
+                        className='rounded-full hover:scale-120 duration-300 ease-in-out'
+                        src='/logo/chambray.png'
                         alt='Uno Más logo'
                         width={50}
                         height={50}
@@ -61,14 +61,14 @@ export default function Navbar() {
                                 'order-1 md:hidden text-[var(--color-fg)] pl-4 cursor-pointer',
                                 isOpen
                                     ? 'hover:text-red-600'
-                                    : 'hover:text-[var(--color-accent)]'
+                                    : 'hover:text-[var(--color-app-primary)]'
                             )}
                             onClick={() => setIsOpen(!isOpen)}
                             aria-label='Toggle mobile menu'
                         >
                             { isOpen
-                                ? <X className='transition-colors duration-500' size={24} />
-                                : <Menu className='transition-colors duration-500' size={24} />
+                                ? <X className='hover:scale-120 transition-colors duration-300' size={24} />
+                                : <Menu className='hover:scale-120 transition-colors duration-300' size={24} />
                             }
                         </button>
                     </Tooltip>
@@ -76,15 +76,15 @@ export default function Navbar() {
                     {/* Desktop menu */}
                     <ul className='hidden md:flex space-x-6 items-center'>
                         { navLinks.map(({ href, label }) => (
-                            <li key={href}>
+                            <li key={href} className='hover:scale-105 duration-300 ease-in-out'>
                                 <Link
                                     href={href}
 
                                     className={ clsx(
                                         'text-sm font-medium',
                                         pathname === href
-                                            ? 'text-[var(--color-accent)] underline underline-offset-4'
-                                            : 'hover:text-[var(--color-accent)]'
+                                            ? 'text-[var(--color-app-primary)]'
+                                            : 'hover:text-[var(--color-app-primary)]'
                                     )}
                                 >
                                     {label}
@@ -93,7 +93,7 @@ export default function Navbar() {
                         ))}
                     </ul>
 
-                    <Divider className='hidden md:flex' orientation='vertical' spacing='mx-4' />
+                    <Divider className='hidden md:flex' orientation='vertical' color='bg-[var(--color-app-primary)]' spacing='mx-4' />
 
                     <ThemeToggle />
 

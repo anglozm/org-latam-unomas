@@ -20,7 +20,7 @@ export default function AccordionItem({
     onToggle,
 }: AccordionItemProps) {
     return (
-        <div className='border-b border-[var(--color-border)] rounded-xl transition-colors duration-500 shadow-sm'>
+        <div className='border-b border-[var(--color-border)] rounded-xl shadow-sm hover:scale-105 duration-300 ease-in-out'>
             <button
                 onClick={onToggle}
                 aria-expanded={isOpen}

@@ -32,11 +32,12 @@ export default function Tooltip({
                         sideOffset={8}
                         className={ clsx(
                             'z-50 px-3 py-1.5 text-sm border border-[var(--color-border)] shadow-md animate-fade-in',
+                            'hover:scale-105 duration-300 ease-in-out',
                             'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-500 rounded-lg'
                         )}
                     >
                         {content}
-                        <TooltipPrimitive.Arrow className='fill-[var(--color-border)]' />
+                        <TooltipPrimitive.Arrow className='fill-[var(--color-border)] hover:scale-105 duration-300 ease-in-out' />
                     </TooltipPrimitive.Content>
                 </TooltipPrimitive.Portal>
             </TooltipPrimitive.Root>

@@ -19,7 +19,7 @@ export default function Textarea({
     ...props
 }: TextareaProps) {
     return (
-        <div className='w-full'>
+        <div className='w-full hover:scale-105 duration-300 ease-in-out'>
             { label && (
                 <label
                     htmlFor={props.id || props.name}

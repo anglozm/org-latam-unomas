@@ -26,12 +26,12 @@ export default function Input({
         'text-sm bg-[var(--color-bg)] text-[var(--color-fg)] placeholder:text-gray-400'
 
     return (
-        <div className='w-full'>
+        <div className='w-full hover:scale-105 duration-300 ease-in-out'>
             { label && (
                 <label
                     htmlFor={props.id || props.name}
                     className={ clsx(
-                        'block text-sm font-medium mb-1 ml-2 hover:text-blue-400',
+                        'block text-sm font-medium mb-1 ml-2',
                         'transition-colors duration-500 text-[var(--color-fg)]',
                     )}
                 >

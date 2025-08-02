@@ -9,7 +9,7 @@
 /* 🔧 Global UI semantic variables */
 :root {
   /* 🎨 Light Mode Palette */
-  --color-bg: #ffffff;
+  --color-bg: #fafafa;
   --color-bg-contrast: #fafafa;
   --color-bg-hover: #f9fafb;
   --color-bg-subtle: #f9f9f9;
@@ -18,8 +18,10 @@
 
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
+  --color-fg-light-over-dark: #fafafa;
+  --color-fg-dark-over-light: #2c2c2c;
 
-  --color-card: #f9f9f9;
+  --color-card: #fefefe;
 
   --color-border: #e5e7eb;
 
@@ -28,7 +30,7 @@
 
   --color-surface: #ffffff;
 
-  --color-muted: #f5f5f5;
+  --color-muted: #fafafa;
   --color-muted-fg: #7a7a7a;
   --color-muted-hover: #e5e7eb;
 
@@ -36,8 +38,8 @@
   --color-hover-bg: #e6e9f3;
 
 
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-primary: #1a73e8;
+  --color-primary-hover: #174ea6;
   --color-primary-fg: #ffffff;
   --color-primary-bg: #eff6ff;
 
@@ -68,11 +70,8 @@
   --color-foreground: #2c2c2c;
   --color-tussock: #c08d3d;
 
-  --color-primary-blue-chill: #13869F;
-  --color-secondary-spray: #90E0F1;
-
   --color-primary-chambray: #38539a;
-  --color-secondary-titan-white: #f1f2ff;
+  --color-secondary-chambray: #f1f2ff;
 
   --color-primary-lotus: #7f3d3d;
   --color-secondary-pippin: #ffe2e2;
@@ -89,34 +88,50 @@
   --color-primary-chicago: #62625a;
   --color-secondary-beige: #f8f8e7;
 
-  --color-app-primary: var(--color-primary-oracle);
-  --color-app-secondary: var(--color-secondary-bubbles);
+  --color-primary-healthy-blue: #3b5382;
+  --color-secondary-healthy-blue: #e1f1ec;
+
+  --color-primary-blackberry-cream: #7e636d;
+  --color-secondary-blackberry-cream: #f8ecf0;
+
+  --color-primary-green-labs: #3c7767;
+  --color-secondary-green-labs: #e7f0ee;
+  --color-secondary-green-labs-dark: #92b9ae;
+
+  --color-app-primary: var(--color-primary-green-labs);
+  --color-app-secondary: var(--color-secondary-green-labs);
+  --color-app-secondary-dark: var(--color-secondary-green-labs);
+  --color-app-fg-primary: var(--color-primary-green-labs);
+  --color-app-fg-secondary: var(--color-secondary-green-labs);
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
 }
 
 .dark {
   /* 🎨 Dark Mode Palette */
-  --color-bg: #00040a;
+  --color-bg: #2c2c2c;
   --color-bg-contrast: #585858;
   --color-bg-hover: #1f2937;
   --color-bg-subtle: #1e1e1e;
   --color-bg-from: #0f0f0f;
   --color-bg-to: #101010;
+  --color-bg-png: #fafafa;
 
   --color-fg: #f5f5f5;
   --color-fg-subtle: #d1d5db;
+  --color-fg-light-over-dark: #fafafa;
+  --color-fg-dark-over-light: #2c2c2c;
 
-  --color-card: #1e1e1e;
+  --color-card: #3f3f3f;
 
-  --color-border: #333;
+  --color-border: #444;
 
   --color-accent: #60a5fa;
   --color-accent-bg: #eff6ff;
 
   --color-surface: #1c1c1c;
 
-  --color-muted: #2a2a2a;
+  --color-muted: #3a3a3a;
   --color-muted-fg: #a1a1a1;
   --color-muted-hover: #4b5563;
 
@@ -124,8 +139,8 @@
   --color-hover-bg: #2d3748;
 
 
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-primary: #1a73e8;
+  --color-primary-hover: #174ea6;
   --color-primary-fg: #ffffff;
   --color-primary-bg: #1e3a8a;
 
@@ -142,6 +157,9 @@
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
 
+  --color-app-secondary-dark: var(--color-secondary-green-labs-dark);
+  --color-app-fg-primary: var(--color-secondary-green-labs);
+  --color-app-fg-secondary: var(--color-primary-green-labs);
 }
 
 /* 🌙 Dark Mode Variables */
@@ -157,7 +175,7 @@
     --color-fg: #f3f4f6;
     --color-fg-subtle: #4b5563;
 
-    --color-card: #1e1e1e;
+    --color-card: #4f4f4f;
 
     --color-border: #374151;
 
