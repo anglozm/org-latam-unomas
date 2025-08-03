@@ -4,6 +4,8 @@ import { useTranslations } from 'next-intl'
 
 import LoopColumn from './LoopColumn'
 
+import Container from '@/components/layout/Container'
+
 import { LogoItem } from '@/types/LogoItem'
 
 import clsx from 'clsx'
@@ -75,25 +77,30 @@ const LOGO_ITEMS_C3: LogoItem[] = [
     },
 ]
 
-export default function SlotMachine() {
+interface SlotMachineProps {
+    className?: string
+}
+
+export default function SlotMachine({
+    className
+}: SlotMachineProps) {
     const t = useTranslations('hero')
 
     return (
-        <div className={ clsx(
-            'max-w-screen-xl w-full mt-2 py-10 border-[var(--color-border)]',
-            'transition-colors duration-500 rounded-4xl'
-        )}>
-            <div className='px-5 py-5'>
-                <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] mb-10 transition-colors duration-500'>
-                    {t('sponsors-partners')}
-                </h2>
-                <div className='grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center'>
-                    <LoopColumn logos={LOGO_ITEMS_C0} />
-                    <LoopColumn direction='down' logos={LOGO_ITEMS_C1} />
-                    <LoopColumn logos={LOGO_ITEMS_C2} />
-                    <LoopColumn direction='down' logos={LOGO_ITEMS_C3} />
-                </div>
+        <Container
+            className={ clsx(
+                className
+            )}
+        >
+            <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] transition-colors duration-500 mb-10'>
+                {t('sponsors-partners')}
+            </h2>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center'>
+                <LoopColumn logos={LOGO_ITEMS_C0} />
+                <LoopColumn direction='down' logos={LOGO_ITEMS_C1} />
+                <LoopColumn logos={LOGO_ITEMS_C2} />
+                <LoopColumn direction='down' logos={LOGO_ITEMS_C3} />
             </div>
-        </div>
+        </Container>
     )
 }

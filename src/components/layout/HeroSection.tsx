@@ -9,45 +9,45 @@ import Container from './Container'
 
 import Button from '@/components/ui/Button'
 import Divider from '@/components/ui/Divider'
+import Section from '@/components/layout/Section'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
 
-interface HeroSectionProps {
-    className?: string
-}
-
-export default function HeroSection({
-    className
-}: HeroSectionProps) {
+export default function HeroSection() {
     const t = useTranslations('hero')
+    const tau = useTranslations('about-us')
+
     const router = useRouter()
 
     return (
-        <section
+        <Section
             className={ clsx(
-                className,
-                'w-full h-full pt-10 pb-5 px-4 text-center flex flex-col items-center justify-center',
-                'text-[var(--color-fg)] transition-colors duration-500'
+                'text-center mt-20'
             )}
+            classNameContainer={ clsx(
+                'max-w-screen-xl'
+            )}
+            width='max-w-7xl xl:max-w-6xl'
         >
-            <Container className= { clsx(
-                'flex flex-col lg:flex-row items-center justify-between',
-                'max-w-screen-xl w-full mb-2 py-4 gap-10 rounded-4xl'
-            )}>
-                <div className='max-w-xl text-center lg:text-left pt-20 pb-10 md:pt-40 md:pb-10 lg:py-20'>
-                    <h1 className='text-4xl font-extrabold mb-4'>{t('title')}</h1>
+            <Container className='flex flex-col lg:flex-row lg:text-left'>
+                <Container className='flex flex-col lg:flex-1/2 xl:flex-7/12 lg:justify-center lg:text-left py-6'>
+                    <h1 className='text-5xl font-extrabold mb-4'>{t('title')}</h1>
                     <p className='text-lg text-muted mb-6'>{t('subtitle')}</p>
                     <Button
+                        className={clsx(
+                            'mx-auto lg:mx-0 lg:mr-auto mt-8'
+                        )}
                         onClick={() => router.push('/auth')}
                         variant='success'
                         size='lg'
                     >
                         {t('cta')}
                     </Button>
-                </div>
+                </Container>
 
-                <div className='relative w-full max-w-md h-[360px]'>
+                {/* Images */}
+                <Container className='lg:flex-1/2 xl:flex-5/12 relative h-[25em]'>
                     <Image
                         className={ clsx(
                             'rounded-2xl shadow-xl absolute',
@@ -91,10 +91,50 @@ export default function HeroSection({
                         height={200}
                         style={{ transform: 'rotateX(50deg) rotateY(-5deg) rotateZ(20deg)' }}
                     />
+                </Container>
+            </Container>
+
+            <Divider className='max-w-screen-xl w-full ' color='bg-[var(--color-border)]' />
+
+            <Container className='py-10 md:py-8'>
+                <div className='space-y-6 md:space-y-2 py-16 md:py-20'>
+                    <h1 className='text-4xl font-bold px-4'>{tau('title')}</h1>
+                    <p className='text-lg px-4 sm:px-16 md:px-28 lg:px-44'>
+                        {tau('description')}
+                    </p>
+                </div>
+
+                <Divider className='max-w-screen-xl w-full ' color='bg-[var(--color-border)]' />
+
+                <Container className='grid lg:grid-cols-2 py-16 md:py-20 lg:px-12 gap-10 lg:gap-12' size='2xl'>
+                    <div className='space-y-6 md:space-y-2'>
+                        <h2 className='text-3xl font-semibold'>{tau('mission.title')}</h2>
+                        <p className='text-lg sm:px-12 md:px-4'>{tau('mission.text')}</p>
+                    </div>
+                    <div className='space-y-6 md:space-y-2'>
+                        <h2 className='text-3xl font-semibold'>{tau('vision.title')}</h2>
+                        <p className='text-lg sm:px-12 md:px-4'>{tau('vision.text')}</p>
+                    </div>
+                </Container>
+
+                <Divider className='max-w-screen-xl w-full ' color='bg-[var(--color-border)]' />
+
+                <div className='py-16 md:py-20'>
+                    <h3 className='text-xl font-semibold mb-2'>{tau('cta.title')}</h3>
+                    <p className='mb-6 sm:px-28 md:px-30 lg:px-40'>{tau('cta.description')}</p>
+
+                    <Button
+                        onClick={() => router.push('/contact-us')}
+                        variant='primary' size='lg'
+                    >
+                        {tau('cta.button')}
+                    </Button>
                 </div>
             </Container>
+
             <Divider className='max-w-screen-xl w-full ' color='bg-[var(--color-border)]' />
-            <SlotMachine />
-        </section>
+
+            <SlotMachine className='py-16' />
+        </Section>
     )
 }

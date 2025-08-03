@@ -57,8 +57,9 @@ export default function LocaleSwitcher({
                     onClick={toggleDropdown}
                     className={ clsx(
                         'cursor-pointer hover:shadow focus:outline-none hover:scale-105 duration-300 ease-in-out',
-                        'flex items-center gap-2 px-3 py-1 rounded-md text-sm border focus:ring-1 focus:ring-blue-400',
-                        'border-[var(--color-border)] bg-[var(--color-card)] text-[var(--color-fg)] transition-colors duration-500'
+                        'flex items-center gap-2 rounded-md text-sm focus:ring-1 focus:ring-blue-400 p-2.5 w-28',
+                        'bg-[var(--color-app-secondary-bg-contrast-dark)]',
+                        'text-[var(--color-fg)] transition-colors duration-500'
                     )}
                 >
                     <span>{current?.icon}</span>

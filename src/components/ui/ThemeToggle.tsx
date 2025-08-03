@@ -33,9 +33,9 @@ export default function ThemeToggle({
             <button
                 className={ clsx(
                     'cursor-pointer',
-                    'group rounded-md border transition-colors duration-500',
-                    'border-[var(--color-border)] bg-[var(--color-card)]',
-                    'hover:scale-105 duration-300 ease-in-out',
+                    'group rounded-md transition-colors duration-500',
+                    'bg-[var(--color-app-secondary-bg-contrast-dark)]',
+                    'hover:scale-105 ease-in-out',
                     'hover:shadow focus:outline-none focus:ring-1 focus:ring-blue-400',
                     sizeMap[size]
                 )}

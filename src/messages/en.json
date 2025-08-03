@@ -2,7 +2,6 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Home",
-        "about": "About Us",
         "training": "Training",
         "mentors": "Mentors",
         "contact": "Contact Us",
@@ -12,6 +11,23 @@
             "to-change-lang": "Change language",
             "open-menu": "Open menu",
             "close-menu": "Close menu"
+        }
+    },
+    "about-us": {
+        "title": "About Us",
+        "description": "We are a team passionate about business, professional, and personal growth through continuing education. We believe in the power of teamwork and leadership training to achieve the best results.",
+        "mission": {
+            "title": "Our mission",
+            "text": "Building leadership in people to expand a community of successful independent entrepreneurs, providing tools and support to those who want to transform their lives through conscious, responsible, and intelligent entrepreneurship."
+        },
+        "vision": {
+            "title": "Our vision",
+            "text": "To become the leading team in Latin America, with the best sustainable business and personal development network over time. To help people improve their lifestyle and quality of life, while expanding the company into a wide territory of opportunities for all members of our community of IBO's."
+        },
+        "cta": {
+            "title": "Want to join us?",
+            "description": "You are just one click away from learning how to build a business with the support of our community.",
+            "button": "Contact us"
         }
     },
     "training": {
@@ -27,8 +43,8 @@
         "submit": "Send Message"
     },
     "hero": {
-        "title": "Transform your lifestyle with Uno Más",
-        "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
+        "title": "Connections That Matter",
+        "subtitle": "Take advantage of your massive consumption as a tool to generate extra income, leveraging digital platforms such as Instagram, LinkedIn, YouTube, Zoom, and WhatsApp.",
         "cta": "Explore the opportunity",
         "sponsors-partners": "Sponsors & Partners"
     },
@@ -44,10 +60,9 @@
             "nutrilite-traceability": "Nutrilite Traceability",
             "artistry-traceability": "Artistry Traceability"
         },
-        "company": {
-            "title": "Company",
-            "about-us": "About Us",
-            "team": "Team"
+        "team": {
+            "title": "Team",
+            "mentors": "Mentors"
         },
         "legality": {
             "title": "Legality",

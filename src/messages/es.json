@@ -2,7 +2,6 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Inicio",
-        "about": "Acerca de",
         "training": "Entrenamientos",
         "mentors": "Mentores",
         "contact": "Contáctanos",
@@ -12,6 +11,23 @@
             "to-change-lang": "Cambiar de idioma",
             "open-menu": "Abrir menú",
             "close-menu": "Cerrar menú"
+        }
+    },
+    "about-us": {
+        "title": "Acerca de",
+        "description": "Somos un equipo apasionado por el crecimiento empresarial, profesional y personal a través de la educación continua. Creemos en el poder del trabajo en equipo y la formación de liderazgo para obtener los mejores resultados.",
+        "mission": {
+            "title": "Misión",
+            "text": "Construir liderazgo en las personas para expandir una comunidad de empresarios independientes exitosos, brindando herramientas, acompañamiento a quienes desean transformar sus vidas a través del emprendimiento consciente, responsable e inteligente."
+        },
+        "vision": {
+            "title": "Visión",
+            "text": "Ser el equipo de referencia en LATAM, con la mejor red de desarrollo empresarial y personal sostenible en el tiempo. Ayudar a las personas a mejorar su estilo y calidad de vida, a la vez que vamos expandiendo empresa en un territorio amplio de oportunidades para todos los miembros de nuestra comunidad de empresarios independientes."
+        },
+        "cta": {
+            "title": "¿Quieres unirte a nosotros?",
+            "description": "Estás a un click de aprender a construir empresa con el respaldo de nuestra comunidad.",
+            "button": "Contáctanos"
         }
     },
     "training": {
@@ -27,8 +43,8 @@
         "submit": "Enviar mensaje"
     },
     "hero": {
-        "title": "Transforma tu estilo de vida con Uno Más",
-        "subtitle": "Aprende, lidera y crece dentro de una comunidad que impulsa el Network Marketing en toda Latinoamérica.",
+        "title": "Conexiones que Importan",
+        "subtitle": "Aprovecha tu consumo masivo como una herramienta para generar ingresos extra, apalancado de plataformas digitales como Instagram, LinkedIn, Youtube, Zoom y WhatsApp.",
         "cta": "Conoce la oportunidad",
         "sponsors-partners": "Patrocinantes y Socios"
     },
@@ -44,10 +60,9 @@
             "nutrilite-traceability": "Trazabilidad Nutrilite",
             "artistry-traceability": "Trazabilidad Artistry"
         },
-        "company": {
-            "title": "Compañía",
-            "about-us": "Acerca de",
-            "team": "Equipo"
+        "team": {
+            "title": "Equipo",
+            "mentors": "Mentores"
         },
         "legality": {
             "title": "Legalidad",

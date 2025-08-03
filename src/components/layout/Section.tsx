@@ -8,7 +8,9 @@ import clsx from 'clsx'
 
 interface SectionProps {
     className?: string
+    classNameContainer?: string
     id?: string
+    width?: string
     bgColor?: 'none' | 'white' | 'gray' | 'primary'
     margin?: 'none' | 'sm' | 'md' | 'lg' | 'xl'
     padding?: 'none' | 'sm' | 'md' | 'lg'
@@ -48,7 +50,9 @@ const cornersMap: Record<NonNullable<SectionProps['corners']>, string> = {
 
 export default function Section({
     className,
+    classNameContainer,
     id,
+    width = 'max-w-xl',
     bgColor = 'none',
     margin = 'sm',
     padding = 'sm',
@@ -56,19 +60,27 @@ export default function Section({
     size = 'lg',
     children
 }: SectionProps) {
+    const baseStyle = 'transition-colors duration-500 mx-auto'
+
     return (
         <section
             id={id}
             className={ clsx(
                 className,
+                baseStyle,
+                width,
                 bgMap[bgColor],
                 marginMap[margin],
                 paddingMap[padding],
-                cornersMap[corners],
-                'max-w-xl mx-auto transition-colors duration-500'
+                cornersMap[corners]
             )}
         >
-            <Container size={size}>
+            <Container
+                className={ clsx(
+                    classNameContainer
+                )}
+                size={size}
+            >
                 {children}
             </Container>
         </section>

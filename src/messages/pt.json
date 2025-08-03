@@ -2,7 +2,6 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Início",
-        "about": "Sobre Nós",
         "training": "Treinamentos",
         "mentors": "Mentores",
         "contact": "Fale conosco",
@@ -12,6 +11,23 @@
             "to-change-lang": "Mudar idioma",
             "open-menu": "Abrir menu",
             "close-menu": "Fechar menu"
+        }
+    },
+    "about-us": {
+        "title": "Sobre Nós",
+        "description": "Somos uma equipe apaixonada pelo crescimento empresarial, profissional e pessoal por meio da educação continuada. Acreditamos no poder do trabalho em equipe e na formação de lideranças para obter os melhores resultados.",
+        "mission": {
+            "title": "Nossa missão",
+            "text": "Desenvolver a liderança nas pessoas para expandir uma comunidade de empreendedores independentes de sucesso, oferecendo ferramentas e acompanhamento àqueles que desejam transformar suas vidas por meio do empreendedorismo consciente, responsável e inteligente."
+        },
+        "vision": {
+            "title": "Nossa visão",
+            "text": "Ser a equipe de referência na América Latina, com a melhor rede de desenvolvimento empresarial e pessoal sustentável ao longo do tempo. Ajudar as pessoas a melhorar seu estilo e qualidade de vida, ao mesmo tempo em que expandimos a empresa em um amplo território de oportunidades para todos os membros da nossa comunidade de empresários independentes."
+        },
+        "cta": {
+            "title": "Quer se juntar a nós?",
+            "description": "Você está a um click de aprender a construir uma empresa com o apoio da nossa comunidade.",
+            "button": "Fale conosco"
         }
     },
     "training": {
@@ -27,8 +43,8 @@
         "submit": "Enviar mensagem"
     },
     "hero": {
-        "title": "Transforme seu estilo de vida com Uno Más",
-        "subtitle": "Aprenda, lidere e cresça dentro de uma comunidade que impulsiona o Marketing de Rede em toda a América Latina.",
+        "title": "Conexões que importam",
+        "subtitle": "Aproveite seu consumo massivo como uma ferramenta para gerar renda extra, alavancado pelas plataformas digitais como Instagram, LinkedIn, YouTube, Zoom e WhatsApp.",
         "cta": "Conheça a oportunidade",
         "sponsors-partners": "Patrocinadores e Parceiros"
     },
@@ -44,10 +60,9 @@
             "nutrilite-traceability": "Rastreabilidade Nutrilite",
             "artistry-traceability": "Rastreabilidade Artistry"
         },
-        "company": {
-            "title": "Empresa",
-            "about-us": "Sobre Nós",
-            "team": "Equipe"
+        "team": {
+            "title": "Equipe",
+            "mentors": "Mentores"
         },
         "legality": {
             "title": "Legalidade",

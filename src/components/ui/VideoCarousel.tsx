@@ -17,7 +17,7 @@ export default function VideoCarousel({
 }: VideoCarouselProps) {
     return (
         <div className='relative w-full max-w-7xl mx-auto px-4 py-10 rounded-4xl transition-colors duration-500'>
-            <h2 className='text-2xl text-start font-bold mb-1 text-[var(--color-fg)] py-2 transition-colors duration-500'>
+            <h2 className='text-2xl text-left font-bold mb-1 text-[var(--color-fg)] py-2 transition-colors duration-500'>
                 {segmentEmoji} {segmentTitle}
             </h2>
 
@@ -46,7 +46,7 @@ export default function VideoCarousel({
                                     loading='lazy'
                                 />
                             </div>
-                            <div className='text-start p-6'>
+                            <div className='text-left p-6'>
                                 <h3 className='text-md font-semibold transition-colors duration-500 text-[var(--color-fg)]'>
                                     {video.title}
                                 </h3>

@@ -31,8 +31,8 @@ export default function Footer({
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 transition-colors duration-500'>
                 {/* Grid Links */}
                 <div className={ clsx(
-                    'text-center md:text-start transition-colors duration-500',
-                    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm mb-24'
+                    'grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 text-sm mb-24',
+                    'text-center md:text-left transition-colors duration-500'
                 )}>
                     <div>
                         <h4 className='transition-colors duration-500 text-[var(--color-app-secondary)] text-lg font-semibold mb-3'>
@@ -65,14 +65,11 @@ export default function Footer({
                     </div>
                     <div>
                         <h4 className='transition-colors duration-500 text-[var(--color-app-secondary)] text-lg font-semibold mb-3'>
-                            {t('company.title')}
+                            {t('team.title')}
                         </h4>
                         <ul className='space-y-2 text-[var(--color-fg-light-over-dark)]'>
                             <li className='hover:scale-105 duration-300 ease-in-out'>
-                                <Link href='/about-us' className='hover:underline'>{t('company.about-us')}</Link>
-                            </li>
-                            <li className='hover:scale-105 duration-300 ease-in-out'>
-                                <Link href='/team' className='hover:underline'>{t('company.team')}</Link>
+                                <Link href='/mentors' className='hover:underline'>{t('team.mentors')}</Link>
                             </li>
                         </ul>
                     </div>
@@ -115,7 +112,6 @@ export default function Footer({
                          'hover:scale-120 duration-300 ease-in-out p-2',
                         'hover:text-[var(--color-fg-dark-over-light)] hover:bg-white rounded-full'
                     )}>
-
                         <Link href='https://instagram.com/unomaslatam' target='_blank' aria-label='Instagram' className='hover:text-pink-500'>
                             <FaInstagram />
                         </Link>
@@ -124,7 +120,6 @@ export default function Footer({
                          'hover:scale-120 duration-300 ease-in-out p-2',
                         'hover:text-[var(--color-fg-dark-over-light)] hover:bg-white rounded-full'
                     )}>
-
                         <Link href='https://youtube.com/@unomaslatam' target='_blank' aria-label='Youtube' className='hover:text-red-600'>
                             <FaYoutube />
                         </Link>
@@ -133,7 +128,7 @@ export default function Footer({
 
                 {/* Credits & Copyright */}
                 <div className='flex flex-col md:flex-row items-center justify-between gap-2 pt-6 text-sm'>
-                    <div className='flex text-center md:text-left text-[var(--color-fg-light-over-dark)]'>
+                    <div className='flex md:text-left text-[var(--color-fg-light-over-dark)]'>
                         <p className='hover:scale-110 duration-300'>
                             <strong className='transition-colors duration-500 text-[var(--color-app-secondary)]'>
                                 <Link href='mailto:negociodelatam@gmail.com'>
@@ -146,7 +141,7 @@ export default function Footer({
                         </p>
                     </div>
 
-                    <div className='text-center text-[var(--color-fg-light-over-dark)]'>
+                    <div className='md:text-right text-[var(--color-fg-light-over-dark)]'>
                         <p>
                             {t('made-with')}
                             <strong><Link className='hover:underline' href={links.amwayAcademy} target='_blank'>Academy</Link></strong>

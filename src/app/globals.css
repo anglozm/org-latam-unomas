@@ -72,6 +72,8 @@
   --color-primary-chambray-titan: #38539a;
   --color-secondary-chambray-titan: #f1f2ff;
   --color-secondary-chambray-titan-dark: #6b97da;
+  --color-secondary-chambray-titan-bg-contrast: #e4e5ff;
+  --color-secondary-chambray-titan-bg-contrast-dark: #5884d9;
   /* ------------------- Lotus Pippin Color ------------------- */
   --color-primary-lotus: #7f3d3d;
   --color-secondary-pippin: #ffe2e2;
@@ -112,6 +114,7 @@
   --color-app-primary: var(--color-primary-chambray-titan);
   --color-app-secondary: var(--color-secondary-chambray-titan);
   --color-app-secondary-dark: var(--color-secondary-chambray-titan);
+  --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast);
   --color-app-fg-primary: var(--color-primary-chambray-titan);
   --color-app-fg-secondary: var(--color-secondary-chambray-titan);
   --color-app-scrollbar: var(--color-primary-chambray-titan);
@@ -170,6 +173,7 @@
   --color-danger-hover: #dc2626;
 
   --color-app-secondary-dark: var(--color-secondary-chambray-titan-dark);
+  --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast-dark);
   --color-app-fg-primary: var(--color-secondary-chambray-titan);
   --color-app-fg-secondary: var(--color-primary-chambray-titan);
 }

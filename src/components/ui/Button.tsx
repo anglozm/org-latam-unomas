@@ -8,23 +8,24 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive' | '
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode
+    className?: string
     variant?: Variant
     size?: Size
     isLoading?: boolean
     leftIcon?: ReactNode
     rightIcon?: ReactNode
+    children: ReactNode
 }
 
 export default function Button({
-    children,
+    className,
     variant = 'primary',
     size = 'md',
     isLoading = false,
-    disabled,
     leftIcon,
     rightIcon,
-    className,
+    disabled,
+    children,
     ...props
 }: ButtonProps) {
     const baseStyle =
@@ -50,7 +51,6 @@ export default function Button({
 
     return (
         <button
-            type='button'
             className={ clsx(
                 className,
                 baseStyle,
@@ -58,6 +58,7 @@ export default function Button({
                 sizeStyle[size]
             )}
             disabled={disabled || isLoading}
+            type='button'
             {...props}
         >
             { isLoading ? (
@@ -65,7 +66,9 @@ export default function Button({
             ) : (
                 leftIcon && <span className='mr-2'>{leftIcon}</span>
             )}
+
             {children}
+
             {rightIcon && <span className='ml-2'>{rightIcon}</span>}
         </button>
     )

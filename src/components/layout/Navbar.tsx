@@ -23,7 +23,6 @@ export default function Navbar() {
 
     const navLinks = [
         { href: '/', label: t('home') },
-        { href: '/about-us', label: t('about') },
         { href: '/training', label: t('training') },
         { href: '/mentors', label: t('mentors') },
         { href: '/contact-us', label: t('contact') },
@@ -32,8 +31,9 @@ export default function Navbar() {
     return (
         <header
             className={ clsx(
-                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500 bg-[var(--color-app-secondary-dark)]',
-                'text-[var(--color-fg)]'
+                'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500',
+                'text-[var(--color-fg)]',
+                'bg-[var(--color-app-secondary-dark)]'
             )}
         >
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
@@ -67,8 +67,8 @@ export default function Navbar() {
                             aria-label='Toggle mobile menu'
                         >
                             { isOpen
-                                ? <X className='hover:scale-120 transition-colors duration-300' size={24} />
-                                : <Menu className='hover:scale-120 transition-colors duration-300' size={24} />
+                                ? <X className='hover:scale-120 transition-colors duration-300' size={36} />
+                                : <Menu className='hover:scale-120 transition-colors duration-300' size={36} />
                             }
                         </button>
                     </Tooltip>
@@ -79,9 +79,8 @@ export default function Navbar() {
                             <li key={href} className='hover:scale-105 duration-300 ease-in-out'>
                                 <Link
                                     href={href}
-
                                     className={ clsx(
-                                        'text-sm font-medium',
+                                        'font-medium',
                                         pathname === href
                                             ? 'text-[var(--color-app-primary)]'
                                             : 'hover:text-[var(--color-app-primary)]'
@@ -95,7 +94,7 @@ export default function Navbar() {
 
                     <Divider className='hidden md:flex' orientation='vertical' color='bg-[var(--color-app-primary)]' spacing='mx-4' />
 
-                    <ThemeToggle />
+                    <ThemeToggle size='lg' />
 
                     <ul className='pl-4 md:flex space-x-6 items-center'>
                         <li>
@@ -109,7 +108,7 @@ export default function Navbar() {
             { isOpen && (
                 <div className={ clsx(
                     'md:hidden border-t border-[var(--color-border)] p-4',
-                    'transition-colors duration-500 bg-[var(--color-bg)] text-[var(--color-fg)]',
+                    'transition-colors duration-500 bg-[var(--color-card)] text-[var(--color-fg)]',
                 )}>
                     <ul className='space-y-2'>
                         { navLinks.map(({ href, label }) => (
