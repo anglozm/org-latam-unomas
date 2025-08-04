@@ -5,8 +5,8 @@ import React from 'react'
 import { Inter } from 'next/font/google'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 
-import { Metadata } from 'next'
 import { ReactNode } from 'react'
+import { Metadata } from 'next'
 
 import { notFound } from 'next/navigation'
 
@@ -42,7 +42,7 @@ export default async function RootLayout({
     }
 
     return (
-        <html lang={locale} suppressHydrationWarning={true} className='bg-app-gradient'>
+        <html lang={locale} suppressHydrationWarning={true} className='transition-colors duration-500 bg-app-gradient'>
             <body className={ clsx(
                 `${inter.className}`,
                 'transition-colors duration-500 text-[var(--color-fg)]'

@@ -25,8 +25,8 @@ export default function Footer({
     return (
         <footer className={ clsx(
             className,
-            'mt-10 p-5 border-t border-[var(--color-border)]',
-            'bg-[var(--color-app-primary)] text-[var(--color-fg)] transition-colors duration-500',
+            'mt-10 p-5 ',
+            'bg-[var(--color-app-primary-bg-contrast-dark)] text-[var(--color-fg)] transition-colors duration-500',
         )}>
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 transition-colors duration-500'>
                 {/* Grid Links */}
@@ -104,7 +104,7 @@ export default function Footer({
                     </div>
                 </div>
 
-                <Divider />
+                <Divider color='bg-gray-300' />
 
                 {/* Social & App Links */}
                 <div className='flex justify-center md:justify-end space-x-2 text-3xl text-[var(--color-fg-light-over-dark)] mt-5 md:mb-7'>

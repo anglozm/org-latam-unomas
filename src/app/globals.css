@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .bg-app-gradient {
-  background: linear-gradient(to bottom, var(--color-bg-from), var(--color-bg-to));
+  background: linear-gradient(to bottom, var(--color-bg-app-from), var(--color-bg-app-to));
 }
 
 /* 🔧 Global UI semantic variables */
@@ -13,8 +13,8 @@
   --color-bg-contrast: #bec5d5;
   --color-bg-hover: #f9fafb;
   --color-bg-subtle: #f9f9f9;
-  --color-bg-from: #fafafa;
-  --color-bg-to: var(--color-app-secondary);
+  --color-bg-app-from: #fafafa;
+  --color-bg-app-to: var(--color-app-secondary);
 
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
@@ -56,6 +56,9 @@
   --color-danger: #dc2626;
   --color-danger-hover: #b91c1c;
 
+  --color-primary-bg-contrast: var(--color-app-primary);
+  --color-primary-bg-contrast-dark: #131f25;
+
   /* ==================== 🌟 Design tokens ==================== */
   --radius: 0.5rem;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -71,9 +74,9 @@
   /* ------------------ Chambray Titan Color ------------------ */
   --color-primary-chambray-titan: #38539a;
   --color-secondary-chambray-titan: #f1f2ff;
-  --color-secondary-chambray-titan-dark: #6b97da;
+  --color-secondary-chambray-titan-dark: #1b282f;
   --color-secondary-chambray-titan-bg-contrast: #e4e5ff;
-  --color-secondary-chambray-titan-bg-contrast-dark: #5884d9;
+  --color-secondary-chambray-titan-bg-contrast-dark: #273d4b;
   /* ------------------- Lotus Pippin Color ------------------- */
   --color-primary-lotus: #7f3d3d;
   --color-secondary-pippin: #ffe2e2;
@@ -112,12 +115,13 @@
   --color-secondary-green-labs-dark: #92b9ae;
 
   --color-app-primary: var(--color-primary-chambray-titan);
+  --color-app-primary-bg-contrast-dark: var(--color-primary-bg-contrast);
   --color-app-secondary: var(--color-secondary-chambray-titan);
-  --color-app-secondary-dark: var(--color-secondary-chambray-titan);
+  --color-app-secondary-dark: var(--color-app-secondary);
   --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast);
-  --color-app-fg-primary: var(--color-primary-chambray-titan);
-  --color-app-fg-secondary: var(--color-secondary-chambray-titan);
-  --color-app-scrollbar: var(--color-primary-chambray-titan);
+  --color-app-fg-primary: var(--color-app-primary);
+  --color-app-fg-secondary: var(--color-app-secondary);
+  --color-app-scrollbar: var(--color-app-primary);
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
 }
@@ -128,8 +132,9 @@
   --color-bg-contrast: #707070;
   --color-bg-hover: #1f2937;
   --color-bg-subtle: #1e1e1e;
-  --color-bg-from: #2f2f2f;
-  --color-bg-to: #161616;
+  --color-bg-app-from: #273d4b;
+  --color-bg-app-to: #17232c;
+
   --color-bg-png: #fafafa;
 
   --color-fg: #f5f5f5;
@@ -139,7 +144,7 @@
 
   --color-card: #3f3f3f;
 
-  --color-border: #444;
+  --color-border: #2f4f5b;
 
   --color-accent: #60a5fa;
   --color-accent-bg: #eff6ff;
@@ -173,9 +178,10 @@
   --color-danger-hover: #dc2626;
 
   --color-app-secondary-dark: var(--color-secondary-chambray-titan-dark);
+  --color-app-primary-bg-contrast-dark: var(--color-primary-bg-contrast-dark);
   --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast-dark);
-  --color-app-fg-primary: var(--color-secondary-chambray-titan);
-  --color-app-fg-secondary: var(--color-primary-chambray-titan);
+  --color-app-fg-primary: var(--color-app-secondary);
+  --color-app-fg-secondary: var(--color-app-primary);
 }
 
 /* 🌙 Dark Mode Variables */
@@ -185,8 +191,8 @@
     --color-bg-contrast: #585858;
     --color-bg-hover: #1f2937;
     --color-bg-subtle: #1e1e1e;
-    --color-bg-from: #0f0f0f;
-    --color-bg-to: #101010;
+    --color-bg-app-from: #0f0f0f;
+    --color-bg-app-to: #101010;
 
     --color-fg: #f3f4f6;
     --color-fg-subtle: #4b5563;
@@ -259,7 +265,7 @@ body {
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--color-primary-chambray-titan);
+  background: var(--color-app-primary);
   border-radius: 10px;
 }
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {

@@ -49,13 +49,13 @@ export default function ThemeToggle({
                     <Sun
                         className={ clsx(
                             'absolute inset-0 h-full w-full transition-opacity duration-300',
-                            isDark ? 'opacity-100 rotate-0 text-yellow-400' : 'opacity-0 -rotate-90'
+                            isDark ? 'opacity-100 rotate-90 transform transition-transform text-yellow-400' : 'opacity-0 -rotate-90 transform transition-transform'
                         )}
                     />
                     <Moon
                         className={ clsx(
                             'absolute inset-0 h-full w-full transition-opacity duration-300',
-                            isDark ? 'opacity-0 rotate-90' : 'opacity-100 text-shadow-blue-950'
+                            isDark ? 'opacity-0 rotate-90 transform transition-transform' : 'opacity-100 -rotate-90 text-sky-800 transform transition-transform'
                         )}
                     />
                 </span>
