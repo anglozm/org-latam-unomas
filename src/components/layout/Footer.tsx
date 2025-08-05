@@ -23,11 +23,13 @@ export default function Footer({
     const year = new Date().getFullYear()
 
     return (
-        <footer className={ clsx(
-            className,
-            'mt-10 p-5 ',
-            'bg-[var(--color-app-primary-bg-contrast-dark)] text-[var(--color-fg)] transition-colors duration-500',
-        )}>
+        <footer
+            className={ clsx(
+                className,
+                'mt-10 p-5',
+                'bg-[var(--color-app-primary-bg-contrast-dark)] text-[var(--color-fg)] transition-colors duration-500',
+            )}
+        >
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 transition-colors duration-500'>
                 {/* Grid Links */}
                 <div className={ clsx(

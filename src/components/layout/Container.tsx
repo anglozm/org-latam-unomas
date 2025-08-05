@@ -11,6 +11,7 @@ interface ContainerProps {
     children: ReactNode
     corners?: 'none' | 'xl' | '2xl' | '4xl'
     size?: ContainerSize
+    padding?: string
 }
 
 const cornersMap: Record<NonNullable<ContainerProps['corners']>, string> = {
@@ -32,7 +33,8 @@ export default function Container({
     className,
     children,
     corners = 'xl',
-    size = 'xl'
+    size = 'xl',
+    padding = 'px-4 sm:px-6 md:px-8 lg:px-4'
 }: ContainerProps) {
     return (
         <div
@@ -40,7 +42,8 @@ export default function Container({
                 className,
                 cornersMap[corners],
                 sizeMap[size],
-                'w-full px-4 sm:px-6 md:px-8 lg:px-4',
+                padding,
+                'w-full',
                 'text-[var(--color-fg)] transition-colors duration-500'
             )}
         >

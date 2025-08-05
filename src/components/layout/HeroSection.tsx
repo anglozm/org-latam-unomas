@@ -25,9 +25,6 @@ export default function HeroSection() {
             className={ clsx(
                 'text-center mt-20'
             )}
-            classNameContainer={ clsx(
-                'max-w-screen-xl'
-            )}
             width='max-w-7xl xl:max-w-6xl'
         >
             <Container className='flex flex-col lg:flex-row lg:text-left'>
