@@ -4,17 +4,28 @@ import { useTranslations } from 'next-intl'
 
 import { AtSign, KeyRound, User } from 'lucide-react'
 
+import Section from '@/components/layout/Section'
+
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
-import Section from '@/components/layout/Section'
 import Tabs from '@/components/ui/Tabs'
+
+import clsx from 'clsx'
 
 export default function AuthPage() {
     const t = useTranslations('auth')
     const tf = useTranslations('form')
 
     return (
-        <Section className='shadow-lg' margin='xl' corners='4xl' bgColor='gray' size='xl'>
+        <Section
+            className={ clsx(
+                'mt-20'
+            )}
+            classNameContainer={ clsx(
+                'space-y-10'
+            )}
+            width='max-w-7xl xl:max-w-6xl'
+        >
             <Tabs
                 classNameTabHeaders='justify-center'
                 initialIndex={0}
@@ -22,7 +33,7 @@ export default function AuthPage() {
                     {
                         label: t('login'),
                         content: (
-                            <Section padding='none'>
+                            <Section>
                                 <form className='flex flex-col gap-6'>
                                     <Input
                                         label={t('email')}
@@ -49,7 +60,7 @@ export default function AuthPage() {
                     }, {
                         label: t('create-account'),
                         content: (
-                            <Section padding='none'>
+                            <Section>
                                 <form className='flex flex-col gap-4'>
                                     <Input
                                         label={t('full-name')}
