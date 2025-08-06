@@ -35,7 +35,7 @@ export default function Textarea({
             <textarea
                 className={ clsx(
                     className,
-                    'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)]',
+                    'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-card)]',
                     'text-[var(--color-fg)] text-sm resize-none focus:outline-none focus:ring-1',
                     'transition-colors duration-500 placeholder:text-gray-400',
                     error

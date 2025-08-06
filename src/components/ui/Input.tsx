@@ -23,7 +23,7 @@ export default function Input({
     const baseStyles =
         'w-full px-5 py-3 border rounded-[var(--radius)] ' +
         'focus:outline-none focus:ring-1 transition-colors duration-500 shadow-sm ' +
-        'text-sm bg-[var(--color-bg)] text-[var(--color-fg)] placeholder:text-gray-400'
+        'text-sm bg-[var(--color-card)] text-[var(--color-fg)] placeholder:text-gray-400'
 
     return (
         <div className='w-full hover:scale-105 duration-300 ease-in-out'>

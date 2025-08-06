@@ -4,24 +4,36 @@ import { useTranslations } from 'next-intl'
 
 import { AtSign, User } from 'lucide-react'
 
+import Container from '@/components/layout/Container'
+import Section from '@/components/layout/Section'
+
 import Button from '@/components/ui/Button'
 import Input from '@/components/ui/Input'
-import Section from '@/components/layout/Section'
 import Textarea from '@/components/ui/Textarea'
+
+import clsx from 'clsx'
 
 export default function ContactUsPage() {
     const t = useTranslations('contact')
     const tf = useTranslations('form')
 
     return (
-        <div>
-            <Section className='text-center mt-10' padding='none'>
-                <h1 className='text-3xl font-bold'>{t('title')}</h1>
-                <p className='mt-2 text-muted'>{t('subtitle')}</p>
-            </Section>
+        <Section
+            className={ clsx(
+                'mt-20'
+            )}
+            classNameContainer={ clsx(
+                'space-y-10'
+            )}
+            width='max-w-7xl xl:max-w-6xl'
+        >
+            <Container className='space-y-4 text-center'>
+                <h1 className='text-4xl font-bold'>{t('title')}</h1>
+                <p className='text-muted'>{t('subtitle')}</p>
+            </Container>
 
-            <Section className='mx-auto' padding='sm'>
-                <form className='flex flex-col gap-6'>
+            <Container className='mx-auto'>
+                <form className='flex flex-col gap-6 max-w-md mx-auto'>
                     <Input
                         label={t('name')}
                         id='name'
@@ -49,7 +61,7 @@ export default function ContactUsPage() {
                         {t('submit')}
                     </Button>
                 </form>
-            </Section>
-        </div>
+            </Container>
+        </Section>
     )
 }
