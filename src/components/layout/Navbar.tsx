@@ -40,7 +40,7 @@ export default function Navbar() {
                 {/* Logo */}
                 <Link href='/' className='text-xl font-bold text-[var(--color-accent)]'>
                     <Image
-                        className='rounded-full hover:scale-120 duration-300 ease-in-out'
+                        className='rounded-md hover:scale-120 duration-300 ease-in-out'
                         src='/logo/chambray.png'
                         alt='Uno Más logo'
                         width={50}

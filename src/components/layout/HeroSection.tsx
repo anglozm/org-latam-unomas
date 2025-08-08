@@ -5,6 +5,10 @@ import { useTranslations } from 'next-intl'
 
 import Image from 'next/image'
 
+import { LoopColumnProps } from '@/props/LoopColumnProps'
+
+import { LogoItem } from '@/types/LogoItem'
+
 import Container from './Container'
 
 import Button from '@/components/ui/Button'
@@ -13,6 +17,116 @@ import Section from '@/components/layout/Section'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
+
+const logoItemsSponsorsC0: LogoItem[] = [
+    {
+        src: '/logo/amway_black.svg',
+        alt: 'Logo de Amway',
+        href: 'https://latinamway.com'
+    }, {
+        src: '/logo/nutrilite.png',
+        alt: 'Logo de Nutrilite',
+        href: 'https://nutrilitetraceability.lat'
+    }, {
+        src: '/logo/artistry.png',
+        alt: 'Logo de Artistry',
+        href: 'https://artistry.lat/trazabilidad-artistry'
+    },
+]
+const logoItemsSponsorsC1: LogoItem[] = [
+    {
+        src: '/logo/anglozm.png',
+        alt: 'Logo de anglozm',
+        href: 'https://instagram.com/anglozm'
+    }, {
+        src: '/logo/artistry.png',
+        alt: 'Logo de Artistry',
+        href: 'https://artistry.lat/trazabilidad-artistry'
+    }, {
+        src: '/logo/amway_black.svg',
+        alt: 'Logo de Amway',
+        href: 'https://latinamway.com'
+    }, {
+        src: '/logo/p&s-solutions.png',
+        alt: 'Logo de PS Solutions',
+        href: 'https://instagram.com/pssolutions.pty'
+    },
+]
+const logoItemsSponsorsC2: LogoItem[] = [
+    {
+        src: '/logo/p&s-solutions.png',
+        alt: 'Logo de PS Solutions',
+        href: 'https://instagram.com/pssolutions.pty'
+    }, {
+        src: '/logo/anglozm.png',
+        alt: 'Logo de anglozm',
+        href: 'https://instagram.com/anglozm'
+    }, {
+        src: '/logo/satinique.png',
+        alt: 'Logo de Satinique'
+    },
+]
+const logoItemsSponsorsC3: LogoItem[] = [
+    {
+        src: '/logo/artistry.png',
+        alt: 'Logo de Artistry',
+        href: 'https://artistry.lat/trazabilidad-artistry'
+    }, {
+        src: '/logo/nutrilite.png',
+        alt: 'Logo de Nutrilite',
+        href: 'https://nutrilitetraceability.lat'
+    }, {
+        src: '/logo/amway_black.svg',
+        alt: 'Logo de Amway',
+        href: 'https://latinamway.com'
+    },
+]
+
+const logoItemsCertC0: LogoItem[] = [
+    {
+        src: '/logo/certification_safer-choice.png',
+        alt: 'Logo de Safer Choice',
+        href: 'https://epa.gov/saferchoice'
+    }, {
+        src: '/logo/certification_nsf-international.png',
+        alt: 'Logo de NSF',
+        href: 'https://nsf.org'
+    },
+]
+const logoItemsCertC1: LogoItem[] = [
+    {
+        src: '/logo/certification_friend-of-the-sea.png',
+        alt: 'Logo de Friend of the Sea',
+        href: 'https://friendofthesea.org'
+    }, {
+        src: '/logo/certification_skin-cancer-foundation.png',
+        alt: 'Logo de Skin Cancer Foundation',
+        href: 'https://skincancer.org'
+    },
+]
+const logoItemsCertC2: LogoItem[] = [
+    {
+        src: '/logo/certification_british-allergy-foundation.png',
+        alt: 'Logo de British Allergy Foundation',
+        href: 'https://allergyuk.org'
+    }, {
+        src: '/logo/certification_ecocert.png',
+        alt: 'Logo de Ecocert',
+        href: 'https://ecocert.com/es/home'
+    },
+]
+
+const allColumnsCertifications: LoopColumnProps[] = [
+    { logos: logoItemsCertC0 },
+    { logos: logoItemsCertC1, direction: 'down' },
+    { logos: logoItemsCertC2 },
+]
+const allColumnsSponsors: LoopColumnProps[] = [
+    { logos: logoItemsSponsorsC0 },
+    { logos: logoItemsSponsorsC1, direction: 'down' },
+    { logos: logoItemsSponsorsC2 },
+    { logos: logoItemsSponsorsC3, direction: 'down' },
+]
 
 export default function HeroSection() {
     const t = useTranslations('hero')
@@ -131,7 +245,8 @@ export default function HeroSection() {
 
             <Divider className='max-w-screen-xl w-full ' color='bg-[var(--color-border)]' />
 
-            <SlotMachine className='py-16' />
+            <SlotMachine className='py-16' title={t('certifications')} columns={allColumnsCertifications} />
+            <SlotMachine className='py-16' title={t('sponsors-partners')} columns={allColumnsSponsors} />
         </Section>
     )
 }

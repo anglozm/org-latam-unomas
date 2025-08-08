@@ -1,91 +1,24 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
+import { LoopColumnProps } from '@/props/LoopColumnProps'
 
 import LoopColumn from './LoopColumn'
 
 import Container from '@/components/layout/Container'
 
-import { LogoItem } from '@/types/LogoItem'
-
 import clsx from 'clsx'
-
-const LOGO_ITEMS_C0: LogoItem[] = [
-    {
-        src: '/logo/amway_black.svg',
-        alt: 'Logo de Amway',
-        href: 'https://latinamway.com'
-    }, {
-        src: '/logo/nutrilite.png',
-        alt: 'Logo de Nutrilite',
-        href: 'https://nutrilitetraceability.lat'
-    }, {
-        src: '/logo/artistry.png',
-        alt: 'Logo de Artistry',
-        href: 'https://artistry.lat/trazabilidad-artistry'
-    },
-]
-
-const LOGO_ITEMS_C1: LogoItem[] = [
-    {
-        src: '/logo/anglozm.png',
-        alt: 'Logo de anglozm',
-        href: 'https://instagram.com/anglozm'
-    }, {
-        src: '/logo/artistry.png',
-        alt: 'Logo de Artistry',
-        href: 'https://artistry.lat/trazabilidad-artistry'
-    }, {
-        src: '/logo/amway_black.svg',
-        alt: 'Logo de Amway',
-        href: 'https://latinamway.com'
-    }, {
-        src: '/logo/p&s-solutions.png',
-        alt: 'Logo de PS Solutions',
-        href: 'https://instagram.com/pssolutions.pty'
-    },
-]
-
-const LOGO_ITEMS_C2: LogoItem[] = [
-    {
-        src: '/logo/p&s-solutions.png',
-        alt: 'Logo de PS Solutions',
-        href: 'https://instagram.com/pssolutions.pty'
-    }, {
-        src: '/logo/anglozm.png',
-        alt: 'Logo de anglozm',
-        href: 'https://instagram.com/anglozm'
-    }, {
-        src: '/logo/satinique.png',
-        alt: 'Logo de Satinique'
-    },
-]
-
-const LOGO_ITEMS_C3: LogoItem[] = [
-    {
-        src: '/logo/artistry.png',
-        alt: 'Logo de Artistry',
-        href: 'https://artistry.lat/trazabilidad-artistry'
-    }, {
-        src: '/logo/nutrilite.png',
-        alt: 'Logo de Nutrilite',
-        href: 'https://nutrilitetraceability.lat'
-    }, {
-        src: '/logo/amway_black.svg',
-        alt: 'Logo de Amway',
-        href: 'https://latinamway.com'
-    },
-]
 
 interface SlotMachineProps {
     className?: string
+    title?: string
+    columns?: LoopColumnProps[]
 }
 
 export default function SlotMachine({
-    className
+    className,
+    title,
+    columns
 }: SlotMachineProps) {
-    const t = useTranslations('hero')
-
     return (
         <Container
             className={ clsx(
@@ -93,13 +26,24 @@ export default function SlotMachine({
             )}
         >
             <h2 className='text-2xl font-bold text-center text-[var(--color-fg)] transition-colors duration-500 mb-10'>
-                {t('sponsors-partners')}
+                {title && title}
             </h2>
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center'>
-                <LoopColumn logos={LOGO_ITEMS_C0} />
-                <LoopColumn direction='down' logos={LOGO_ITEMS_C1} />
-                <LoopColumn logos={LOGO_ITEMS_C2} />
-                <LoopColumn direction='down' logos={LOGO_ITEMS_C3} />
+            <div
+                className= { clsx(
+                    ( columns &&
+                        (columns.length === 3)
+                            ? 'grid grid-cols-2 md:grid-cols-3 gap-6 justify-items-center'
+                            : 'grid grid-cols-2 md:grid-cols-4 gap-6 justify-items-center'
+                    ),
+                )}
+            >
+                { columns && columns.map((column, index) => (
+                    <LoopColumn
+                        key={index}
+                        logos={column.logos}
+                        direction={column.direction}
+                    />
+                ))}
             </div>
         </Container>
     )
