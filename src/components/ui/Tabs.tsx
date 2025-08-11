@@ -41,17 +41,17 @@ export default function Tabs({
                 )}
                 role='tablist'
             >
-                { tabs.map((tab, index) => {
-                    const isActive = activeIndex === index
+                { tabs.map((tab, i) => {
+                    const isActive = activeIndex === i
 
                     return (
                         <button
-                            key={index}
-                            id={`tab-${index}`}
+                            key={i}
+                            id={`tab-${i}`}
                             role='tab'
                             aria-selected={isActive}
-                            aria-controls={`panel-${index}`}
-                            onClick={() => setActiveIndex(index)}
+                            aria-controls={`panel-${i}`}
+                            onClick={() => setActiveIndex(i)}
                             className={ clsx(
                                 'px-4 py-2 text-lg font-medium focus:outline-none cursor-pointer',
                                 'hover:scale-110 transition-colors duration-200 ease-in-out px-16',

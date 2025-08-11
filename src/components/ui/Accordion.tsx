@@ -22,18 +22,18 @@ export default function Accordion({
 }: AccordionProps) {
     const [ openIndexes, setOpenIndexes ] = useState<number[]>([])
 
-    const toggle = (index: number) => {
+    const toggle = (i: number) => {
         if (allowMultipleOpen) {
             setOpenIndexes(prev => (
-                prev.includes(index)
-                    ? prev.filter(i => i !== index)
-                    : [...prev, index]
+                prev.includes(i)
+                    ? prev.filter(i => i !== i)
+                    : [...prev, i]
             ))
         } else {
             setOpenIndexes(prev => (
-                prev[0] === index
+                prev[0] === i
                     ? []
-                    : [index]
+                    : [i]
             ))
         }
     }
@@ -43,13 +43,13 @@ export default function Accordion({
             'space-y-5 rounded-4xl p-10',
             'transition-colors duration-500 bg-[var(--color-bg)] text-[var(--color-fg)]',
         )}>
-            { items.map((item, index) => (
+            { items.map((item, i) => (
                 <AccordionItem
-                    key={index}
+                    key={i}
                     title={item.title}
                     content={item.content}
-                    isOpen={openIndexes.includes(index)}
-                    onToggle={() => toggle(index)}
+                    isOpen={openIndexes.includes(i)}
+                    onToggle={() => toggle(i)}
                 />
             ))}
         </div>

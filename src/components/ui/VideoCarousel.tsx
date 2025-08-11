@@ -39,9 +39,9 @@ export default function VideoCarousel({
                         'transition-colors duration-500 px-6 py-6 rounded-xl'
                     )}
                 >
-                    { videos.map((video, index) => (
+                    { videos.map((video, i) => (
                         <div
-                            key={index}
+                            key={i}
                             className={ clsx(
                                 'snap-start flex-shrink-0 min-w-[360px] max-w-[360px] overflow-hidden',
                                 'bg-[var(--color-card)] shadow-md rounded-4xl',
