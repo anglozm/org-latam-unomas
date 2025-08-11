@@ -36,7 +36,7 @@ export default function Select({
 
             <select
                 className={clsx(
-                    'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)] text-[var(--color-fg)] text-sm focus:outline-none focus:ring-2 transition',
+                    'w-full px-4 py-2 border rounded-[var(--radius)] shadow-sm bg-[var(--color-bg)] text-[var(--color-fg)] text-sm focus:outline-none focus:ring-1 transition',
                     error
                         ? 'border-red-500 focus:ring-red-400'
                         : 'border-[var(--color-border)] focus:ring-[var(--color-accent)]',

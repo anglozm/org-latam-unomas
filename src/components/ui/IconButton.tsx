@@ -1,57 +1,58 @@
 'use client'
 
 import { ButtonHTMLAttributes, ReactNode } from 'react'
-import clsx from 'clsx'
+
 import Tooltip from './Tooltip'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive'
+import clsx from 'clsx'
+
+type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive' | 'warning' | 'success'
 type Size = 'sm' | 'md' | 'lg'
 
 interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    icon: ReactNode
-    tooltip?: string
+    className?: string
     variant?: Variant
     size?: Size
+    icon: ReactNode
+    tooltip?: string
 }
 
 export default function IconButton({
-    icon,
-    tooltip,
+    className,
     variant = 'ghost',
     size = 'md',
-    className,
+    icon,
+    tooltip = '',
     ...props
 }: IconButtonProps) {
     const baseStyle =
-        'inline-flex items-center justify-center rounded-md transition focus:outline-none focus:ring-2 focus:ring-offset-2'
+        'inline-flex items-center justify-center rounded-md transition-colors duration-500 ' +
+        'focus:outline-none focus:ring-1 focus:ring-offset-2'
 
     const variantStyle: Record<Variant, string> = {
-        primary:
-            'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-        secondary:
-            'bg-[var(--color-muted)] text-[var(--color-fg)] hover:bg-[var(--color-muted-hover)] focus:ring-[var(--color-border)]',
-        ghost:
-            'bg-transparent text-blue-600 hover:bg-blue-50 dark:text-blue-400 dark:hover:bg-blue-900/20 focus:ring-blue-400',
-        outline:
-            'border border-[var(--color-border)] text-[var(--color-fg)] hover:bg-[var(--color-muted-hover)] focus:ring-[var(--color-border)]',
-        destructive:
-            'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
+        primary: 'bg-[var(--color-primary)] text-[var(--color-primary-fg)] hover:bg-[var(--color-primary-hover)] focus:ring-[var(--color-primary)]',
+        secondary: 'bg-[var(--color-secondary)] text-[var(--color-secondary-fg)] hover:bg-[var(--color-secondary-hover)] focus:ring-[var(--color-secondary)]',
+        ghost: 'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-primary-bg)] focus:ring-[var(--color-primary)]',
+        outline: 'bg-[var(--color-card)] border border-[var(--color-border)] text-[var(--color-fg)] hover:bg-[var(--color-bg-hover)] focus:ring-[var(--color-border)]',
+        success: 'bg-[var(--color-success)] text-white hover:bg-[var(--color-success-hover)] focus:ring-[var(--color-success)]',
+        warning: 'bg-[var(--color-warning)] text-white hover:bg-[var(--color-warning-hover)] focus:ring-[var(--color-warning)]',
+        destructive: 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger-hover)] focus:ring-[var(--color-danger)]',
     }
 
     const sizeStyle: Record<Size, string> = {
-        sm: 'p-1.5 text-sm',
-        md: 'p-2 text-base',
-        lg: 'p-3 text-lg',
+        sm: 'text-sm p-1.5',
+        md: 'text-base p-2',
+        lg: 'text-lg p-3',
     }
 
     const button = (
         <button
             type='button'
-            className={clsx(
+            className={ clsx(
+                className,
                 baseStyle,
                 variantStyle[variant],
-                sizeStyle[size],
-                className
+                sizeStyle[size]
             )}
             {...props}
         >
@@ -60,7 +61,7 @@ export default function IconButton({
     )
 
     return tooltip ? (
-        <Tooltip text={tooltip}>
+        <Tooltip content={tooltip}>
             {button}
         </Tooltip>
     ) : (

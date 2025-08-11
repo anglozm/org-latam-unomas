@@ -109,14 +109,17 @@ Reusable interface components to build accessible and interactive UIs:
 - `Dropdown.tsx`
 - `FAQSection.tsx`
 - `VideoCarousel.tsx` – Carousel of embedded videos from YouTube.
-- `ScrollBox.tsx` – Contenedor con scroll personalizado.
-      - Props:
-        - `direction`: `"y" | "x" | "both"` – dirección del scroll (por defecto `"y"`).
-        - `thin`: `boolean` – si se aplica el estilo `scrollbar-thin`.
-        - `className`: estilos adicionales.
-    - Scroll adaptado con colores de `--color-border`, `--color-accent`, y `--color-bg`.
+- `ScrollBox.tsx` – Container with customized scroll.
+  - Props:
+    - `direction`: `'y'` | `'x'` | `'both'` – Scroll direction (default `'y'`).
+    - `thin`: `boolean` – If you apply the `scrollbar-thin` style.
+    - `className`: Additional styles.
+  - Scroll adapted with `---color-border`, `--color-accent`, and `--color-bg` colors.
 - `LoopColumn`
 - `SlotMachine`
+
+### 🧰 Utilities
+- `Divider.tsx` – Horizontal or vertical spacing line using `var(--color-border)` and optional Tailwind spacing.
 
 ---
 

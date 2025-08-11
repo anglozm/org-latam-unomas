@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 
 import Accordion from '@/components/ui/Accordion'
+import Section from '@/components/layout/Section'
 
 type FAQItem = {
     question: string
@@ -19,19 +20,18 @@ export default function FAQSection({
     allowMultipleOpen = false
 }: FAQSectionProps) {
     const t = useTranslations('faq')
+
     const items = faqItems.map(({ question, answer }) => ({
         title: question,
         content: answer
     }))
 
     return (
-        <section className='bg-[var(--color-bg)] text-[var(--color-fg)]'>
-            <div className='max-w-3xl mx-auto px-4 py-8'>
-                <h2 className='text-2xl font-bold mb-6 text-center'>
-                    {t('title')}
-                </h2>
-                <Accordion items={items} allowMultipleOpen={allowMultipleOpen} />
-            </div>
-        </section>
+        <Section className='text-center mt-10' padding='none'>
+            <h2 className='text-3xl font-bold mb-6'>
+                {t('title')}
+            </h2>
+            <Accordion items={items} allowMultipleOpen={allowMultipleOpen} />
+        </Section>
     )
 }

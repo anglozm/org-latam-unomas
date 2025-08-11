@@ -2,24 +2,26 @@
 
 @tailwind utilities;
 
-.bg-hero-gradient {
-  background: linear-gradient(to bottom, var(--color-bg-from), var(--color-bg-to));
+.bg-app-gradient {
+  background: linear-gradient(to bottom, var(--color-bg-app-from), var(--color-bg-app-to));
 }
 
 /* 🔧 Global UI semantic variables */
 :root {
   /* 🎨 Light Mode Palette */
-  --color-bg: #ffffff;
-  --color-bg-contrast: #fafafa;
+  --color-bg: #fafafa;
+  --color-bg-contrast: #bec5d5;
   --color-bg-hover: #f9fafb;
   --color-bg-subtle: #f9f9f9;
-  --color-bg-from: #ffffff;
-  --color-bg-to: #f9fafb;
+  --color-bg-app-from: #fafafa;
+  --color-bg-app-to: var(--color-app-secondary);
 
   --color-fg: #2c2c2c;
   --color-fg-subtle: #4b5563;
+  --color-fg-light-over-dark: #fafafa;
+  --color-fg-dark-over-light: #2c2c2c;
 
-  --color-card: #f9f9f9;
+  --color-card: #fefefe;
 
   --color-border: #e5e7eb;
 
@@ -28,7 +30,7 @@
 
   --color-surface: #ffffff;
 
-  --color-muted: #f5f5f5;
+  --color-muted: #fafafa;
   --color-muted-fg: #7a7a7a;
   --color-muted-hover: #e5e7eb;
 
@@ -36,8 +38,8 @@
   --color-hover-bg: #e6e9f3;
 
 
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-primary: #1a73e8;
+  --color-primary-hover: #174ea6;
   --color-primary-fg: #ffffff;
   --color-primary-bg: #eff6ff;
 
@@ -54,7 +56,10 @@
   --color-danger: #dc2626;
   --color-danger-hover: #b91c1c;
 
-  /* 🌟 Design tokens */
+  --color-primary-bg-contrast: var(--color-app-primary);
+  --color-primary-bg-contrast-dark: #131f25;
+
+  /* ==================== 🌟 Design tokens ==================== */
   --radius: 0.5rem;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -63,60 +68,90 @@
   --duration: 200ms;
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /*------------------- 🌟 Business Colors -------------------*/
+  /* ==================== Business Colors ===================== */
   --color-background: #fafafa;
   --color-foreground: #2c2c2c;
-  --color-tussock: #c08d3d;
-
-  --color-primary-blue-chill: #13869F;
-  --color-secondary-spray: #90E0F1;
-
-  --color-primary-chambray: #38539a;
-  --color-secondary-titan-white: #f1f2ff;
-
+  /* ------------------ Chambray Titan Color ------------------ */
+  --color-primary-chambray-titan: #38539a;
+  --color-secondary-chambray-titan: #f1f2ff;
+  --color-secondary-chambray-titan-dark: #1b282f;
+  --color-secondary-chambray-titan-bg-contrast: #e4e5ff;
+  --color-secondary-chambray-titan-bg-contrast-dark: #273d4b;
+  /* ------------------- Lotus Pippin Color ------------------- */
   --color-primary-lotus: #7f3d3d;
   --color-secondary-pippin: #ffe2e2;
-
+  --color-secondary-pippin-dark: #ffe2e2;
+  /* ------------------- Yellow Metal Color ------------------- */
   --color-primary-yellow-metal: #73793b;
-  --color-secondary-feta: #f0fae5;
+  --color-secondary-yellow-metal: #f0fae5;
+  --color-secondary-yellow-metal-dark: #f0fae5;
+  /* -------------------- Cape Peach Color -------------------- */
+  --color-primary-cape-peach: #a76c47;
+  --color-secondary-cape-peach: #fff1e8;
+  --color-secondary-cape-peach-dark: #fff1e8;
+  /* ------------------ Oracle Bubbles Color ------------------ */
+  --color-primary-oracle-bubbles: #396e75;
+  --color-secondary-oracle-bubbles: #e5fdff;
+  --color-secondary-oracle-bubbles-dark: #e5fdff;
+  /* ------------------- Chicago Beige Color ------------------ */
+  --color-primary-chicago-beige: #62625a;
+  --color-secondary-chicago-beige: #f8f8e7;
+  --color-secondary-chicago-beige-dark: #f8f8e7;
+  /* ------------------- Healthy Blue Color ------------------- */
+  --color-primary-healthy-blue: #3b5382;
+  --color-secondary-healthy-blue: #e1f1ec;
+  --color-secondary-healthy-blue-dark: #e1f1ec;
+  /* ----------------- Blackberry Cream Color ----------------- */
+  --color-primary-blackberry-cream: #7e636d;
+  --color-secondary-blackberry-cream: #f8ecf0;
+  --color-secondary-blackberry-cream-dark: #f8ecf0;
+  /* ------------------ Lipstick Pink Color ------------------- */
+  --color-primary-lipstick-pink: #b04040;
+  --color-secondary-lipstick-pink: #f6e8e8;
+  --color-secondary-lipstick-pink-dark: #cca8a8;
+  /* -------------------- Green Labs Color -------------------- */
+  --color-primary-green-labs: #3c7767;
+  --color-secondary-green-labs: #e7f0ee;
+  --color-secondary-green-labs-dark: #92b9ae;
 
-  --color-primary-cape-palliser: #a76c47;
-  --color-secondary-seashell-peach: #fff1e8;
-
-  --color-primary-oracle: #396e75;
-  --color-secondary-bubbles: #e5fdff;
-
-  --color-primary-chicago: #62625a;
-  --color-secondary-beige: #f8f8e7;
-
-  --color-app-primary: var(--color-primary-oracle);
-  --color-app-secondary: var(--color-secondary-bubbles);
+  --color-app-primary: var(--color-primary-chambray-titan);
+  --color-app-primary-bg-contrast-dark: var(--color-primary-bg-contrast);
+  --color-app-secondary: var(--color-secondary-chambray-titan);
+  --color-app-secondary-dark: var(--color-app-secondary);
+  --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast);
+  --color-app-fg-primary: var(--color-app-primary);
+  --color-app-fg-secondary: var(--color-app-secondary);
+  --color-app-scrollbar: var(--color-app-primary);
 
   --font-sans: var(--font-geist-sans, Arial, sans-serif);
 }
 
 .dark {
   /* 🎨 Dark Mode Palette */
-  --color-bg: #00040a;
-  --color-bg-contrast: #585858;
+  --color-bg: #2c2c2c;
+  --color-bg-contrast: #707070;
   --color-bg-hover: #1f2937;
   --color-bg-subtle: #1e1e1e;
-  --color-bg-from: #0f0f0f;
-  --color-bg-to: #101010;
+  --color-bg-app-from: #273d4b;
+  --color-bg-app-to: #17232c;
+
+  --color-bg-png: #fafafa;
 
   --color-fg: #f5f5f5;
   --color-fg-subtle: #d1d5db;
+  --color-fg-light-over-dark: #fafafa;
+  --color-fg-dark-over-light: #2c2c2c;
 
-  --color-card: #1e1e1e;
+  --color-card: #2e4654;
 
-  --color-border: #333;
+  --color-border: #2f4f5b;
 
   --color-accent: #60a5fa;
   --color-accent-bg: #eff6ff;
 
   --color-surface: #1c1c1c;
 
-  --color-muted: #2a2a2a;
+  --color-muted: #3a3a3a;
   --color-muted-fg: #a1a1a1;
   --color-muted-hover: #4b5563;
 
@@ -124,8 +159,8 @@
   --color-hover-bg: #2d3748;
 
 
-  --color-primary: #2563eb;
-  --color-primary-hover: #1d4ed8;
+  --color-primary: #1a73e8;
+  --color-primary-hover: #174ea6;
   --color-primary-fg: #ffffff;
   --color-primary-bg: #1e3a8a;
 
@@ -142,6 +177,11 @@
   --color-danger: #ef4444;
   --color-danger-hover: #dc2626;
 
+  --color-app-secondary-dark: var(--color-secondary-chambray-titan-dark);
+  --color-app-primary-bg-contrast-dark: var(--color-primary-bg-contrast-dark);
+  --color-app-secondary-bg-contrast-dark: var(--color-secondary-chambray-titan-bg-contrast-dark);
+  --color-app-fg-primary: var(--color-app-secondary);
+  --color-app-fg-secondary: var(--color-app-primary);
 }
 
 /* 🌙 Dark Mode Variables */
@@ -151,13 +191,13 @@
     --color-bg-contrast: #585858;
     --color-bg-hover: #1f2937;
     --color-bg-subtle: #1e1e1e;
-    --color-bg-from: #0f0f0f;
-    --color-bg-to: #101010;
+    --color-bg-app-from: #0f0f0f;
+    --color-bg-app-to: #101010;
 
     --color-fg: #f3f4f6;
     --color-fg-subtle: #4b5563;
 
-    --color-card: #1e1e1e;
+    --color-card: #4f4f4f;
 
     --color-border: #374151;
 
@@ -215,4 +255,19 @@
 /* ✍️ Base document source */
 body {
   font-family: var(--font-sans), sans-serif;
+}
+/* ================ Custom Scrollbar Styles ================= */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-bg-contrast);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-app-primary);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3182ce;
 }

@@ -2,6 +2,8 @@
 
 import { ReactNode, useState } from 'react'
 
+import Divider from '@/components/ui/Divider'
+
 import clsx from 'clsx'
 
 interface Tab {
@@ -29,34 +31,34 @@ export default function Tabs({
     return (
         <div className={ clsx(
             className,
-            'w-full text-[var(--color-fg)]'
+            'w-full text-[var(--color-fg)] transition-colors duration-500',
         )}>
             {/* Tab Headers */}
             <div
                 className={ clsx(
                     classNameTabHeaders,
-                    'flex border-b border-[var(--color-border)] mb-4'
+                    'flex'
                 )}
                 role='tablist'
             >
-                { tabs.map((tab, index) => {
-                    const isActive = activeIndex === index
+                { tabs.map((tab, i) => {
+                    const isActive = activeIndex === i
 
                     return (
                         <button
-                            key={index}
-                            id={`tab-${index}`}
+                            key={i}
+                            id={`tab-${i}`}
                             role='tab'
                             aria-selected={isActive}
-                            aria-controls={`panel-${index}`}
+                            aria-controls={`panel-${i}`}
+                            onClick={() => setActiveIndex(i)}
                             className={ clsx(
-                                'cursor-pointer',
-                                'px-4 py-2 text-sm font-medium focus:outline-none transition',
+                                'px-4 py-2 text-lg font-medium focus:outline-none cursor-pointer',
+                                'hover:scale-110 transition-colors duration-200 ease-in-out px-16',
                                 isActive
-                                    ? 'text-[var(--color-accent)] border-b-2 border-[var(--color-accent)]'
-                                    : 'text-[var(--color-muted-fg)] hover:text-blue-500'
+                                    ? 'text-[var(--color-app-fg-primary)] border-b-2 border-[var(--color-app-fg-primary)]'
+                                    : 'text-[var(--color-muted-fg)] hover:text-blue-400'
                             )}
-                            onClick={() => setActiveIndex(index)}
                         >
                             {tab.label}
                         </button>
@@ -64,11 +66,14 @@ export default function Tabs({
                 })}
             </div>
 
+            <Divider color='bg-[var(--color-border)]' />
+
             {/* Tab Panel */}
             <div
                 className={ clsx(
                     classNameTabPanel,
-                    'text-sm text-[var(--color-muted-fg)]'
+                    'mt-12',
+                    'text-[var(--color-muted-fg)] transition-colors duration-500'
                 )}
                 id={`panel-${activeIndex}`}
                 role='tabpanel'

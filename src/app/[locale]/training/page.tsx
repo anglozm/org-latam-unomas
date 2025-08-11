@@ -2,9 +2,12 @@
 
 import { useTranslations } from 'next-intl'
 
+import { Video } from '@/types/Video'
+
+import Section from '@/components/layout/Section'
 import VideoCarousel from '@/components/ui/VideoCarousel'
 
-import { Video } from '@/types/Video'
+import clsx from 'clsx'
 
 const LEADERSHIP_VIDEOS: Video[] = [
     {
@@ -48,9 +51,15 @@ export default function TrainingPage() {
     const t = useTranslations('training')
 
     return (
-        <div>
-            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🎥' segmentTitle={t('leadership')} />
-            <VideoCarousel videos={NUTRITION_VIDEOS} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
-        </div>
+        <Section
+            className={ clsx(
+                'text-center mt-12'
+            )}
+            paddingContainer='px-0 xl:px-4'
+            width='max-w-7xl xl:max-w-6xl'
+        >
+            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🧠' segmentTitle={t('leadership')} />
+            <VideoCarousel className='mt-10' videos={NUTRITION_VIDEOS} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
+        </Section>
     )
 }
