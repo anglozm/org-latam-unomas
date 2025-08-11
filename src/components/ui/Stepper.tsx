@@ -25,8 +25,10 @@ export default function Stepper({ steps, initialStep = 0 }: StepperProps) {
 
     if (!hydrated || currentStep === null) return null
 
-    const goTo = (index: number) => {
-        if (index <= currentStep + 1) setCurrentStep(index)
+    const goTo = (i: number) => {
+        if (i <= currentStep + 1) {
+            setCurrentStep(i)
+        }
     }
 
     return (

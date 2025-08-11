@@ -37,9 +37,9 @@ export default function SlotMachine({
                     ),
                 )}
             >
-                { columns && columns.map((column, index) => (
+                { columns && columns.map((column, i) => (
                     <LoopColumn
-                        key={index}
+                        key={i}
                         logos={column.logos}
                         direction={column.direction}
                     />
