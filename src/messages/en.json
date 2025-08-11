@@ -2,19 +2,51 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Home",
-        "about": "About Us",
         "training": "Training",
         "mentors": "Mentors",
-        "contact": "Contact Us"
+        "contact": "Contact Us",
+        "tooltip": {
+            "to-light-mode": "To light mode",
+            "to-dark-mode": "To dark mode",
+            "to-change-lang": "Change language",
+            "open-menu": "Open menu",
+            "close-menu": "Close menu"
+        }
+    },
+    "about-us": {
+        "title": "About Us",
+        "description": "We are a team passionate about business, professional, and personal growth through continuing education. We believe in the power of teamwork and leadership training to achieve the best results.",
+        "mission": {
+            "title": "Our mission",
+            "text": "Building leadership in people to expand a community of successful independent entrepreneurs, providing tools and support to those who want to transform their lives through conscious, responsible, and intelligent entrepreneurship."
+        },
+        "vision": {
+            "title": "Our vision",
+            "text": "To become the leading team in Latin America, with the best sustainable business and personal development network over time. To help people improve their lifestyle and quality of life, while expanding the company into a wide territory of opportunities for all members of our community of IBO's."
+        },
+        "cta": {
+            "title": "Want to join us?",
+            "description": "You are just one click away from learning how to build a business with the support of our community.",
+            "button": "Contact us"
+        }
     },
     "training": {
         "leadership": "Leadership",
         "nutrition": "Nutrition"
     },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Do you have any questions or proposals? We're paying attention.",
+        "name": "Name",
+        "email": "e-mail",
+        "message": "Message",
+        "submit": "Send Message"
+    },
     "hero": {
-        "title": "Transform your lifestyle with Uno Más",
-        "subtitle": "Learn, lead, and grow in a community that empowers Network Marketing across Latin America.",
+        "title": "Relevant Connections",
+        "subtitle": "Take advantage of your massive consumption as a tool to generate extra income, leveraging digital platforms such as Instagram, LinkedIn, YouTube, Zoom, and WhatsApp.",
         "cta": "Explore the opportunity",
+        "certifications": "Certifications supporting our products",
         "sponsors-partners": "Sponsors & Partners"
     },
     "footer": {
@@ -29,11 +61,9 @@
             "nutrilite-traceability": "Nutrilite Traceability",
             "artistry-traceability": "Artistry Traceability"
         },
-        "company": {
-            "title": "Company",
-            "about-us": "About Us",
-            "team": "Team",
-            "partners": "Partners"
+        "team": {
+            "title": "Team",
+            "mentors": "Mentors"
         },
         "legality": {
             "title": "Legality",
@@ -44,17 +74,18 @@
         "help": {
             "title": "Help",
             "faq": "FAQ",
-            "support": "Support",
             "contact-us": "Contact Us"
         },
         "team-name": "Uno Más • LATAM",
-        "copyright": "© {year} | All rights reserved."
+        "copyright": "{year} | All rights reserved.",
+        "made-with": "Made with ❤\uFE0F\uD83E\uDDE0 and ",
+        "by": " by "
     },
     "auth": {
         "login": "Log in",
         "create-account": "Sign up",
         "full-name": "Full name",
-        "e-mail": "E-mail",
+        "email": "User",
         "password": "Password"
     },
     "faq": {
@@ -64,12 +95,18 @@
         }
     },
     "form": {
-        "email": "Email address",
+        "email": "e-mail address",
         "country": "Country",
         "message": "Message",
         "submit": "Submit",
         "error_required": "This field is required",
-        "select_placeholder": "Select an option"
+        "select_placeholder": "Select an option",
+        "placeholders": {
+            "full-name": "John Doe",
+            "email": "john.doe@example.com",
+            "password": "str0ngP4s$w0rd",
+            "type-us": "Type us..."
+        }
     },
     "common": {
         "yes": "Yes",

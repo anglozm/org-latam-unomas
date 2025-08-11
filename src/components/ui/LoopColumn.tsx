@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 import Image from 'next/image'
 
-import { LogoItem } from '@/types/LogoItem'
+import { LoopColumnProps } from '@/props/LoopColumnProps'
 
 import clsx from 'clsx'
 
@@ -12,15 +12,10 @@ const TRANSITION_INTERVAL = 5000
 const ANIMATION_DURATION = 500
 const SLOT_HEIGHT = 100
 
-interface SlotColumnProps {
-    direction?: 'up' | 'down'
-    logos: LogoItem[]
-}
-
 export default function LoopColumn({
-    direction = 'up',
-    logos
-}: SlotColumnProps) {
+    logos,
+    direction = 'up'
+}: LoopColumnProps) {
     const isUp = direction === 'up'
     const extended = [...logos, logos[0]]
     const [ index, setIndex ] = useState(0)
@@ -51,7 +46,10 @@ export default function LoopColumn({
         : ((index-(logos.length)) * SLOT_HEIGHT)
 
     return (
-        <div className='h-[100px] w-[100px] overflow-hidden border-[var(--color-border)] rounded-md'>
+        <div className={ clsx(
+            'h-[100px] w-[150px] overflow-hidden border-[var(--color-border)] rounded-xl',
+            'transition duration-300 hover:scale-120 ease-in-out'
+        )}>
             <div
                 className={ clsx(
                     'flex flex-col items-center',
@@ -64,25 +62,28 @@ export default function LoopColumn({
                 { extended.map((logo, i) => (
                     <div
                         key={i}
-                        className='h-[100px] flex items-center justify-center w-full'
+                        className={ clsx(
+                            'h-[100px] flex items-center justify-center w-full bg-[var(--color-bg-png)]',
+                            'transition-colors duration-500'
+                        )}
                     >
                         { logo.href ? (
                             <a href={logo.href} target='_blank' rel='noopener noreferrer'>
                                 <Image
+                                    className='object-contain max-h-[80px] grayscale hover:grayscale-0'
                                     src={logo.src}
                                     alt={logo.alt ?? `Logo ${i}`}
                                     width={100}
                                     height={100}
-                                    className='object-contain max-h-[80px]'
                                 />
                             </a>
                         ) : (
                             <Image
+                                className='object-contain max-h-[80px] hover:scale-120 duration-300 ease-in-out'
                                 src={logo.src}
                                 alt={logo.alt ?? `Logo ${i}`}
                                 width={100}
                                 height={100}
-                                className='object-contain max-h-[80px]'
                             />
                         )}
                     </div>

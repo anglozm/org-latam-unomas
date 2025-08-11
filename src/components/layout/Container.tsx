@@ -9,7 +9,16 @@ type ContainerSize = 'sm' | 'md' | 'lg' | 'xl' | '2xl'
 interface ContainerProps {
     className?: string
     children: ReactNode
+    corners?: 'none' | 'xl' | '2xl' | '4xl'
     size?: ContainerSize
+    padding?: string
+}
+
+const cornersMap: Record<NonNullable<ContainerProps['corners']>, string> = {
+    none: '',
+    xl: 'rounded-xl',
+    '2xl': 'rounded-2xl',
+    '4xl': 'rounded-4xl'
 }
 
 const sizeMap: Record<ContainerSize, string> = {
@@ -23,15 +32,19 @@ const sizeMap: Record<ContainerSize, string> = {
 export default function Container({
     className,
     children,
-    size = 'xl'
+    corners = 'xl',
+    size = 'xl',
+    padding = 'px-4 sm:px-6 md:px-8 lg:px-4'
 }: ContainerProps) {
     return (
         <div
             className={ clsx(
                 className,
+                cornersMap[corners],
                 sizeMap[size],
-                'w-full px-4 md:px-6 lg:px-8 mx-auto',
-                'bg-[var(--color-bg)] text-[var(--color-fg)] transition-colors duration-300'
+                padding,
+                'w-full',
+                'text-[var(--color-fg)] transition-colors duration-500'
             )}
         >
             {children}

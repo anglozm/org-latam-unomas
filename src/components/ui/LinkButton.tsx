@@ -29,7 +29,7 @@ export default function LinkButton({
     ariaLabel,
 }: LinkButtonProps) {
     const baseStyle =
-        'inline-flex items-center justify-center font-medium rounded-md transition focus:outline-none focus:ring-2 focus:ring-offset-2'
+        'inline-flex items-center justify-center font-medium rounded-md transition focus:outline-none focus:ring-1 focus:ring-offset-2'
 
     const variantStyle: Record<Variant, string> = {
         primary:

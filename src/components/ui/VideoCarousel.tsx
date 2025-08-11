@@ -2,56 +2,76 @@
 
 import { Video } from '@/types/Video'
 
+import Container from '@/components/layout/Container'
+
 import clsx from 'clsx'
 
 interface VideoCarouselProps {
+    className?: string
     videos: Video[]
     segmentEmoji: string
     segmentTitle: string
 }
 
 export default function VideoCarousel({
+    className,
     videos,
     segmentEmoji,
     segmentTitle
 }: VideoCarouselProps) {
     return (
-        <div className='relative w-full max-w-7xl mx-auto px-4 py-10 rounded-4xl'>
-            <h2 className='text-2xl text-start font-bold mb-1 text-[var(--color-fg)] py-2'> {segmentEmoji} {segmentTitle}</h2>
+        <Container
+            className={ clsx(
+                className,
+                'max-w-screen-xl',
+                'max-w-7xl xl:max-w-6xl'
+            )}
+            padding='px-0'
+        >
+            <h2 className='text-2xl text-left font-bold mb-1 text-[var(--color-fg)] py-2 pl-6 transition-colors duration-500'>
+                {segmentEmoji} {segmentTitle}
+            </h2>
 
-            <div className='overflow-x-auto py-5 rounded-4xl'>
+            <Container className='custom-scrollbar overflow-x-auto scroll-smooth transition-colors duration-500' padding='px-0'>
                 <div
                     className={ clsx(
-                        'flex gap-8 w-max scroll-smooth snap-x snap-mandatory pb-2 pr-2 overflow-x-auto'
+                        'flex gap-6 w-max snap-x snap-mandatory',
+                        'transition-colors duration-500 px-6 py-6 rounded-xl'
                     )}
                 >
-                    { videos.map((video, index) => (
+                    { videos.map((video, i) => (
                         <div
-                            key={index}
+                            key={i}
                             className={ clsx(
-                                'snap-start flex-shrink-0 min-w-full sm:min-w-[360px] max-w-[360px] overflow-hidden',
-                                'bg-[var(--color-card)] shadow-md border border-[var(--color-border)] rounded-4xl'
+                                'snap-start flex-shrink-0 min-w-[360px] max-w-[360px] overflow-hidden',
+                                'bg-[var(--color-card)] shadow-md rounded-4xl',
+                                'transition duration-300 hover:scale-105 ease-in-out'
                             )}
                         >
                             <div className='aspect-video w-full'>
                                 <iframe
-                                    className='w-full h-full'
+                                    className='w-full h-full transition-colors duration-500'
                                     src={`https://www.youtube.com/embed/${video.youtubeId}`}
                                     title={video.title}
                                     allowFullScreen
                                     loading='lazy'
                                 />
                             </div>
-                            <div className='text-start p-6'>
-                                <h3 className='text-md font-semibold text-[var(--color-fg)]'>{video.title}</h3>
+                            <div className='text-left p-6'>
+                                <h3 className='text-md font-semibold transition-colors duration-500 text-[var(--color-fg)]'>
+                                    {video.title}
+                                </h3>
+
                                 { video.description && (
-                                    <p className='text-sm text-[var(--color-muted-fg)] mt-4'>{video.description}</p>
+                                    <p className='text-sm text-[var(--color-muted-fg)] transition-colors duration-500 mt-4'>
+                                        {video.description}
+                                    </p>
                                 )}
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
+            </Container>
+        </Container>
     )
 }

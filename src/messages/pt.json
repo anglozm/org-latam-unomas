@@ -2,19 +2,51 @@
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Início",
-        "about": "Sobre Nós",
         "training": "Treinamentos",
         "mentors": "Mentores",
-        "contact": "Fale conosco"
+        "contact": "Fale conosco",
+        "tooltip": {
+            "to-light-mode": "Mudar para o modo claro",
+            "to-dark-mode": "Mudar para o modo escuro",
+            "to-change-lang": "Mudar idioma",
+            "open-menu": "Abrir menu",
+            "close-menu": "Fechar menu"
+        }
+    },
+    "about-us": {
+        "title": "Sobre Nós",
+        "description": "Somos uma equipe apaixonada pelo crescimento empresarial, profissional e pessoal por meio da educação continuada. Acreditamos no poder do trabalho em equipe e na formação de lideranças para obter os melhores resultados.",
+        "mission": {
+            "title": "Nossa missão",
+            "text": "Desenvolver a liderança nas pessoas para expandir uma comunidade de empreendedores independentes de sucesso, oferecendo ferramentas e acompanhamento àqueles que desejam transformar suas vidas por meio do empreendedorismo consciente, responsável e inteligente."
+        },
+        "vision": {
+            "title": "Nossa visão",
+            "text": "Ser a equipe de referência na América Latina, com a melhor rede de desenvolvimento empresarial e pessoal sustentável ao longo do tempo. Ajudar as pessoas a melhorar seu estilo e qualidade de vida, ao mesmo tempo em que expandimos a empresa em um amplo território de oportunidades para todos os membros da nossa comunidade de empresários independentes."
+        },
+        "cta": {
+            "title": "Quer se juntar a nós?",
+            "description": "Você está a um click de aprender a construir uma empresa com o apoio da nossa comunidade.",
+            "button": "Fale conosco"
+        }
     },
     "training": {
         "leadership": "Liderança",
         "nutrition": "Nutrição"
     },
+    "contact": {
+        "title": "Fale Conosco",
+        "subtitle": "Tem alguma dúvida ou proposta? Estamos atentos.",
+        "name": "Nome",
+        "email": "e-mail",
+        "message": "Mensagem",
+        "submit": "Enviar mensagem"
+    },
     "hero": {
-        "title": "Transforme seu estilo de vida com Uno Más",
-        "subtitle": "Aprenda, lidere e cresça dentro de uma comunidade que impulsiona o Marketing de Rede em toda a América Latina.",
+        "title": "Conexões que importam",
+        "subtitle": "Aproveite seu consumo massivo como uma ferramenta para gerar renda extra, alavancado pelas plataformas digitais como Instagram, LinkedIn, YouTube, Zoom e WhatsApp.",
         "cta": "Conheça a oportunidade",
+        "certifications": "Certificações que respaldam nossos produtos",
         "sponsors-partners": "Patrocinadores e Parceiros"
     },
     "footer": {
@@ -29,32 +61,31 @@
             "nutrilite-traceability": "Rastreabilidade Nutrilite",
             "artistry-traceability": "Rastreabilidade Artistry"
         },
-        "company": {
-            "title": "Empresa",
-            "about-us": "Sobre Nós",
-            "team": "Equipe",
-            "partners": "Parceiros"
+        "team": {
+            "title": "Equipe",
+            "mentors": "Mentores"
         },
         "legality": {
             "title": "Legalidade",
             "privacy-policy": "Política de Privacidade",
             "terms-and-conditions": "Termos e Condições",
-            "disclaimers": "Avisos Legais"
+            "disclaimers": "Disclaimers"
         },
         "help": {
             "title": "Ajuda",
             "faq": "FAQ",
-            "support": "Suporte",
             "contact-us": "Fale Conosco"
         },
         "team-name": "Uno Más • LATAM",
-        "copyright": "© {year} | Todos os direitos reservados."
+        "copyright": "{year} | Todos os direitos reservados.",
+        "made-with": "Feito com ❤\uFE0F\uD83E\uDDE0 e ",
+        "by": " por "
     },
     "auth": {
         "login": "Entrar",
         "create-account": "Criar conta",
         "full-name": "Nome completo",
-        "e-mail": "E-mail",
+        "email": "Usuário",
         "password": "Senha"
     },
     "faq": {
@@ -64,12 +95,18 @@
         }
     },
     "form": {
-        "email": "E-mail",
+        "email": "e-mail",
         "country": "País",
         "message": "Mensagem",
         "submit": "Enviar",
         "error_required": "Este campo é obrigatório",
-        "select_placeholder": "Selecione uma opção"
+        "select_placeholder": "Selecione uma opção",
+        "placeholders": {
+            "full-name": "John Doe",
+            "email": "john.doe@exemplo.com",
+            "password": "senh4R0bu$ta",
+            "type-us": "Escrivha-nos..."
+        }
     },
     "common": {
         "yes": "Sim",

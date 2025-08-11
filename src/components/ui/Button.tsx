@@ -8,28 +8,29 @@ type Variant = 'primary' | 'secondary' | 'ghost' | 'outline' | 'destructive' | '
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-    children: ReactNode
+    className?: string
     variant?: Variant
     size?: Size
     isLoading?: boolean
     leftIcon?: ReactNode
     rightIcon?: ReactNode
+    children: ReactNode
 }
 
 export default function Button({
-    children,
+    className,
     variant = 'primary',
     size = 'md',
     isLoading = false,
-    disabled,
     leftIcon,
     rightIcon,
-    className,
+    disabled,
+    children,
     ...props
 }: ButtonProps) {
     const baseStyle =
-        'inline-flex items-center justify-center font-medium rounded-md transition' +
-        'focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+        'inline-flex items-center justify-center font-medium rounded-md transition hover:scale-105 duration-300 ease-in-out' +
+        'focus:outline-none focus:ring-1 focus:ring-offset-2 disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed'
 
     // Semantic color system using CSS variables for theme support
     const variantStyle: Record<Variant, string> = {
@@ -50,15 +51,14 @@ export default function Button({
 
     return (
         <button
-            type='button'
             className={ clsx(
                 className,
-                'cursor-pointer',
                 baseStyle,
                 variantStyle[variant],
                 sizeStyle[size]
             )}
             disabled={disabled || isLoading}
+            type='button'
             {...props}
         >
             { isLoading ? (
@@ -66,7 +66,9 @@ export default function Button({
             ) : (
                 leftIcon && <span className='mr-2'>{leftIcon}</span>
             )}
+
             {children}
+
             {rightIcon && <span className='ml-2'>{rightIcon}</span>}
         </button>
     )

@@ -1,8 +1,10 @@
 'use client'
 
-import clsx from 'clsx'
-import { Check } from 'lucide-react'
 import { useEffect, useState } from 'react'
+
+import { Check } from 'lucide-react'
+
+import clsx from 'clsx'
 
 interface StepperStepProps {
     index: number
@@ -26,21 +28,29 @@ export default function StepperStep({
     }, [])
 
     const renderIndicator = () => {
-        if (!hydrated) return index + 1 // seguro para SSR
-        return isCompleted ? <Check size={14} /> : index + 1
+        if (!hydrated) {
+            return index + 1 // Safe for SSR
+        }
+
+        return isCompleted
+            ? <Check size={14} />
+            : index + 1
     }
 
     return (
         <div
-            className={clsx('flex items-center gap-2 cursor-pointer', {
-                'text-blue-600': isActive,
-                'text-gray-400': !isActive && !isCompleted,
-                'text-green-600': isCompleted,
-            })}
+            className={ clsx(
+                'flex items-center gap-2 cursor-pointer',
+                {
+                    'text-blue-600': isActive,
+                    'text-gray-400': !isActive && !isCompleted,
+                    'text-green-600': isCompleted,
+                }
+            )}
             onClick={onClick}
         >
             <div
-                className={clsx(
+                className={ clsx(
                     'flex items-center justify-center w-6 h-6 rounded-full border text-xs font-bold',
                     {
                         'bg-blue-600 text-white border-blue-600': isActive,
