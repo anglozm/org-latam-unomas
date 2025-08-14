@@ -16,15 +16,15 @@ type CarouselItem = {
 }
 
 type CarouselProps = {
+    className?: string
     items: CarouselItem[]
     duration?: number // Duration in milliseconds for auto-slide
-    className?: string
 }
 
 export default function Carousel({
+    className,
     items,
-    duration = 5000,
-    className
+    duration = 5000
 }: CarouselProps) {
     const [ currentSlide, setCurrentSlide ] = useState(0)
 
@@ -40,7 +40,7 @@ export default function Carousel({
         <div
             className={ clsx(
                 className,
-                'relative w-full h-[25em] overflow-hidden group'
+                'relative w-full h-[30em] overflow-hidden group'
             )}
         >
             { items.map((item, i) => (
@@ -60,22 +60,22 @@ export default function Carousel({
                         )}
                         src={item.src}
                         alt={item.alt}
-                        width={item.width || 200}
-                        height={item.height || 200}
+                        width={item.width || 2000}
+                        height={item.height || 2000}
                         style={item.style}
                     />
                 </div>
             ))}
 
             {/* Navigation Dots */}
-            <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-30'>
+            <div className='absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20'>
                 { items.map((_, i) => (
                     <button
                         key={i}
                         onClick={() => setCurrentSlide(i)}
-                        className={clsx(
-                            'w-2.5 h-2.5 rounded-full bg-white transition-colors duration-300',
-                            i === currentSlide ? 'bg-opacity-100' : 'bg-opacity-50 hover:bg-opacity-75'
+                        className={ clsx(
+                            'w-10 h-2 rounded-full bg-gray-300 hover:bg-cyan-700 transition-colors duration-300 cursor-pointer',
+                            i === currentSlide ? 'bg-opacity-100 bg-app-gradient' : 'bg-opacity-50 hover:bg-opacity-75'
                         )}
                         aria-label={`Go to slide ${i + 1}`}
                     />
