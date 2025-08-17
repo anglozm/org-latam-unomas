@@ -99,8 +99,8 @@
         "country": "Country",
         "message": "Message",
         "submit": "Submit",
-        "error_required": "This field is required",
-        "select_placeholder": "Select an option",
+        "error-required": "This field is required",
+        "select-placeholder": "Select an option",
         "placeholders": {
             "full-name": "John Doe",
             "email": "john.doe@example.com",
@@ -145,5 +145,17 @@
         "title": "Ready to transform your business?",
         "subtitle": "Register today and start leading with clarity.",
         "button": "Get Started"
+    },
+    "calendar": {
+        "lang": "en-EN",
+        "weekday-names": {
+            "sun": "Sun",
+            "mon": "Mon",
+            "tue": "Tue",
+            "wed": "Wed",
+            "thu": "Thu",
+            "fri": "Fri",
+            "sat": "Sat"
+        }
     }
 }

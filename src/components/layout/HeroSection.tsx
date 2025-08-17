@@ -10,11 +10,11 @@ import { LoopColumnProps } from '@/props/LoopColumnProps'
 import { LogoItem } from '@/types/LogoItem'
 
 import Container from './Container'
+import Section from './Section'
 
 import Button from '@/components/ui/Button'
 import Carousel from '@/components/ui/Carousel'
 import Divider from '@/components/ui/Divider'
-import Section from '@/components/layout/Section'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
@@ -129,22 +129,22 @@ const allColumnsSponsors: LoopColumnProps[] = [
     { logos: logoItemsSponsorsC3, direction: 'down' },
 ]
 
-const heroImages = [
+const carouselImages = [
     {
-        src: '/img/artistry-skin_beautiful-model.jpg',
+        src: '/img/maldives_tourism-travel.jpg',
         alt: 'Image 1',
-        style: { transform: 'rotateX(20deg) rotateY(-5deg) rotateZ(-10deg)' },
-        className: 'top-5 left-10 z-20 translate-x-1 translate-y-1 scale-100'
     }, {
-        src: '/img/reading_redhead-woman.jpg',
+        src: '/img/hermitage-bay_antigua-barbuda.jpg',
         alt: 'Image 2',
-        style: { transform: 'rotateX(10deg) rotateY(-25deg) rotateZ(15deg)' },
-        className: 'top-4 left-52 z-10 translate-x-2 translate-y-2 scale-100'
     }, {
-        src: '/img/nutrilite_father-and-son_apple.jpg',
+        src: '/img/maldives_beach-sand-pool.jpg',
         alt: 'Image 3',
-        style: { transform: 'rotateX(50deg) rotateY(-5deg) rotateZ(20deg)' },
-        className: 'top-44 left-32 z-0 scale-100 opacity-80'
+    }, {
+        src: '/img/maldives-holidays_palms-paradise-vacation.jpg',
+        alt: 'Image 4',
+    }, {
+        src: '/img/maldives_resort-pool-ocean-sea-water.jpg',
+        alt: 'Image 5',
     },
 ]
 
@@ -161,11 +161,10 @@ export default function HeroSection() {
             )}
             width='max-w-7xl xl:max-w-6xl'
         >
-            {/*<Carousel*/}
-            {/*    items={heroImages}*/}
-            {/*    duration={8000} // Optional: Adjust the slide duration*/}
-            {/*    className='lg:flex-1/2 xl:flex-5/12'*/}
-            {/*/>*/}
+            <Carousel
+                items={carouselImages}
+                className='lg:flex-1/2 xl:flex-5/12'
+            />
 
             <Container className='flex flex-col lg:flex-row lg:text-left'>
                 <Container className='flex flex-col lg:flex-1/2 xl:flex-7/12 lg:justify-center lg:text-left py-6'>
