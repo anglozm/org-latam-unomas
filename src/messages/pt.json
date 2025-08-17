@@ -99,8 +99,8 @@
         "country": "País",
         "message": "Mensagem",
         "submit": "Enviar",
-        "error_required": "Este campo é obrigatório",
-        "select_placeholder": "Selecione uma opção",
+        "error-required": "Este campo é obrigatório",
+        "select-placeholder": "Selecione uma opção",
         "placeholders": {
             "full-name": "John Doe",
             "email": "john.doe@exemplo.com",
@@ -145,5 +145,17 @@
         "title": "Pronto para transformar seu negócio?",
         "subtitle": "Cadastre-se hoje e comece a liderar com clareza.",
         "button": "Começar agora"
+    },
+    "calendar": {
+        "lang": "pt-BR",
+        "weekday-names": {
+            "sun": "Dom",
+            "mon": "Seg",
+            "tue": "Ter",
+            "wed": "Qua",
+            "thu": "Qui",
+            "fri": "Sex",
+            "sat": "Sáb"
+        }
     }
 }

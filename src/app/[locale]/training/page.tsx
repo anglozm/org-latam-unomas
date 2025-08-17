@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl'
 import { Video } from '@/types/Video'
 
 import Section from '@/components/layout/Section'
+
+import Calendar from '@/components/ui/Calendar'
 import VideoCarousel from '@/components/ui/VideoCarousel'
 
 import clsx from 'clsx'
@@ -27,7 +29,6 @@ const LEADERSHIP_VIDEOS: Video[] = [
         title: 'Seguir cuando nadie aplaude',
     },
 ]
-
 const NUTRITION_VIDEOS: Video[] = [
     {
         youtubeId: '0VE0FEur5sQ',
@@ -47,6 +48,17 @@ const NUTRITION_VIDEOS: Video[] = [
     },
 ]
 
+const today = new Date()
+const highlightedEvents = [
+    new Date(today.getFullYear(), today.getMonth(), 4),
+    new Date(today.getFullYear(), today.getMonth(), 11),
+    new Date(today.getFullYear(), today.getMonth(), 18),
+    new Date(today.getFullYear(), today.getMonth(), 25)
+]
+const handleDateSelection = (date: Date) => {
+    console.log('Date selected:', date)
+}
+
 export default function TrainingPage() {
     const t = useTranslations('training')
 
@@ -58,8 +70,26 @@ export default function TrainingPage() {
             paddingContainer='px-0 xl:px-4'
             width='max-w-7xl xl:max-w-6xl'
         >
-            <VideoCarousel videos={LEADERSHIP_VIDEOS} segmentEmoji='🧠' segmentTitle={t('leadership')} />
-            <VideoCarousel className='mt-10' videos={NUTRITION_VIDEOS} segmentEmoji='🌿' segmentTitle={t('nutrition')} />
+            <Calendar
+                month={today.getMonth()}
+                year={today.getFullYear()}
+                highlightedDates={highlightedEvents}
+                onDateSelect={handleDateSelection}
+            />
+
+            <VideoCarousel
+                className='mt-10'
+                videos={LEADERSHIP_VIDEOS}
+                segmentEmoji='🧠'
+                segmentTitle={t('leadership')}
+            />
+
+            <VideoCarousel
+                className='mt-10'
+                videos={NUTRITION_VIDEOS}
+                segmentEmoji='🌿'
+                segmentTitle={t('nutrition')}
+            />
         </Section>
     )
 }

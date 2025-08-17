@@ -10,11 +10,11 @@ import { LoopColumnProps } from '@/props/LoopColumnProps'
 import { LogoItem } from '@/types/LogoItem'
 
 import Container from './Container'
+import Section from './Section'
 
 import Button from '@/components/ui/Button'
 import Carousel from '@/components/ui/Carousel'
 import Divider from '@/components/ui/Divider'
-import Section from '@/components/layout/Section'
 import SlotMachine from '@/components/ui/SlotMachine'
 
 import clsx from 'clsx'
@@ -163,7 +163,6 @@ export default function HeroSection() {
         >
             <Carousel
                 items={carouselImages}
-                duration={8000} // Optional: Adjust the slide duration
                 className='lg:flex-1/2 xl:flex-5/12'
             />
 
