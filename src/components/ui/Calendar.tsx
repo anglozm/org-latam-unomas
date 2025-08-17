@@ -96,7 +96,7 @@ export default function Calendar({
                 <Container className='flex justify-between items-center text-2xl font-semibold'>
                     <button
                         onClick={handlePrevMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
+                        className='p-2 rounded-xl hover:bg-[var(--color-hover-bg)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Previous month'
                     >
                         <ChevronLeft />
@@ -106,7 +106,7 @@ export default function Calendar({
                     </h3>
                     <button
                         onClick={handleNextMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
+                        className='p-2 rounded-xl hover:bg-[var(--color-hover-bg)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Next month'
                     >
                         <ChevronRight />
@@ -137,7 +137,7 @@ export default function Calendar({
                         'flex items-center justify-center h-10 w-full rounded-md',
                         'transition-all duration-100 hover:scale-105 ease-in-out',
                         'cursor-pointer select-none',
-                        'hover:bg-[var(--color-bg-hover)]',
+                        'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]',
                         isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)] font-bold',
                         isDayHighlighted(day) && !isDayToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
                     )

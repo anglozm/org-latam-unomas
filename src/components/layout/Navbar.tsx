@@ -18,6 +18,7 @@ import clsx from 'clsx'
 
 export default function Navbar() {
     const t = useTranslations('navbar')
+
     const [ isOpen, setIsOpen ] = useState(false)
     const pathname = usePathname()
 
