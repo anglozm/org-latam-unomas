@@ -11,7 +11,7 @@
   /* 🎨 Light Mode Palette */
   --color-bg: #fafafa;
   --color-bg-contrast: #bec5d5;
-  --color-bg-hover: #f9fafb;
+  --color-bg-hover: #e2edff;
   --color-bg-subtle: #f9f9f9;
   --color-bg-app-from: #fafafa;
   --color-bg-app-to: var(--color-app-secondary);
