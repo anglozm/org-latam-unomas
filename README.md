@@ -104,6 +104,7 @@ Reusable interface components to build accessible and interactive UIs:
 #### 🧩 Page-Level Components
 - `Accordion.tsx`
 - `AccordionItem.tsx`
+- `Calendar.tsx`
 - `Card.tsx`
 - `CardEvent.tsx`
 - `Dropdown.tsx`

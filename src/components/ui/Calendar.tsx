@@ -1,7 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import {
+    startOfMonth,
+    endOfMonth,
+    format,
+    addMonths,
+    subMonths,
+    eachDayOfInterval,
+    isToday,
+    isEqual
+} from 'date-fns'
+import { es, enUS, ptBR } from 'date-fns/locale'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -28,8 +39,22 @@ export default function Calendar({
 }: CalendarProps) {
     const t = useTranslations('calendar')
 
-    const [ currentMonth, setCurrentMonth ] = useState(initialMonth)
-    const [ currentYear, setCurrentYear ] = useState(initialYear)
+    const locale = useLocale(); // ← Get the current lang
+    const locales = {
+        es,
+        'en-US': enUS,
+        'pt-BR': ptBR
+    }
+    const dateFnsLocale = locales[locale as keyof typeof locales]
+
+    const [ currentDate, setCurrentDate ] = useState(new Date(initialYear, initialMonth, 1))
+
+    const firstDayOfMonth = startOfMonth(currentDate)
+    const lastDayOfMonth = endOfMonth(currentDate)
+    const allDaysInMonth = eachDayOfInterval({
+        start: firstDayOfMonth,
+        end: lastDayOfMonth
+    })
 
     const weekdayNames = [
         t('weekday-names.sun'),
@@ -41,38 +66,22 @@ export default function Calendar({
         t('weekday-names.sat'),
     ]
 
-    const today = new Date()
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1)
-    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0)
-    const daysInMonth = lastDayOfMonth.getDate()
-
-    const startOffset = firstDayOfMonth.getDay()
-    const totalCells = startOffset + daysInMonth
-    const calendarCells = Array.from({ length: totalCells }, (_, i) => i)
-
     const handlePrevMonth = () => {
-        setCurrentMonth(current => (current === 0 ? 11 : current - 1))
-        setCurrentYear(current => (currentMonth === 0 ? current - 1 : current))
+        setCurrentDate(subMonths(currentDate, 1))
     }
     const handleNextMonth = () => {
-        setCurrentMonth(current => (current === 11 ? 0 : current + 1))
-        setCurrentYear(current => (currentMonth === 11 ? current + 1 : current))
+        setCurrentDate(addMonths(currentDate, 1))
     }
 
-    const isToday = (day: number) => {
-        const date = new Date(currentYear, currentMonth, day)
-
-        return date.getDate() === today.getDate() &&
-            date.getMonth() === today.getMonth() &&
-            date.getFullYear() === today.getFullYear()
-    }
-    const isHighlighted = (day: number) => {
-        return highlightedDates.some(date =>
-            date.getDate() === day &&
-            date.getMonth() === currentMonth &&
-            date.getFullYear() === currentYear
+    const isDayToday = (date: Date) => isToday(date)
+    const isDayHighlighted = (date: Date) =>
+        highlightedDates.some(highlightedDate =>
+            isEqual(highlightedDate, date)
         )
-    }
+
+    // Calculation of the offset for empty days
+    const startOffset = firstDayOfMonth.getDay()
+    const emptyCells = Array.from({ length: startOffset }, (_, i) => i)
 
     return (
         <Container
@@ -93,7 +102,7 @@ export default function Calendar({
                         <ChevronLeft />
                     </button>
                     <h3 className='text-center min-w-40 transition-transform duration-500'>
-                        {new Date(currentYear, currentMonth).toLocaleString(t('lang'), { month: 'long', year: 'numeric' })}
+                        {format(currentDate, 'LLLL yyyy', {locale: dateFnsLocale})}
                     </h3>
                     <button
                         onClick={handleNextMonth}
@@ -118,29 +127,28 @@ export default function Calendar({
                     </div>
                 ))}
 
-                { calendarCells.map((cell, index) => {
-                    const day = cell - startOffset + 1
-                    const isValidDay = day > 0 && day <= daysInMonth
+                {/* Empty days from prev month */}
+                {emptyCells.map(i => <div key={`empty-${i}`}></div>)}
 
+                {/* Days of the current month */}
+                { allDaysInMonth.map(day => {
                     const cellClasses = clsx(
                         'flex items-center justify-center h-10 w-full rounded-md',
                         'transition-all duration-100 hover:scale-105 ease-in-out',
                         'cursor-pointer select-none',
-                        isValidDay ? 'hover:bg-[var(--color-bg-hover)]' : 'cursor-default opacity-50',
-                        isToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-primary-fg)] font-bold',
-                        isHighlighted(day) && !isToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
+                        'hover:bg-[var(--color-bg-hover)]',
+                        isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-primary-fg)] font-bold',
+                        isDayHighlighted(day) && !isDayToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
                     )
 
                     return (
-                        <div key={index} className='flex justify-center items-center'>
-                            { isValidDay && (
-                                <button
-                                    className={cellClasses}
-                                    onClick={() => onDateSelect?.(new Date(currentYear, currentMonth, day))}
-                                >
-                                    {day}
-                                </button>
-                            )}
+                        <div key={format(day, 'dd-MM-yyyy')} className='flex justify-center items-center'>
+                            <button
+                                className={cellClasses}
+                                onClick={() => onDateSelect?.(day)}
+                            >
+                                {format(day, 'd')}
+                            </button>
                         </div>
                     )
                 })}
