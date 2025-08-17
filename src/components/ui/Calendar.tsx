@@ -96,17 +96,17 @@ export default function Calendar({
                 <Container className='flex justify-between items-center text-2xl font-semibold'>
                     <button
                         onClick={handlePrevMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300'
+                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Previous month'
                     >
                         <ChevronLeft />
                     </button>
-                    <h3 className='text-center min-w-40 transition-transform duration-500'>
+                    <h3 className='text-center min-w-40 transition-transform duration-500 hover:text-[var(--color-app-primary)]'>
                         {format(currentDate, 'LLLL yyyy', {locale: dateFnsLocale})}
                     </h3>
                     <button
                         onClick={handleNextMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300'
+                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Next month'
                     >
                         <ChevronRight />
@@ -120,7 +120,8 @@ export default function Calendar({
                         key={name}
                         className={ clsx(
                             'flex font-medium text-sm items-center justify-center my-4',
-                            'h-8 rounded-md bg-[var(--color-app-primary)]/10'
+                            'h-8 rounded-md bg-[var(--color-app-primary)]/10',
+                            'hover:text-[var(--color-app-primary)]'
                         )}
                     >
                         {name}
@@ -137,7 +138,7 @@ export default function Calendar({
                         'transition-all duration-100 hover:scale-105 ease-in-out',
                         'cursor-pointer select-none',
                         'hover:bg-[var(--color-bg-hover)]',
-                        isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-primary-fg)] font-bold',
+                        isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)] font-bold',
                         isDayHighlighted(day) && !isDayToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
                     )
 

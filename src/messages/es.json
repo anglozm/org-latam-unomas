@@ -146,6 +146,12 @@
         "subtitle": "Regístrate hoy y empieza a liderar con claridad.",
         "button": "Comenzar ahora"
     },
+    "scheduler": {
+        "day": "Día",
+        "week": "Semana",
+        "month": "Mes",
+        "year": "Año"
+    },
     "calendar": {
         "lang": "es-ES",
         "weekday-names": {

@@ -2,11 +2,13 @@
 
 import { useTranslations } from 'next-intl'
 
+import { ScheduleEvent } from '@/types/ScheduleEvent'
 import { Video } from '@/types/Video'
 
 import Section from '@/components/layout/Section'
 
 import Calendar from '@/components/ui/Calendar'
+import Scheduler from '@/components/ui/Scheduler'
 import VideoCarousel from '@/components/ui/VideoCarousel'
 
 import clsx from 'clsx'
@@ -59,6 +61,34 @@ const handleDateSelection = (date: Date) => {
     console.log('Date selected:', date)
 }
 
+const dummyEvents: ScheduleEvent[] = [
+    {
+        id: 1,
+        title: 'Reunión de equipo',
+        date: '2025-08-18T10:00:00',
+        description: 'Reunión semanal para discutir el progreso del proyecto.',
+        color: '#4CAF50'
+    }, {
+        id: 2,
+        title: 'Presentación a cliente',
+        date: '2025-08-20T14:30:00',
+        description: 'Presentación del nuevo diseño de interfaz de usuario.',
+        color: '#2196F3'
+    }, {
+        id: 3,
+        title: 'Almuerzo con el equipo',
+        date: '2025-08-25T13:00:00',
+        description: 'Almuerzo para celebrar el lanzamiento del nuevo módulo.',
+        color: '#FFC107'
+    }, {
+        id: 4,
+        title: 'Cierre de sprint',
+        date: '2025-08-29T17:00:00',
+        description: 'Revisión final y demostración del trabajo realizado en el sprint.',
+        color: '#F44336'
+    },
+]
+
 export default function TrainingPage() {
     const t = useTranslations('training')
 
@@ -70,6 +100,11 @@ export default function TrainingPage() {
             paddingContainer='px-0 xl:px-4'
             width='max-w-7xl xl:max-w-6xl'
         >
+            <Scheduler
+                events={dummyEvents}
+                initialDate={new Date()}
+            />
+
             <Calendar
                 month={today.getMonth()}
                 year={today.getFullYear()}

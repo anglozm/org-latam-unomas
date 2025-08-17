@@ -146,6 +146,12 @@
         "subtitle": "Cadastre-se hoje e comece a liderar com clareza.",
         "button": "Começar agora"
     },
+    "scheduler": {
+        "day": "Dia",
+        "week": "Semana",
+        "month": "Mês",
+        "year": "Ano"
+    },
     "calendar": {
         "lang": "pt-BR",
         "weekday-names": {
