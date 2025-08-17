@@ -6,7 +6,7 @@ import Container from '@/components/layout/Container'
 
 import clsx from 'clsx'
 
-interface SectionProps {
+type SectionProps = {
     className?: string
     classNameContainer?: string
     paddingContainer?: string

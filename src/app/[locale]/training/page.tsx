@@ -100,17 +100,7 @@ export default function TrainingPage() {
             paddingContainer='px-0 xl:px-4'
             width='max-w-7xl xl:max-w-6xl'
         >
-            <Scheduler
-                events={dummyEvents}
-                initialDate={new Date()}
-            />
-
-            <Calendar
-                month={today.getMonth()}
-                year={today.getFullYear()}
-                highlightedDates={highlightedEvents}
-                onDateSelect={handleDateSelection}
-            />
+            <Scheduler events={dummyEvents} />
 
             <VideoCarousel
                 className='mt-10'

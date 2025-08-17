@@ -39,7 +39,7 @@ export default function Calendar({
 }: CalendarProps) {
     const t = useTranslations('calendar')
 
-    const locale = useLocale(); // ← Get the current lang
+    const locale = useLocale() // ← Get the current lang
     const locales = {
         es,
         'en-US': enUS,

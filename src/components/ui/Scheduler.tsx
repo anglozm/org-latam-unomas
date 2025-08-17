@@ -1,16 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import { useLocale, useTranslations } from 'next-intl'
 import {
     format,
-    isToday,
     isSameDay,
     isSameWeek,
     isSameMonth,
     parseISO,
-    startOfWeek,
-    addDays
+    startOfWeek
 } from 'date-fns'
+import { es, enUS, ptBR } from 'date-fns/locale'
 
 import { ScheduleEvent } from '@/types/ScheduleEvent'
 
@@ -20,7 +20,6 @@ import Section from '@/components/layout/Section'
 import Calendar from '@/components/ui/Calendar'
 
 import clsx from 'clsx'
-import {useTranslations} from "next-intl";
 
 export type ViewType = 'month' | 'week' | 'day'
 
@@ -39,6 +38,14 @@ export default function Scheduler({
 }: SchedulerProps) {
     const t = useTranslations('scheduler')
 
+    const locale = useLocale() // ← Get the current lang
+    const locales = {
+        es,
+        'en-US': enUS,
+        'pt-BR': ptBR
+    }
+    const dateFnsLocale = locales[locale as keyof typeof locales]
+
     const [ currentDate, setCurrentDate ] = useState(initialDate)
     const [ view, setView ] = useState(defaultView)
 
@@ -49,11 +56,9 @@ export default function Scheduler({
         if (view === 'month') {
             return isSameMonth(eventDate, currentDate)
         }
-
         if (view === 'week') {
             return isSameWeek(eventDate, currentDate, { weekStartsOn: 1 })
         }
-
         if (view === 'day') {
             return isSameDay(eventDate, currentDate)
         }
@@ -69,19 +74,19 @@ export default function Scheduler({
     return (
         <Section
             className={ clsx(
-                className,
-                'w-full'
+                className
             )}
             classNameContainer={ clsx(
                 'flex flex-col gap-10 py-4',
             )}
+            width='max-w-7xl xl:max-w-6xl'
             bgColor='primary'
         >
-            <Container className='flex justify-between items-center' padding='px-0'>
+            <Container className='flex justify-between items-center'>
                 <h2 className='text-3xl font-bold hover:text-[var(--color-app-primary)]'>
-                    {view === 'month' && format(currentDate, 'MMMM yyyy')}
-                    {view === 'week' && `Semana del ${format(startOfWeek(currentDate), 'dd MMM')}`}
-                    {view === 'day' && format(currentDate, 'PPP')}
+                    {view === 'month' && format(currentDate, 'MMMM yyyy', {locale: dateFnsLocale})}
+                    {view === 'week' && t('week-from') + ` ${format(startOfWeek(currentDate), 'dd MMM', {locale: dateFnsLocale})}`}
+                    {view === 'day' && format(currentDate, 'PP', {locale: dateFnsLocale})}
                 </h2>
                 <div className='flex gap-2'>
                     <button

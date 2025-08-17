@@ -150,7 +150,8 @@
         "day": "Dia",
         "week": "Semana",
         "month": "Mês",
-        "year": "Ano"
+        "year": "Ano",
+        "week-from": "Semana de"
     },
     "calendar": {
         "lang": "pt-BR",
