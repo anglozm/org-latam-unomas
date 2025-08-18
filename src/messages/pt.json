@@ -152,17 +152,5 @@
         "month": "Mês",
         "year": "Ano",
         "week-from": "Semana de"
-    },
-    "calendar": {
-        "lang": "pt-BR",
-        "weekday-names": {
-            "sun": "Dom",
-            "mon": "Seg",
-            "tue": "Ter",
-            "wed": "Qua",
-            "thu": "Qui",
-            "fri": "Sex",
-            "sat": "Sáb"
-        }
     }
 }

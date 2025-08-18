@@ -152,17 +152,5 @@
         "month": "Mes",
         "year": "Año",
         "week-from": "Semana del"
-    },
-    "calendar": {
-        "lang": "es-ES",
-        "weekday-names": {
-            "sun": "Dom",
-            "mon": "Lun",
-            "tue": "Mar",
-            "wed": "Mie",
-            "thu": "Jue",
-            "fri": "Vie",
-            "sat": "Sáb"
-        }
     }
 }

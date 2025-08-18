@@ -152,17 +152,5 @@
         "month": "Month",
         "year": "Year",
         "week-from": "Week from"
-    },
-    "calendar": {
-        "lang": "en-EN",
-        "weekday-names": {
-            "sun": "Sun",
-            "mon": "Mon",
-            "tue": "Tue",
-            "wed": "Wed",
-            "thu": "Thu",
-            "fri": "Fri",
-            "sat": "Sat"
-        }
     }
 }

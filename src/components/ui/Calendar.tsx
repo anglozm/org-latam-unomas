@@ -1,15 +1,17 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocale, useTranslations } from 'next-intl'
+import { useLocale } from 'next-intl'
 import {
     addMonths,
     eachDayOfInterval,
+    endOfWeek,
     endOfMonth,
     format,
     isEqual,
     isToday,
     startOfDay,
+    startOfWeek,
     startOfMonth,
     subMonths
 } from 'date-fns'
@@ -39,8 +41,6 @@ export default function Calendar({
     highlightedDates = [],
     showControls = true
 }: CalendarProps) {
-    const t = useTranslations('calendar')
-
     const locale = useLocale() // ← Get the current lang
     const dateFnsLocale = locales[locale as keyof typeof locales]
 
@@ -52,16 +52,6 @@ export default function Calendar({
         start: firstDayOfMonth,
         end: lastDayOfMonth
     })
-
-    const weekdayNames = [
-        t('weekday-names.sun'),
-        t('weekday-names.mon'),
-        t('weekday-names.tue'),
-        t('weekday-names.wed'),
-        t('weekday-names.thu'),
-        t('weekday-names.fri'),
-        t('weekday-names.sat'),
-    ]
 
     const handlePrevMonth = () => {
         setCurrentDate(subMonths(currentDate, 1))
@@ -79,6 +69,11 @@ export default function Calendar({
     // Calculation of the offset for empty days
     const startOffset = firstDayOfMonth.getDay()
     const emptyCells = Array.from({ length: startOffset }, (_, i) => i)
+
+    const weekdayNames = eachDayOfInterval({
+        start: startOfWeek(currentDate, { weekStartsOn: 0 }),
+        end: endOfWeek(currentDate, { weekStartsOn: 0 })
+    }).map(day => format(day, 'E', { locale: dateFnsLocale }))
 
     return (
         <Container
