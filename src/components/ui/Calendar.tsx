@@ -9,6 +9,7 @@ import {
     format,
     isEqual,
     isToday,
+    startOfDay,
     startOfMonth,
     subMonths
 } from 'date-fns'
@@ -72,7 +73,7 @@ export default function Calendar({
     const isDayToday = (date: Date) => isToday(date)
     const isDayHighlighted = (date: Date) =>
         highlightedDates.some(highlightedDate =>
-            isEqual(highlightedDate, date)
+            isEqual(startOfDay(highlightedDate), startOfDay(date)) // ← Both dates are normalized to 00:00 H to be compared
         )
 
     // Calculation of the offset for empty days
@@ -128,13 +129,21 @@ export default function Calendar({
 
                 {/* Days of the current month */}
                 { allDaysInMonth.map(day => {
+                    const baseCellClasses = 'flex items-center justify-center h-10 w-full rounded-md transition-all duration-200 ease-in-out cursor-pointer select-none'
+
+                    const todayClasses = 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] font-bold'
+                    const highlightedClasses = 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
+
+                    const hoverClasses = 'hover:scale-105 hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]'
+
+                    const isCurrentDay = isDayToday(day)
+                    const isEventDay = isDayHighlighted(day)
+
                     const cellClasses = clsx(
-                        'flex items-center justify-center h-10 w-full rounded-md',
-                        'transition-all duration-200 hover:scale-105 ease-in-out',
-                        'cursor-pointer select-none',
-                        'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]',
-                        isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)] font-bold',
-                        isDayHighlighted(day) && !isDayToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
+                        baseCellClasses,
+                        isCurrentDay && todayClasses,
+                        !isCurrentDay && isEventDay && highlightedClasses,
+                        hoverClasses
                     )
 
                     return (
