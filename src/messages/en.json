@@ -151,6 +151,12 @@
         "week": "Week",
         "month": "Month",
         "year": "Year",
-        "week-from": "Week from"
+        "week-from": "Week from",
+        "until-today": "Until today",
+        "prev-month": "Prev month",
+        "next-month": "Next month",
+        "daily-view": "Daily view",
+        "weekly-view": "Weekly view",
+        "monthly-view": "Monthly view"
     }
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import {
     addMonths,
     eachDayOfInterval,
@@ -18,9 +18,10 @@ import {
 
 import { locales } from '@/utils/Constants'
 
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { CalendarArrowDown, ChevronLeft, ChevronRight } from 'lucide-react'
 
 import Container from '@/components/layout/Container'
+import Tooltip from '@/components/ui/Tooltip'
 
 import clsx from 'clsx'
 
@@ -41,6 +42,8 @@ export default function Calendar({
     highlightedDates = [],
     showControls = true
 }: CalendarProps) {
+    const t = useTranslations('scheduler')
+
     const locale = useLocale() // ← Get the current lang
     const dateFnsLocale = locales[locale as keyof typeof locales]
 
@@ -53,6 +56,9 @@ export default function Calendar({
         end: lastDayOfMonth
     })
 
+    const handleToday = () => {
+        setCurrentDate(new Date())
+    }
     const handlePrevMonth = () => {
         setCurrentDate(subMonths(currentDate, 1))
     }
@@ -85,23 +91,37 @@ export default function Calendar({
         >
             { showControls && (
                 <Container className='flex justify-between items-center text-2xl font-semibold'>
-                    <button
-                        onClick={handlePrevMonth}
-                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
-                        aria-label='Previous month'
-                    >
-                        <ChevronLeft />
-                    </button>
-                    <h3 className='text-center min-w-40 transition-transform duration-500 hover:text-[var(--color-app-primary)]'>
-                        {format(currentDate, 'LLLL yyyy', { locale: dateFnsLocale })}
-                    </h3>
-                    <button
-                        onClick={handleNextMonth}
-                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
-                        aria-label='Next month'
-                    >
-                        <ChevronRight />
-                    </button>
+                    <Tooltip content={t('prev-month')}>
+                        <button
+                            onClick={handlePrevMonth}
+                            className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
+                            aria-label='Previous month'
+                        >
+                            <ChevronLeft />
+                        </button>
+                    </Tooltip>
+                    <div className='flex items-center gap-4'>
+                        <h3 className='text-center min-w-40 transition-transform duration-500 hover:text-[var(--color-app-primary)]'>
+                            {format(currentDate, 'LLLL yyyy', { locale: dateFnsLocale })}
+                        </h3>
+                        <Tooltip content={t('until-today')}>
+                            <button
+                                onClick={handleToday}
+                                className='px-4 py-2 rounded-md text-sm font-semibold bg-[var(--color-app-primary)] text-white transition-colors hover:scale-105 duration-100 cursor-pointer'
+                            >
+                                <CalendarArrowDown />
+                            </button>
+                        </Tooltip>
+                    </div>
+                    <Tooltip content={t('next-month')}>
+                        <button
+                            onClick={handleNextMonth}
+                            className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
+                            aria-label='Next month'
+                        >
+                            <ChevronRight />
+                        </button>
+                    </Tooltip>
                 </Container>
             )}
 

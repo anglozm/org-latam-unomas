@@ -20,6 +20,7 @@ import Section from '@/components/layout/Section'
 
 import Calendar from '@/components/ui/Calendar'
 import DayView from '@/components/ui/DayView'
+import Tooltip from '@/components/ui/Tooltip'
 import WeekView from '@/components/ui/WeekView'
 
 import clsx from 'clsx'
@@ -85,33 +86,39 @@ export default function Scheduler({
                     {view === 'day' && format(currentDate, 'PP', { locale: dateFnsLocale })}
                 </h2>
                 <div className='flex gap-2'>
-                    <button
-                        onClick={() => setView('day')}
-                        className={ clsx(
-                            'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
-                            view === 'day' ? 'bg-[var(--color-app-primary)] text-white' : 'text-gray-600 hover:text-[var(--color-app-primary)] bg-[var(--color-app-secondary)]'
-                        )}
-                    >
-                        {t('day')}
-                    </button>
-                    <button
-                        onClick={() => setView('week')}
-                        className={ clsx(
-                            'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
-                            view === 'week' ? 'bg-[var(--color-app-primary)] text-white' : 'text-gray-600 hover:text-[var(--color-app-primary)] bg-[var(--color-app-secondary)]'
-                        )}
-                    >
-                        {t('week')}
-                    </button>
-                    <button
-                        onClick={() => setView('month')}
-                        className={ clsx(
-                            'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
-                            view === 'month' ? 'bg-[var(--color-app-primary)] text-white' : 'text-gray-600 hover:text-[var(--color-app-primary)] bg-[var(--color-app-secondary)]'
-                        )}
-                    >
-                        {t('month')}
-                    </button>
+                    <Tooltip content={t('daily-view')}>
+                        <button
+                            onClick={() => setView('day')}
+                            className={ clsx(
+                                'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
+                                view === 'day' ? 'bg-[var(--color-app-primary)] text-white' : 'hover:bg-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)]'
+                            )}
+                        >
+                            {t('day')}
+                        </button>
+                    </Tooltip>
+                    <Tooltip content={t('weekly-view')}>
+                        <button
+                            onClick={() => setView('week')}
+                            className={ clsx(
+                                'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
+                                view === 'week' ? 'bg-[var(--color-app-primary)] text-white' : 'hover:bg-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)]'
+                            )}
+                        >
+                            {t('week')}
+                        </button>
+                    </Tooltip>
+                    <Tooltip content={t('monthly-view')}>
+                        <button
+                            onClick={() => setView('month')}
+                            className={ clsx(
+                                'px-4 py-2 rounded-md hover:scale-105 duration-100 cursor-pointer',
+                                view === 'month' ? 'bg-[var(--color-app-primary)] text-white' : 'hover:bg-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)]'
+                            )}
+                        >
+                            {t('month')}
+                        </button>
+                    </Tooltip>
                 </div>
             </Container>
 

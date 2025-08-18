@@ -151,6 +151,12 @@
         "week": "Semana",
         "month": "Mês",
         "year": "Ano",
-        "week-from": "Semana de"
+        "week-from": "Semana de",
+        "until-today": "Até hoje",
+        "prev-month": "Mês ant.",
+        "next-month": "Próx mês",
+        "daily-view": "Vista diária",
+        "weekly-view": "Vista semanal",
+        "monthly-view": "Vista mensal"
     }
 }
