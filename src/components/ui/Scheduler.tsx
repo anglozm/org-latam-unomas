@@ -126,7 +126,7 @@ export default function Scheduler({
             {/* Render the WeekView component for the week view */}
             { view === 'week' && (
                 <WeekView
-                    startOfWeekDate={startOfWeek(currentDate, { weekStartsOn: 1 })}
+                    startOfWeekDate={startOfWeek(currentDate, { weekStartsOn: 0 })}
                     events={filteredEvents}
                     onDateSelect={ date => {
                         setCurrentDate(date)
