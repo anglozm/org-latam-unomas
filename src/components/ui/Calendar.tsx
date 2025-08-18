@@ -1,7 +1,19 @@
 'use client'
 
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
+import {
+    addMonths,
+    eachDayOfInterval,
+    endOfMonth,
+    format,
+    isEqual,
+    isToday,
+    startOfMonth,
+    subMonths
+} from 'date-fns'
+
+import { locales } from '@/utils/Constants'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -28,8 +40,17 @@ export default function Calendar({
 }: CalendarProps) {
     const t = useTranslations('calendar')
 
-    const [ currentMonth, setCurrentMonth ] = useState(initialMonth)
-    const [ currentYear, setCurrentYear ] = useState(initialYear)
+    const locale = useLocale() // ← Get the current lang
+    const dateFnsLocale = locales[locale as keyof typeof locales]
+
+    const [ currentDate, setCurrentDate ] = useState(new Date(initialYear, initialMonth, 1))
+
+    const firstDayOfMonth = startOfMonth(currentDate)
+    const lastDayOfMonth = endOfMonth(currentDate)
+    const allDaysInMonth = eachDayOfInterval({
+        start: firstDayOfMonth,
+        end: lastDayOfMonth
+    })
 
     const weekdayNames = [
         t('weekday-names.sun'),
@@ -41,45 +62,28 @@ export default function Calendar({
         t('weekday-names.sat'),
     ]
 
-    const today = new Date()
-    const firstDayOfMonth = new Date(currentYear, currentMonth, 1)
-    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0)
-    const daysInMonth = lastDayOfMonth.getDate()
-
-    const startOffset = firstDayOfMonth.getDay()
-    const totalCells = startOffset + daysInMonth
-    const calendarCells = Array.from({ length: totalCells }, (_, i) => i)
-
     const handlePrevMonth = () => {
-        setCurrentMonth(current => (current === 0 ? 11 : current - 1))
-        setCurrentYear(current => (currentMonth === 0 ? current - 1 : current))
+        setCurrentDate(subMonths(currentDate, 1))
     }
     const handleNextMonth = () => {
-        setCurrentMonth(current => (current === 11 ? 0 : current + 1))
-        setCurrentYear(current => (currentMonth === 11 ? current + 1 : current))
+        setCurrentDate(addMonths(currentDate, 1))
     }
 
-    const isToday = (day: number) => {
-        const date = new Date(currentYear, currentMonth, day)
-
-        return date.getDate() === today.getDate() &&
-            date.getMonth() === today.getMonth() &&
-            date.getFullYear() === today.getFullYear()
-    }
-    const isHighlighted = (day: number) => {
-        return highlightedDates.some(date =>
-            date.getDate() === day &&
-            date.getMonth() === currentMonth &&
-            date.getFullYear() === currentYear
+    const isDayToday = (date: Date) => isToday(date)
+    const isDayHighlighted = (date: Date) =>
+        highlightedDates.some(highlightedDate =>
+            isEqual(highlightedDate, date)
         )
-    }
+
+    // Calculation of the offset for empty days
+    const startOffset = firstDayOfMonth.getDay()
+    const emptyCells = Array.from({ length: startOffset }, (_, i) => i)
 
     return (
         <Container
             className={ clsx(
                 className,
-                'rounded-2xl',
-                'bg-[var(--color-card)] shadow-md transition-colors duration-500',
+                'bg-[var(--color-card)] shadow-md',
                 'text-[var(--color-fg)] p-4 sm:p-6'
             )}
         >
@@ -87,17 +91,17 @@ export default function Calendar({
                 <Container className='flex justify-between items-center text-2xl font-semibold'>
                     <button
                         onClick={handlePrevMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300'
+                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Previous month'
                     >
                         <ChevronLeft />
                     </button>
-                    <h3 className='text-center min-w-40 transition-transform duration-500'>
-                        {new Date(currentYear, currentMonth).toLocaleString(t('lang'), { month: 'long', year: 'numeric' })}
+                    <h3 className='text-center min-w-40 transition-transform duration-500 hover:text-[var(--color-app-primary)]'>
+                        {format(currentDate, 'LLLL yyyy', { locale: dateFnsLocale })}
                     </h3>
                     <button
                         onClick={handleNextMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-bg-hover)] transition-colors duration-300'
+                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Next month'
                     >
                         <ChevronRight />
@@ -111,36 +115,36 @@ export default function Calendar({
                         key={name}
                         className={ clsx(
                             'flex font-medium text-sm items-center justify-center my-4',
-                            'h-8 rounded-md bg-[var(--color-app-primary)]/10'
+                            'h-8 rounded-md bg-[var(--color-app-primary)]/10',
+                            'hover:text-[var(--color-app-primary)]'
                         )}
                     >
                         {name}
                     </div>
                 ))}
 
-                { calendarCells.map((cell, index) => {
-                    const day = cell - startOffset + 1
-                    const isValidDay = day > 0 && day <= daysInMonth
+                {/* Empty days from prev month */}
+                {emptyCells.map(i => <div key={`empty-${i}`}></div>)}
 
+                {/* Days of the current month */}
+                { allDaysInMonth.map(day => {
                     const cellClasses = clsx(
                         'flex items-center justify-center h-10 w-full rounded-md',
-                        'transition-all duration-100 hover:scale-105 ease-in-out',
+                        'transition-all duration-200 hover:scale-105 ease-in-out',
                         'cursor-pointer select-none',
-                        isValidDay ? 'hover:bg-[var(--color-bg-hover)]' : 'cursor-default opacity-50',
-                        isToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-primary-fg)] font-bold',
-                        isHighlighted(day) && !isToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
+                        'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]',
+                        isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)] font-bold',
+                        isDayHighlighted(day) && !isDayToday(day) && 'bg-[var(--color-app-primary)]/30 text-[var(--color-app-primary-fg)]'
                     )
 
                     return (
-                        <div key={index} className='flex justify-center items-center'>
-                            { isValidDay && (
-                                <button
-                                    className={cellClasses}
-                                    onClick={() => onDateSelect?.(new Date(currentYear, currentMonth, day))}
-                                >
-                                    {day}
-                                </button>
-                            )}
+                        <div key={format(day, 'dd-MM-yyyy')} className='flex justify-center items-center'>
+                            <button
+                                className={cellClasses}
+                                onClick={() => onDateSelect?.(day)}
+                            >
+                                {format(day, 'd')}
+                            </button>
                         </div>
                     )
                 })}
