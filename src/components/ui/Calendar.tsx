@@ -3,16 +3,17 @@
 import { useState } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import {
-    startOfMonth,
+    addMonths,
+    eachDayOfInterval,
     endOfMonth,
     format,
-    addMonths,
-    subMonths,
-    eachDayOfInterval,
+    isEqual,
     isToday,
-    isEqual
+    startOfMonth,
+    subMonths
 } from 'date-fns'
-import { es, enUS, ptBR } from 'date-fns/locale'
+
+import { locales } from '@/utils/Constants'
 
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
@@ -40,11 +41,6 @@ export default function Calendar({
     const t = useTranslations('calendar')
 
     const locale = useLocale() // ← Get the current lang
-    const locales = {
-        es,
-        'en-US': enUS,
-        'pt-BR': ptBR
-    }
     const dateFnsLocale = locales[locale as keyof typeof locales]
 
     const [ currentDate, setCurrentDate ] = useState(new Date(initialYear, initialMonth, 1))
@@ -87,8 +83,7 @@ export default function Calendar({
         <Container
             className={ clsx(
                 className,
-                'rounded-2xl',
-                'bg-[var(--color-card)] shadow-md transition-colors duration-500',
+                'bg-[var(--color-card)] shadow-md',
                 'text-[var(--color-fg)] p-4 sm:p-6'
             )}
         >
@@ -96,17 +91,17 @@ export default function Calendar({
                 <Container className='flex justify-between items-center text-2xl font-semibold'>
                     <button
                         onClick={handlePrevMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-hover-bg)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
+                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Previous month'
                     >
                         <ChevronLeft />
                     </button>
                     <h3 className='text-center min-w-40 transition-transform duration-500 hover:text-[var(--color-app-primary)]'>
-                        {format(currentDate, 'LLLL yyyy', {locale: dateFnsLocale})}
+                        {format(currentDate, 'LLLL yyyy', { locale: dateFnsLocale })}
                     </h3>
                     <button
                         onClick={handleNextMonth}
-                        className='p-2 rounded-xl hover:bg-[var(--color-hover-bg)] transition-colors duration-300 hover:text-[var(--color-app-primary)] cursor-pointer'
+                        className='p-2 rounded-lg hover:bg-[var(--color-hover-bg)] duration-200 hover:scale-120 hover:text-[var(--color-app-primary)] cursor-pointer'
                         aria-label='Next month'
                     >
                         <ChevronRight />
@@ -135,7 +130,7 @@ export default function Calendar({
                 { allDaysInMonth.map(day => {
                     const cellClasses = clsx(
                         'flex items-center justify-center h-10 w-full rounded-md',
-                        'transition-all duration-100 hover:scale-105 ease-in-out',
+                        'transition-all duration-200 hover:scale-105 ease-in-out',
                         'cursor-pointer select-none',
                         'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]',
                         isDayToday(day) && 'bg-[var(--color-app-primary)]/80 text-[var(--color-app-secondary)] hover:text-[var(--color-app-primary)] font-bold',

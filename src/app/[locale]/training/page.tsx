@@ -7,7 +7,6 @@ import { Video } from '@/types/Video'
 
 import Section from '@/components/layout/Section'
 
-import Calendar from '@/components/ui/Calendar'
 import Scheduler from '@/components/ui/Scheduler'
 import VideoCarousel from '@/components/ui/VideoCarousel'
 
@@ -50,42 +49,31 @@ const NUTRITION_VIDEOS: Video[] = [
     },
 ]
 
-const today = new Date()
-const highlightedEvents = [
-    new Date(today.getFullYear(), today.getMonth(), 4),
-    new Date(today.getFullYear(), today.getMonth(), 11),
-    new Date(today.getFullYear(), today.getMonth(), 18),
-    new Date(today.getFullYear(), today.getMonth(), 25)
-]
-const handleDateSelection = (date: Date) => {
-    console.log('Date selected:', date)
-}
-
 const dummyEvents: ScheduleEvent[] = [
     {
         id: 1,
         title: 'Reunión de equipo',
-        date: '2025-08-18T10:00:00',
+        date: '2025-08-17T04:00:00',
         description: 'Reunión semanal para discutir el progreso del proyecto.',
         color: '#4CAF50'
     }, {
         id: 2,
         title: 'Presentación a cliente',
-        date: '2025-08-20T14:30:00',
+        date: '2025-08-15T14:30:00',
         description: 'Presentación del nuevo diseño de interfaz de usuario.',
-        color: '#2196F3'
+        color: '#9fcff8'
     }, {
         id: 3,
         title: 'Almuerzo con el equipo',
-        date: '2025-08-25T13:00:00',
+        date: '2025-08-13T13:00:00',
         description: 'Almuerzo para celebrar el lanzamiento del nuevo módulo.',
-        color: '#FFC107'
+        color: '#ffeab2'
     }, {
         id: 4,
         title: 'Cierre de sprint',
         date: '2025-08-29T17:00:00',
         description: 'Revisión final y demostración del trabajo realizado en el sprint.',
-        color: '#F44336'
+        color: '#ffb5b0'
     },
 ]
 

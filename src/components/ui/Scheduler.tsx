@@ -10,18 +10,21 @@ import {
     parseISO,
     startOfWeek
 } from 'date-fns'
-import { es, enUS, ptBR } from 'date-fns/locale'
 
 import { ScheduleEvent } from '@/types/ScheduleEvent'
+
+import { locales } from '@/utils/Constants'
 
 import Container from '@/components/layout/Container'
 import Section from '@/components/layout/Section'
 
 import Calendar from '@/components/ui/Calendar'
+import DayView from '@/components/ui/DayView'
+import WeekView from '@/components/ui/WeekView'
 
 import clsx from 'clsx'
 
-export type ViewType = 'month' | 'week' | 'day'
+type ViewType = 'month' | 'week' | 'day'
 
 type SchedulerProps = {
     className?: string
@@ -39,11 +42,6 @@ export default function Scheduler({
     const t = useTranslations('scheduler')
 
     const locale = useLocale() // ← Get the current lang
-    const locales = {
-        es,
-        'en-US': enUS,
-        'pt-BR': ptBR
-    }
     const dateFnsLocale = locales[locale as keyof typeof locales]
 
     const [ currentDate, setCurrentDate ] = useState(initialDate)
@@ -69,8 +67,6 @@ export default function Scheduler({
     // Logic for highlighting days on the calendar
     const highlightedDates = events.map(event => parseISO(event.date))
 
-    // ... This is where the logic for rendering the different views would go
-
     return (
         <Section
             className={ clsx(
@@ -84,9 +80,9 @@ export default function Scheduler({
         >
             <Container className='flex justify-between items-center'>
                 <h2 className='text-3xl font-bold hover:text-[var(--color-app-primary)]'>
-                    {view === 'month' && format(currentDate, 'MMMM yyyy', {locale: dateFnsLocale})}
-                    {view === 'week' && t('week-from') + ` ${format(startOfWeek(currentDate), 'dd MMM', {locale: dateFnsLocale})}`}
-                    {view === 'day' && format(currentDate, 'PP', {locale: dateFnsLocale})}
+                    {view === 'month' && format(currentDate, 'MMMM yyyy', { locale: dateFnsLocale })}
+                    {view === 'week' && t('week-from') + ` ${format(startOfWeek(currentDate), 'dd MMM', { locale: dateFnsLocale })}`}
+                    {view === 'day' && format(currentDate, 'PP', { locale: dateFnsLocale })}
                 </h2>
                 <div className='flex gap-2'>
                     <button
@@ -119,6 +115,26 @@ export default function Scheduler({
                 </div>
             </Container>
 
+            {/* Render the DayView component for the day view */}
+            { view === 'day' && (
+                <DayView
+                    date={currentDate}
+                    events={filteredEvents}
+                />
+            )}
+
+            {/* Render the WeekView component for the week view */}
+            { view === 'week' && (
+                <WeekView
+                    startOfWeekDate={startOfWeek(currentDate, { weekStartsOn: 1 })}
+                    events={filteredEvents}
+                    onDateSelect={ date => {
+                        setCurrentDate(date)
+                        setView('day')
+                    }}
+                />
+            )}
+
             {/* Render the Calendar component for the month view */}
             { view === 'month' && (
                 <Calendar
@@ -131,9 +147,6 @@ export default function Scheduler({
                     }}
                 />
             )}
-
-            {/* Here would go the logic for weekday and day views */}
-            {/* For example, a WeekView or DayView component that receives filteredEvents */}
         </Section>
     )
 }

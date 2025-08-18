@@ -77,7 +77,7 @@ export default function Navbar() {
                     {/* Desktop menu */}
                     <ul className='hidden md:flex space-x-6 items-center'>
                         { navLinks.map(({ href, label }) => (
-                            <li key={href} className='hover:scale-105 duration-300 ease-in-out'>
+                            <li key={href} className='hover:scale-105 hover:bg-[var(--color-hover-bg)] rounded-md px-4 py-2 duration-100 ease-in-out'>
                                 <Link
                                     href={href}
                                     className={ clsx(

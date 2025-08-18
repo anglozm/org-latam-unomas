@@ -107,9 +107,10 @@ Reusable interface components to build accessible and interactive UIs:
 - `Calendar.tsx`
 - `Card.tsx`
 - `CardEvent.tsx`
+- `DayView.tsx`
 - `Dropdown.tsx`
 - `FAQSection.tsx`
-- `LoopColumn`
+- `LoopColumn.tsx`
 - `Scheduler.tsx`
 - `ScrollBox.tsx` – Container with customized scroll.
   - Props:
@@ -117,8 +118,9 @@ Reusable interface components to build accessible and interactive UIs:
     - `thin`: `boolean` – If you apply the `scrollbar-thin` style.
     - `className`: Additional styles.
   - Scroll adapted with `---color-border`, `--color-accent`, and `--color-bg` colors.
-- `SlotMachine`
+- `SlotMachine.tsx`
 - `VideoCarousel.tsx` – Carousel of embedded videos from YouTube.
+- `WeekView.tsx`
 
 ### 🧰 Utilities
 - `Divider.tsx` – Horizontal or vertical spacing line using `var(--color-border)` and optional Tailwind spacing.
@@ -143,7 +145,9 @@ Reusable interface components to build accessible and interactive UIs:
 
 ## 🧩 Additional Notes
 
-We use `react-icons` (`FaInstagram`, `FaYoutube`) as it is lightweight and efficient.
+We use:
+- `react-icons` (`FaInstagram`, `FaYoutube`) as it is lightweight and efficient.
+- `date-fns` as it provides the most comprehensive, yet simple and consistent toolset for manipulating JavaScript dates in a browser & Node.js.
 
 ---
 
