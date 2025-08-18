@@ -146,6 +146,13 @@
         "subtitle": "Register today and start leading with clarity.",
         "button": "Get Started"
     },
+    "scheduler": {
+        "day": "Day",
+        "week": "Week",
+        "month": "Month",
+        "year": "Year",
+        "week-from": "Week from"
+    },
     "calendar": {
         "lang": "en-EN",
         "weekday-names": {

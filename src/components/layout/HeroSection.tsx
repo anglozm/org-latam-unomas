@@ -9,8 +9,8 @@ import { LoopColumnProps } from '@/props/LoopColumnProps'
 
 import { LogoItem } from '@/types/LogoItem'
 
-import Container from './Container'
-import Section from './Section'
+import Container from '@/components/layout/Container'
+import Section from '@/components/layout/Section'
 
 import Button from '@/components/ui/Button'
 import Carousel from '@/components/ui/Carousel'

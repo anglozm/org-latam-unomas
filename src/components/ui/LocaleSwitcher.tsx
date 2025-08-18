@@ -33,7 +33,7 @@ export default function LocaleSwitcher({
     const toggleDropdown = () => setOpen(!open)
 
     const changeLocale = (nextLocale: string) => {
-        // To be used with --> import { usePathname, useRouter } from 'next-intl/navigation'
+        // To be used with → import { usePathname, useRouter } from 'next-intl/navigation'
         // router.push(pathname, { locale: nextLocale })
 
         //===== Generates a new URL with changed locale =====

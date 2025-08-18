@@ -44,7 +44,7 @@ export default function Container({
                 sizeMap[size],
                 padding,
                 'w-full',
-                'text-[var(--color-fg)] transition-colors duration-500'
+                'text-[var(--color-fg)]'
             )}
         >
             {children}
