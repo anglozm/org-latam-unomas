@@ -3,5 +3,4 @@ export type ScheduleEvent = {
     title: string
     date: string // ISO 8601 format
     description?: string
-    color?: string
 }

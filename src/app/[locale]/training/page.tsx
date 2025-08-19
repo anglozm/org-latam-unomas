@@ -55,25 +55,21 @@ const dummyEvents: ScheduleEvent[] = [
         title: 'Reunión de equipo',
         date: '2025-08-04T04:00:00',
         description: 'Reunión semanal para discutir el progreso del proyecto.',
-        color: '#4CAF50'
     }, {
         id: 2,
         title: 'Presentación a cliente',
         date: '2025-08-11T14:30:00',
         description: 'Presentación del nuevo diseño de interfaz de usuario.',
-        color: '#9fcff8'
     }, {
         id: 3,
         title: 'Almuerzo con el equipo',
         date: '2025-08-18T13:00:00',
         description: 'Almuerzo para celebrar el lanzamiento del nuevo módulo.',
-        color: '#ffeab2'
     }, {
         id: 4,
         title: 'Cierre de sprint',
         date: '2025-08-25T17:00:00',
         description: 'Revisión final y demostración del trabajo realizado en el sprint.',
-        color: '#ffb5b0'
     },
 ]
 
