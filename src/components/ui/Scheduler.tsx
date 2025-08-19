@@ -52,17 +52,16 @@ export default function Scheduler({
     const filteredEvents = events.filter(event => {
         const eventDate = parseISO(event.date)
 
-        if (view === 'month') {
-            return isSameMonth(eventDate, currentDate)
+        switch (view) {
+            case 'month':
+                return isSameMonth(eventDate, currentDate);
+            case 'week':
+                return isSameWeek(eventDate, currentDate, { weekStartsOn: 1 });
+            case 'day':
+                return isSameDay(eventDate, currentDate);
+            default:
+                return false;
         }
-        if (view === 'week') {
-            return isSameWeek(eventDate, currentDate, { weekStartsOn: 1 })
-        }
-        if (view === 'day') {
-            return isSameDay(eventDate, currentDate)
-        }
-
-        return false
     })
 
     // Logic for highlighting days on the calendar
