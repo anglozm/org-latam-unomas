@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react'
 
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import Image from 'next/image'
 import Link from 'next/link'
@@ -18,23 +18,23 @@ import clsx from 'clsx'
 
 export default function Navbar() {
     const t = useTranslations('navbar')
+    const locale = useLocale() // ← Get the current lang
 
     const [ isOpen, setIsOpen ] = useState(false)
     const pathname = usePathname()
 
     const navLinks = [
-        { href: '/', label: t('home') },
-        { href: '/training', label: t('training') },
-        { href: '/mentors', label: t('mentors') },
-        { href: '/contact-us', label: t('contact') },
+        { href: '/' + locale, label: t('home') },
+        { href: '/' + locale + '/training', label: t('training') },
+        { href: '/' + locale + '/mentors', label: t('mentors') },
+        { href: '/' + locale + '/contact-us', label: t('contact') },
     ]
 
     return (
         <header
             className={ clsx(
                 'fixed top-0 left-0 right-0 z-50 shadow-sm transition-colors duration-500',
-                'text-[var(--color-fg)]',
-                'bg-[var(--color-app-secondary-dark)]'
+                'bg-[var(--color-app-secondary-dark)] text-[var(--color-fg)]',
             )}
         >
             <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between'>
@@ -77,19 +77,20 @@ export default function Navbar() {
                     {/* Desktop menu */}
                     <ul className='hidden md:flex space-x-6 items-center'>
                         { navLinks.map(({ href, label }) => (
-                            <li key={href} className='hover:scale-105 hover:bg-[var(--color-hover-bg)] rounded-md px-4 py-2 duration-100 ease-in-out'>
-                                <Link
-                                    href={href}
-                                    className={ clsx(
-                                        'font-medium',
-                                        pathname === href
-                                            ? 'text-[var(--color-app-primary)]'
-                                            : 'hover:text-[var(--color-app-primary)]'
-                                    )}
-                                >
+                            <Link
+                                key={href}
+                                href={href}
+                                className={ clsx(
+                                    'font-medium',
+                                    pathname === href
+                                        ? 'text-[var(--color-accent)]'
+                                        : ''
+                                )}
+                            >
+                                <li className='hover:scale-105 hover:bg-[var(--color-hover-bg)] rounded-md px-4 py-2 duration-100 ease-in-out'>
                                     {label}
-                                </Link>
-                            </li>
+                                </li>
+                            </Link>
                         ))}
                     </ul>
 
@@ -121,7 +122,7 @@ export default function Navbar() {
                                         'flex flex-col items-end sm:items-center',
                                         'text-base font-medium px-10 py-2 rounded-md',
                                         pathname === href
-                                            ? 'text-[var(--color-accent)] bg-[var(--color-accent-bg)]'
+                                            ? 'text-[var(--color-accent)]'
                                             : 'hover:bg-[var(--color-hover-bg)] hover:text-[var(--color-accent)]'
                                     )}
                                 >

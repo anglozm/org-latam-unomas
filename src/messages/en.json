@@ -1,4 +1,9 @@
 {
+    "dashboard": {
+        "sidebar": {
+            "home": "Home"
+        }
+    },
     "navbar": {
         "logo": "Uno Más • LATAM",
         "home": "Home",

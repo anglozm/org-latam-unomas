@@ -1,6 +1,6 @@
 'use client'
 
-import { Video } from '@/types/Video'
+import { Video } from '@prisma/client'
 
 import Container from '@/components/layout/Container'
 

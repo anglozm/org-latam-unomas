@@ -101,7 +101,7 @@ export default function DayView({
                                     style={{
                                         top: `${topPosition}px`,
                                         height: `${eventHeight}px`,
-                                        backgroundColor: event.color || 'var(--color-app-primary)'
+                                        backgroundColor: 'var(--color-app-secondary)'
                                     }}
                                 >
                                     <span className='font-semibold'>{event.title}</span>

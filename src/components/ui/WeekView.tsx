@@ -118,7 +118,7 @@ export default function WeekView({
                                                     'w-full h-full rounded-md text-xs p-1 cursor-pointer overflow-hidden',
                                                     'bg-[var(--color-app-primary)] text-[var(--color-app-primary-fg)]'
                                                 )}
-                                                style={{ backgroundColor: eventOnCell.color || 'var(--color-app-primary)' }}
+                                                style={{ backgroundColor: 'var(--color-app-secondary)' }}
                                             >
                                                 <span className='font-semibold'>{eventOnCell.title}</span>
                                             </div>

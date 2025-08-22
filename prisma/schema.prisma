@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -15,27 +14,28 @@ datasource db {
 }
 
 model User {
-  id               String    @id @default(uuid())
-  partnerCode      String?
-  firstName        String
-  secondName       String?
-  lastName         String
-  isActive         Boolean   @default(true)
-  email            String    @unique
-  birthdate        DateTime?
-  upline           String?
-  pin              String?
-  citizenship      String
-  roles            String[]  // Array roles, e.g.: ["ADMIN", "MEMBER"]
-  avatar           String?   // Avatar image URL
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  id          String    @id @default(uuid())
+  partnerCode String?
+  firstName   String
+  secondName  String?
+  lastName    String
+  isActive    Boolean   @default(true)
+  email       String    @unique
+  birthdate   DateTime?
+  upline      String?
+  pin         String?
+  citizenship String
+  roles       String[] // Array roles, e.g.: ["ADMIN", "MEMBER"]
+  avatar      String? // Avatar image URL
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
 }
 
 model Video {
   id          String   @id @default(uuid())
   youtubeId   String   @unique
   title       String
+  topic       String
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

@@ -1,6 +1,7 @@
 'use server'
 
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, Video } from '@prisma/client'
+
 import { revalidatePath } from 'next/cache'
 
 const prisma = new PrismaClient()
@@ -11,24 +12,26 @@ const prisma = new PrismaClient()
  * @param {string} data.youtubeId - The YouTube video ID.
  * @param {string} data.title - The video title.
  * @param {string} [data.description] - The optional description of the video.
- * @returns {Promise<Video>} - The created video object.
+ * @param {string} data.topic - The video topic.
+ * @returns {Promise<Video | null>} - The created video object or null.
  */
 export async function createVideo(data: {
     youtubeId: string
     title: string
     description?: string
-}) {
+    topic: string
+}): Promise<Video | null> {
     try {
         const newVideo = await prisma.video.create({
             data: {
                 youtubeId: data.youtubeId,
                 title: data.title,
                 description: data.description,
+                topic: data.topic,
             },
         })
 
-        // Revalidate the route so that the changes are immediately visible.
-        revalidatePath('/')
+        revalidatePath('/') // Revalidate the route so that the changes are immediately visible.
 
         return newVideo
     } catch (error) {
@@ -40,18 +43,15 @@ export async function createVideo(data: {
 
 /**
  * Gets all videos from the database.
- * This function is ideal for feeding the video carousel.
  * @returns {Promise<Video[]>} - An array of video objects.
  */
-export async function getVideos() {
+export async function getVideos(): Promise<Video[]> {
     try {
-        const videos = await prisma.video.findMany({
+        return await prisma.video.findMany({
             orderBy: {
-                createdAt: 'desc', // Sort videos from newest to oldest
+                title: 'asc', // Sort videos alphabetically
             },
         })
-
-        return videos
     } catch (error) {
         console.error('Failed to fetch videos:', error)
 
@@ -63,21 +63,21 @@ export async function getVideos() {
  * Updates an existing video by its ID.
  * @param {string} id - The ID of the video to update.
  * @param {object} data - The data to update for the video.
- * @returns {Promise<Video>} - The updated video object.
+ * @returns {Promise<Video | null>} - The updated video object or null.
  */
 export async function updateVideo(id: string, data: {
     youtubeId?: string
     title?: string
     description?: string
-}) {
+    topic: string
+}): Promise<Video | null> {
     try {
         const updatedVideo = await prisma.video.update({
             where: { id },
             data,
         })
 
-        // Revalidate the route so that the changes are immediately visible.
-        revalidatePath('/')
+        revalidatePath('/') // Revalidate the route so that the changes are immediately visible.
 
         return updatedVideo
     } catch (error) {
@@ -90,16 +90,15 @@ export async function updateVideo(id: string, data: {
 /**
  * Deletes a video by its ID.
  * @param {string} id - The ID of the video to be deleted.
- * @returns {Promise<Video>} - The deleted video object.
+ * @returns {Promise<Video | null>} - The deleted video object or null.
  */
-export async function deleteVideo(id: string) {
+export async function deleteVideo(id: string): Promise<Video | null> {
     try {
         const deletedVideo = await prisma.video.delete({
             where: { id },
         })
 
-        // Revalidate the route so that the changes are immediately visible.
-        revalidatePath('/')
+        revalidatePath('/') // Revalidate the route so that the changes are immediately visible.
 
         return deletedVideo
     } catch (error) {
