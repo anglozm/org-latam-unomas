@@ -13,12 +13,43 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// ============= ENUMS =============
 enum Role {
   USER
   ADMIN
   GUEST
 }
 
+enum Pin {
+  BRONZE
+  GOLD
+  SILVER
+  PLATINUM
+  RUBY
+  ZAFIRO
+  EMERALD
+  DIAMOND
+  CROWN
+}
+
+enum Country {
+  ARGENTINA
+  BRAZIL
+  CHILE
+  COLOMBIA
+  COSTA_RICA
+  EL_SALVADOR
+  GUATEMALA
+  HONDURAS
+  MEXICO
+  PANAMA
+  DOMINICAN_REPUBLIC
+  URUGUAY
+  VENEZUELA
+  USA
+}
+
+// ================== MODELS ===================
 model User {
   id          String    @id @default(uuid())
   partnerCode String?   @unique
@@ -30,7 +61,7 @@ model User {
   birthdate   DateTime?
   upline      String?
   pin         String?
-  citizenship String
+  country     Country?
   roles       Role[]    @default([USER])
   avatar      String? // Avatar image URL
   createdAt   DateTime  @default(now())
@@ -51,6 +82,16 @@ model Review {
   id          String   @id @default(uuid())
   partnerCode String
   description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Achievement {
+  id          String   @id @default(uuid())
+  partnerCode String
+  pin         Pin
+  country     Country
+  date        DateTime
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
