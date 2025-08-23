@@ -95,3 +95,13 @@ model Achievement {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model Faq {
+  id          String   @id @default(uuid())
+  isActive    Boolean  @default(true)
+  question    String
+  answer      String
+  ideatorCode String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
