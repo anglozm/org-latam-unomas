@@ -20,4 +20,5 @@ CREATE TABLE "public"."User" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_partnerCode_key" ON "public"."User"("partnerCode");
 CREATE UNIQUE INDEX "User_email_key" ON "public"."User"("email");

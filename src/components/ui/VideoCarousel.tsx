@@ -4,6 +4,8 @@ import { Video } from '@prisma/client'
 
 import Container from '@/components/layout/Container'
 
+import NoData from '@/components/common/NoData'
+
 import clsx from 'clsx'
 
 interface VideoCarouselProps {
@@ -33,44 +35,48 @@ export default function VideoCarousel({
             </h2>
 
             <Container className='custom-scrollbar overflow-x-auto scroll-smooth transition-colors duration-500' padding='px-0'>
-                <div
-                    className={ clsx(
-                        'flex gap-6 w-max snap-x snap-mandatory',
-                        'transition-colors duration-500 px-6 py-6 rounded-xl'
-                    )}
-                >
-                    { videos.map((video, i) => (
-                        <div
-                            key={i}
-                            className={ clsx(
-                                'snap-start flex-shrink-0 min-w-[360px] max-w-[360px] overflow-hidden',
-                                'bg-[var(--color-card)] shadow-md rounded-4xl',
-                                'transition duration-300 hover:scale-105 ease-in-out'
-                            )}
-                        >
-                            <div className='aspect-video w-full'>
-                                <iframe
-                                    className='w-full h-full transition-colors duration-500'
-                                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                                    title={video.title}
-                                    allowFullScreen
-                                    loading='lazy'
-                                />
-                            </div>
-                            <div className='text-left p-6'>
-                                <h3 className='text-md font-semibold transition-colors duration-500 text-[var(--color-fg)]'>
-                                    {video.title}
-                                </h3>
-
-                                { video.description && (
-                                    <p className='text-sm text-[var(--color-muted-fg)] transition-colors duration-500 mt-4'>
-                                        {video.description}
-                                    </p>
+                { videos.length ? (
+                    <div
+                        className={ clsx(
+                            'flex gap-6 w-max snap-x snap-mandatory',
+                            'transition-colors duration-500 px-6 py-6 rounded-xl'
+                        )}
+                    >
+                        { videos.map((video, i) => (
+                            <div
+                                key={i}
+                                className={ clsx(
+                                    'snap-start flex-shrink-0 min-w-[360px] max-w-[360px] overflow-hidden',
+                                    'bg-[var(--color-card)] shadow-md rounded-4xl',
+                                    'transition duration-300 hover:scale-105 ease-in-out'
                                 )}
+                            >
+                                <div className='aspect-video w-full'>
+                                    <iframe
+                                        className='w-full h-full transition-colors duration-500'
+                                        src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                                        title={video.title}
+                                        allowFullScreen
+                                        loading='lazy'
+                                    />
+                                </div>
+                                <div className='text-left p-6'>
+                                    <h3 className='text-md font-semibold transition-colors duration-500 text-[var(--color-fg)]'>
+                                        {video.title}
+                                    </h3>
+
+                                    { video.description && (
+                                        <p className='text-sm text-[var(--color-muted-fg)] transition-colors duration-500 mt-4'>
+                                            {video.description}
+                                        </p>
+                                    )}
+                                </div>
                             </div>
-                        </div>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                ) : (
+                    <NoData />
+                )}
             </Container>
         </Container>
     )

@@ -43,7 +43,7 @@ export default function Container({
                 cornersMap[corners],
                 sizeMap[size],
                 padding,
-                'w-full',
+                'w-full transition-colors duration-500',
                 'text-[var(--color-fg)]'
             )}
         >

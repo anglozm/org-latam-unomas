@@ -119,7 +119,8 @@
         "cancel": "Cancelar",
         "accept": "Aceitar",
         "loading": "Carregando...",
-        "search": "Pesquisar..."
+        "search": "Pesquisar...",
+        "no-data": "Sem dados para exibir"
     },
     "features": {
         "prospects": {

@@ -15,7 +15,7 @@ datasource db {
 
 model User {
   id          String    @id @default(uuid())
-  partnerCode String?
+  partnerCode String?   @unique
   firstName   String
   secondName  String?
   lastName    String
@@ -37,6 +37,14 @@ model Video {
   title       String
   topic       String
   description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Review {
+  id          String   @id @default(uuid())
+  partnerCode String
+  description String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
