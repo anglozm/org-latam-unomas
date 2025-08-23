@@ -13,6 +13,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+  GUEST
+}
+
 model User {
   id          String    @id @default(uuid())
   partnerCode String?   @unique
@@ -25,7 +31,7 @@ model User {
   upline      String?
   pin         String?
   citizenship String
-  roles       String[] // Array roles, e.g.: ["ADMIN", "MEMBER"]
+  roles       Role[]    @default([USER])
   avatar      String? // Avatar image URL
   createdAt   DateTime  @default(now())
   updatedAt   DateTime  @updatedAt
